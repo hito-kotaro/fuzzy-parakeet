@@ -1,8 +1,10 @@
 import { IconClipboard, IconCopy, IconTrash } from '@supabase/ui';
 import React, { VFC } from 'react';
-import DropdownButton from '../components/atoms/Buttons/DropdownButton';
-import useLogin from '../hooks/useLogin';
-import { DropDownItem } from '../types/Dropdown/DropDownItemType';
+import UserCard from '../organisms/Cards/UserCard';
+import HomeHeader from '../organisms/Headers/HomeHeader';
+import MyWorkList from '../organisms/Lists/MyWorkList';
+import useLogin from '../../hooks/useLogin';
+import { DropDownItem } from '../../types/Dropdown/DropDownItemType';
 
 type Props = {
   title: string;
@@ -21,7 +23,22 @@ const HomeTemplates: VFC<Props> = (props) => {
   ];
 
   const { title } = props;
-  return <DropdownButton itemList={itemList} />;
-};
+  return (
+    <div>
+      <HomeHeader title="ホーム" />
 
+      <div className="h-6" />
+
+      <div className="px-3">
+        <UserCard team="test" userName="test" />
+      </div>
+
+      <div className="h-6" />
+
+      <div className="px-3">
+        <MyWorkList />
+      </div>
+    </div>
+  );
+};
 export default HomeTemplates;

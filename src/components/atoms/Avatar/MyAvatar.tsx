@@ -6,7 +6,7 @@ type Props = {
   name: string;
 };
 
-const MyAvator: VFC<Props> = (props) => {
+const MyAvatar: VFC<Props> = (props) => {
   const { size, name } = props;
   return (
     <div className="rounded-full overflow-hidden">
@@ -20,4 +20,4 @@ const MyAvator: VFC<Props> = (props) => {
   );
 };
 
-export default MyAvator;
+export default MyAvatar;

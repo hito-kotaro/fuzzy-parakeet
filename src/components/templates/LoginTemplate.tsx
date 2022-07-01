@@ -1,9 +1,9 @@
 import React, { VFC } from 'react';
-import InputForm from '../components/atoms/InputForms/InputForm/InputForm';
-import useInputForm from '../components/atoms/InputForms/InputForm/useInputForm';
-import PrimaryButton from '../components/atoms/Buttons/PrimaryButton/PrimaryButton';
-import MyAvator from '../components/atoms/Avator/MyAvator';
-import LoginForm from '../components/organisms/LoginForm/LoginForm';
+import InputForm from '../atoms/InputForms/InputForm/InputForm';
+import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
+import PrimaryButton from '../atoms/Buttons/PrimaryButton/PrimaryButton';
+import MyAvatar from '../atoms/Avatar/MyAvatar';
+import LoginForm from '../organisms/LoginForm/LoginForm';
 
 type Props = {
   title: string;
@@ -11,18 +11,17 @@ type Props = {
 };
 const LoginTemplate: VFC<Props> = (props) => {
   const { title, thema } = props;
-  const emailInputHandler = useInputForm();
-  const passwordInputHandler = useInputForm();
 
   const dummy = () => {
     console.log('test');
   };
+
   return (
     <div>
       <div className="h-10" />
       <div>
         <div className="flex justify-center">
-          <MyAvator size={108} name="Mother Frances" />
+          <MyAvatar size={108} name="Mother Frances" />
         </div>
         <div className="text-3xl font-mono text-center text-gray-500">QuestHub</div>
       </div>

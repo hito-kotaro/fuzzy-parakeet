@@ -11,6 +11,7 @@ const DropdownButton: VFC<Props> = (props) => {
   const { itemList } = props;
   return (
     <Dropdown
+      className="outline-none"
       overlay={itemList.map((item: DropDownItem) => (
         <>
           {item.divider ? <Divider light /> : ''}
@@ -20,7 +21,7 @@ const DropdownButton: VFC<Props> = (props) => {
         </>
       ))}
     >
-      <Button type="text" icon={<BsThreeDots size={24} className=" focus:outline-none" />} />
+      <Button type="text" icon={<BsThreeDots size={24} className="outline-none" />} />
     </Dropdown>
   );
 };
