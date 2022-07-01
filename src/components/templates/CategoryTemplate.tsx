@@ -1,8 +1,12 @@
 import { Badge } from '@supabase/ui';
 import React, { VFC } from 'react';
+import { IoIosAdd } from 'react-icons/io';
 import { primaryListItem } from '../../types/ListItem/PrimaryListItemType';
+import SearchForm from '../atoms/InputForms/SearchForm/SearchForm';
 import useSearchForm from '../atoms/InputForms/SearchForm/useSearchForm';
+import SelectForm from '../atoms/InputForms/SelectForm/SelectForm';
 import useSelectForm from '../atoms/InputForms/SelectForm/useSelectForm';
+import HeaderLink from '../atoms/Links/HeaderLink';
 import PrimaryListItem from '../molecules/PrimaryListItem';
 import CategoryHeader from '../organisms/Headers/CategoryHeader';
 
@@ -14,7 +18,7 @@ const CategoryTemplate: VFC<Props> = (props) => {
   const { title } = props;
   const searchHandler = useSearchForm();
   const selectHandler = useSelectForm();
-  const buttonAction = () => {
+  const onClick = () => {
     console.log('push create button');
   };
 
@@ -162,30 +166,32 @@ const CategoryTemplate: VFC<Props> = (props) => {
   ];
 
   return (
-    <>
-      <div>
-        <CategoryHeader
-          title={title}
-          searchHandler={searchHandler}
-          selectHandler={selectHandler}
-          onClick={buttonAction}
+    <div className="h-screen overflow-scroll">
+      <div className=" sticky top-0 z-50 bg-base drop-shadow-md p-2 w-full">
+        <div className="flex">
+          <HeaderLink to="/home" linkText="ホーム" backIcon />
+          <div className="ml-auto">
+            <button onClick={onClick} type="button" className="border-2 border-link rounded-full">
+              <IoIosAdd size={24} color="#4B72E0" />
+            </button>
+          </div>
+        </div>
+        <div className="mt-3">
+          <h1 className="text-2xl font-semibold">{title}</h1>
+          <SearchForm searchHandler={searchHandler} />
+        </div>
+      </div>
+
+      {primaryListItemList.map((itema: primaryListItem) => (
+        <PrimaryListItem
+          iconName={itema.owner}
+          topText={itema.title}
+          bottomText={itema.description}
+          righetUpText={itema.date}
+          rightBottomText={`${itema.point}point`}
         />
-      </div>
-
-      <div className="h-3" />
-
-      <div>
-        {primaryListItemList.map((item: primaryListItem) => (
-          <PrimaryListItem
-            iconName={item.owner}
-            topText={item.title}
-            bottomText={item.description}
-            righetUpText={item.date}
-            rightBottomText={`${item.point}point`}
-          />
-        ))}
-      </div>
-    </>
+      ))}
+    </div>
   );
 };
 
