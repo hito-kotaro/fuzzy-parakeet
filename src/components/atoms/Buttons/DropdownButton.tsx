@@ -20,7 +20,7 @@ const DropdownButton: VFC<Props> = (props) => {
         </>
       ))}
     >
-      <Button type="text" icon={<BsThreeDots size={24} className=" forcus:outline-none" />} />
+      <Button type="text" icon={<BsThreeDots size={24} className=" focus:outline-none" />} />
     </Dropdown>
   );
 };
