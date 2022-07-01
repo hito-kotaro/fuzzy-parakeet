@@ -3,7 +3,7 @@ import { primaryListItem } from '../../../types/ListItem/PrimaryListItemType';
 import PrimaryListItem from '../PrimaryListItem';
 
 type Props = {
-  list: any[];
+  list: any[] | undefined;
 };
 
 const PrimaryList: VFC<Props> = (props) => {
@@ -11,18 +11,17 @@ const PrimaryList: VFC<Props> = (props) => {
 
   return (
     <>
-      {list.map((itema: primaryListItem) => (
+      {list?.map((itema: primaryListItem) => (
         <button type="button" className="w-full">
           <PrimaryListItem
             iconName={itema.iconName}
             topText={itema.topText}
             bottomText={itema.bottomText}
             righetUpText={itema.righetUpText}
-            rightBottomText={itema.bottomText}
+            rightBottomText={itema.rightBottomText}
           />
         </button>
       ))}
-      ;
     </>
   );
 };

@@ -5,38 +5,36 @@ import PrimaryListItem from '../molecules/PrimaryListItem';
 import CategoryHeader from '../organisms/Headers/CategoryHeader';
 import { questType } from '../../types/Quest/QuestType';
 import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
+import PrimaryList from '../molecules/Lists/PrimaryList';
 
 type Props = {
   title: string;
-  ListData: any[];
+  listData: any[];
 };
 
 const CategoryTemplate: VFC<Props> = (props) => {
-  const { title, ListData } = props;
-  const { input, result, search, setTarget } = useSearchForm();
+  const { title, listData } = props;
+  const { result, search } = useSearchForm();
+  const { input, onChange } = useInputForm();
 
   const onClick = () => {
     console.log('push create button');
   };
 
   useEffect(() => {
-    setTarget(ListData);
-  });
+    search(input, listData);
+  }, [input]);
 
   return (
     <div className="h-screen overflow-scroll">
-      <CategoryHeader title={title} input={input} onChange={search} onClick={onClick} />
-      {result.map((itema: primaryListItem) => (
-        <button type="button" className="w-full">
-          <PrimaryListItem
-            iconName={itema.iconName}
-            topText={itema.topText}
-            bottomText={itema.bottomText}
-            righetUpText={itema.righetUpText}
-            rightBottomText={itema.bottomText}
-          />
-        </button>
-      ))}
+      <CategoryHeader
+        title={title}
+        input={input}
+        onChange={onChange}
+        onClick={onClick}
+        searchHandler={() => search(input, listData)}
+      />
+      <PrimaryList list={result} />
     </div>
   );
 };

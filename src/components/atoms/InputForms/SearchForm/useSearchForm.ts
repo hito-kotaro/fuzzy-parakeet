@@ -1,24 +1,20 @@
-import { ChangeEvent, useState } from 'react';
+import { useState } from 'react';
+import { primaryListItem } from '../../../../types/ListItem/PrimaryListItemType';
 
 const useSearchForm = () => {
-  const [input, setInput] = useState('');
   const [result, setResult] = useState<any>([]);
-  const [target, setTarget] = useState<any>([]);
+  // const [target, setTarget] = useState<primaryListItem[]>();
 
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setInput(e.target.value);
+  const search = (input: string, list: primaryListItem[]) => {
+    console.log('search');
+    const filtered = list.filter((item: primaryListItem) => {
+      return item.topText.includes(input);
+    });
+
+    setResult(filtered);
   };
 
-  const search = (e: ChangeEvent<HTMLInputElement>) => {
-    setInput(e.target.value);
-    setResult(
-      target.filter((item: any) => {
-        return item.title.include(input) && input.length !== 0;
-      }),
-    );
-  };
-
-  return { input, onChange, search, result, setTarget };
+  return { result, setResult, search };
 };
 
 export default useSearchForm;

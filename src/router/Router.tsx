@@ -30,19 +30,19 @@ const Router = () => {
       <Route path="/home" element={<HomeTemplates title="home page" />} />
       <Route
         path="/questboard"
-        element={<CategoryTemplate title="Quest Board" ListData={questList} />}
+        element={<CategoryTemplate title="Quest Board" listData={questList} />}
       />
       <Route
         path="/approverequest"
-        element={<CategoryTemplate title="Approve Request" ListData={questData} />}
+        element={<CategoryTemplate title="Approve Request" listData={questData} />}
       />
       <Route
         path="/timeline"
-        element={<CategoryTemplate title="TimeLine" ListData={questData} />}
+        element={<CategoryTemplate title="TimeLine" listData={questData} />}
       />
-      <Route path="/teams" element={<CategoryTemplate title="Teams" ListData={questData} />} />
-      <Route path="/users" element={<CategoryTemplate title="Users" ListData={questData} />} />
-      <Route path="/jobs" element={<CategoryTemplate title="Jobs" ListData={questData} />} />
+      <Route path="/teams" element={<CategoryTemplate title="Teams" listData={questData} />} />
+      <Route path="/users" element={<CategoryTemplate title="Users" listData={questData} />} />
+      <Route path="/jobs" element={<CategoryTemplate title="Jobs" listData={questData} />} />
       <Route path="/test" element={<TestPage />} />
       <Route path="*" element={<ErrorPageTemplate title="404 NotFound" />} />
     </SlideRoutes>

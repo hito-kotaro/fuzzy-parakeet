@@ -1,9 +1,11 @@
 import React, { ChangeEvent, VFC } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
+import { primaryListItem } from '../../../../types/ListItem/PrimaryListItemType';
 
 type Props = {
   input: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  searchHandler: (input: string, list: primaryListItem[]) => void;
 };
 const SearchForm: VFC<Props> = (props) => {
   const { input, onChange } = props;
