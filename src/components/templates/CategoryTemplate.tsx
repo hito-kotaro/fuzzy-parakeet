@@ -1,33 +1,39 @@
-import React, { VFC } from 'react';
+import React, { useEffect, useState, VFC } from 'react';
 import { primaryListItem } from '../../types/ListItem/PrimaryListItemType';
 import useSearchForm from '../atoms/InputForms/SearchForm/useSearchForm';
 import PrimaryListItem from '../molecules/PrimaryListItem';
 import CategoryHeader from '../organisms/Headers/CategoryHeader';
-import { questData } from '../../testData/QuestTestData';
+import { questType } from '../../types/Quest/QuestType';
+import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
 
 type Props = {
   title: string;
+  ListData: any[];
 };
 
 const CategoryTemplate: VFC<Props> = (props) => {
-  const { title } = props;
+  const { title, ListData } = props;
+  const { input, result, search, setTarget } = useSearchForm();
 
-  const searchHandler = useSearchForm();
   const onClick = () => {
     console.log('push create button');
   };
 
+  useEffect(() => {
+    setTarget(ListData);
+  });
+
   return (
     <div className="h-screen overflow-scroll">
-      <CategoryHeader title={title} searchHandler={searchHandler} onClick={onClick} />
-      {questData.map((itema: primaryListItem) => (
+      <CategoryHeader title={title} input={input} onChange={search} onClick={onClick} />
+      {result.map((itema: primaryListItem) => (
         <button type="button" className="w-full">
           <PrimaryListItem
-            iconName={itema.owner}
-            topText={itema.title}
-            bottomText={itema.description}
-            righetUpText={itema.date}
-            rightBottomText={`${itema.point}point`}
+            iconName={itema.iconName}
+            topText={itema.topText}
+            bottomText={itema.bottomText}
+            righetUpText={itema.righetUpText}
+            rightBottomText={itema.bottomText}
           />
         </button>
       ))}

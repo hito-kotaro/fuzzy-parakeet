@@ -1,7 +1,9 @@
+import { ReactElement } from 'react';
+
 export type primaryListItem = {
-  owner: string;
-  title: string;
-  description: string;
-  date: string;
-  point: number;
+  iconName: string;
+  topText: string;
+  bottomText: string | ReactElement;
+  righetUpText: string;
+  rightBottomText: string | number | ReactElement;
 };
