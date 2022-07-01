@@ -8,7 +8,11 @@ const useLogin = () => {
     console.log(`password: ${password}`);
     navigate('/home');
   };
-  return { login };
+
+  const logout = () => {
+    navigate('/');
+  };
+  return { login, logout };
 };
 
 export default useLogin;
