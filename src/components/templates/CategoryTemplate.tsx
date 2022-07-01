@@ -27,13 +27,7 @@ const CategoryTemplate: VFC<Props> = (props) => {
 
   return (
     <div className="h-screen overflow-scroll">
-      <CategoryHeader
-        title={title}
-        input={input}
-        onChange={onChange}
-        onClick={onClick}
-        searchHandler={() => search(input, listData)}
-      />
+      <CategoryHeader title={title} input={input} onChange={onChange} onClick={onClick} />
       <PrimaryList list={result} />
     </div>
   );
