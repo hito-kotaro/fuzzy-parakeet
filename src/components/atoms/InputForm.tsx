@@ -1,11 +1,12 @@
 import React, { VFC } from 'react';
-import type { inputHandlerType } from '../types/Handler/HandlerTypes';
+import type { inputHandlerType } from '../../types/Handler/HandlerTypes';
 
 type Props = {
   inputHandler: inputHandlerType;
   password?: boolean;
   placeholder: string;
 };
+
 const InputForm: VFC<Props> = (props) => {
   const { inputHandler, placeholder, password } = props;
   const { input, onChange } = inputHandler;
