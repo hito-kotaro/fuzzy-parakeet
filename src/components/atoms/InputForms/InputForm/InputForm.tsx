@@ -1,5 +1,5 @@
 import React, { VFC } from 'react';
-import type { inputHandlerType } from '../../types/Handler/HandlerTypes';
+import type { inputHandlerType } from '../../../../types/Handler/HandlerTypes';
 
 type Props = {
   inputHandler: inputHandlerType;
@@ -11,13 +11,13 @@ const InputForm: VFC<Props> = (props) => {
   const { inputHandler, placeholder, password } = props;
   const { input, onChange } = inputHandler;
   return (
-    <div className="w-full bg-gray-200 rounded-lg">
+    <div className="w-full h-full bg-gray-200 rounded-lg">
       <input
         type={password ? 'password' : 'text'}
         value={input}
         onChange={onChange}
         placeholder={placeholder}
-        className="bg-gray-200 text-lg w-full focus:outline-none px-2"
+        className="bg-gray-200 text-lg w-full focus:outline-none px-2 rounded-lg h-full"
       />
     </div>
   );

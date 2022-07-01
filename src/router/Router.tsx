@@ -11,7 +11,7 @@ const Router = () => {
 
   return (
     <SlideRoutes location={location} duration={500}>
-      <Route path="/" element={<LoginTemplate title="login page" />} />
+      <Route path="/" element={<LoginTemplate title="login page" thema="light-color" />} />
       <Route path="/home" element={<HomeTemplates title="home page" />} />
       <Route path="*" element={<ErrorPageTemplate title="404 NotFound" />} />
     </SlideRoutes>
