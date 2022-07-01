@@ -3,6 +3,7 @@ import InputForm from '../components/atoms/InputForms/InputForm/InputForm';
 import useInputForm from '../components/atoms/InputForms/InputForm/useInputForm';
 import PrimaryButton from '../components/atoms/Buttons/PrimaryButton/PrimaryButton';
 import MyAvator from '../components/atoms/Avator/MyAvator';
+import LoginForm from '../components/organisms/LoginForm/LoginForm';
 
 type Props = {
   title: string;
@@ -19,29 +20,17 @@ const LoginTemplate: VFC<Props> = (props) => {
   return (
     <div>
       <div className="h-10" />
-      <div className="flex justify-center">
-        <MyAvator size={108} name="Mother Frances" />
+      <div>
+        <div className="flex justify-center">
+          <MyAvator size={108} name="Mother Frances" />
+        </div>
+        <div className="text-3xl font-mono text-center text-gray-500">QuestHub</div>
       </div>
 
       <div className="h-10" />
 
       <div className="px-5">
-        <div className="h-12">
-          <InputForm inputHandler={emailInputHandler} placeholder="hogehoge@email.com" />
-        </div>
-
-        <div className="h-5" />
-
-        <div className="h-12">
-          <InputForm inputHandler={passwordInputHandler} placeholder="password" password />
-        </div>
-
-        <div className="h-5" />
-        <div className="px-5">
-          <PrimaryButton onClick={dummy} thema="primary">
-            Login
-          </PrimaryButton>
-        </div>
+        <LoginForm />
       </div>
     </div>
   );
