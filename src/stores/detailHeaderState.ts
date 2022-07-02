@@ -7,7 +7,7 @@ const defaultData: detailHeaderType = {
   title: '',
 };
 
-export const authState = atom<detailHeaderType>({
+export const detailHeaderState = atom<detailHeaderType>({
   key: 'DETAIL_HEADER_DATA',
   default: defaultData,
 });
