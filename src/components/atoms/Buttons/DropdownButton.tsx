@@ -1,10 +1,10 @@
 import React, { VFC } from 'react';
 import { Button, Divider, Dropdown, Typography } from '@supabase/ui';
 import { BsThreeDots } from 'react-icons/bs';
-import type { DropDownItem } from '../../../types/Dropdown/DropDownItemType';
+import type { dropDownItem } from '../../../types/Dropdown/dropDownItemType';
 
 type Props = {
-  itemList: DropDownItem[];
+  itemList: dropDownItem[];
 };
 
 const DropdownButton: VFC<Props> = (props) => {
@@ -12,7 +12,7 @@ const DropdownButton: VFC<Props> = (props) => {
   return (
     <Dropdown
       className="outline-none"
-      overlay={itemList.map((item: DropDownItem) => (
+      overlay={itemList.map((item: dropDownItem) => (
         <>
           {item.divider ? <Divider light /> : ''}
           <Dropdown.Item icon={item.icon} onClick={item.onClick}>

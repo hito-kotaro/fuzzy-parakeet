@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 
-export type DropDownItem = {
+export type dropDownItem = {
   icon: ReactElement;
   onClick: () => void;
   text: string;

@@ -4,7 +4,7 @@ import UserCard from '../organisms/Cards/UserCard';
 import HomeHeader from '../organisms/Headers/HomeHeader';
 import MyWorkList from '../organisms/Lists/MyWorkList';
 import useLogin from '../../hooks/useLogin';
-import { DropDownItem } from '../../types/Dropdown/DropDownItemType';
+import { dropDownItem } from '../../types/Dropdown/dropDownItemType';
 
 type Props = {
   title: string;
@@ -15,7 +15,7 @@ const HomeTemplates: VFC<Props> = (props) => {
     console.log('click');
   };
 
-  const itemList: DropDownItem[] = [
+  const itemList: dropDownItem[] = [
     { icon: <IconClipboard />, onClick, text: 'Duplicate', divider: false },
     { icon: <IconCopy />, onClick, text: 'Copy', divider: false },
     { icon: <IconTrash />, onClick, text: 'Trash', divider: false },
