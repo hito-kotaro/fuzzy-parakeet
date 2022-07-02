@@ -9,18 +9,25 @@ type Props = {
   bottomText: string | ReactElement;
   righetUpText: string;
   rightBottomText: string | number | ReactElement;
+  onClick: (
+    id: number,
+    iconName: string,
+    topText: string,
+    bottomText: string | ReactElement,
+    righetUpText: string,
+    rightBottomText: string | number | ReactElement,
+  ) => void;
 };
 
 const PrimaryListItemButton: VFC<Props> = (props) => {
-  const { id, iconName, topText, bottomText, righetUpText, rightBottomText } = props;
-
-  const onClick = () => {
-    // リストクリック時の動作
-    // modalを開く
-  };
+  const { id, iconName, topText, bottomText, righetUpText, rightBottomText, onClick } = props;
 
   return (
-    <button type="button" className="w-full" onClick={onClick}>
+    <button
+      type="button"
+      className="w-full"
+      onClick={() => onClick(id, iconName, topText, bottomText, righetUpText, rightBottomText)}
+    >
       <div className="flex border-b-1 px-3 py-2 bg-white">
         <div className="w-1/5 ">
           <MyAvatar size={44} name={iconName} />

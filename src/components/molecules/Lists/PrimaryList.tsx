@@ -1,13 +1,21 @@
-import React, { VFC } from 'react';
+import React, { ReactElement, VFC } from 'react';
 import { primaryListItem } from '../../../types/ListItem/PrimaryListItemType';
 import PrimaryListItemButton from '../../atoms/Buttons/PrimaryListItemButton';
 
 type Props = {
   list: any[] | undefined;
+  onClick: (
+    id: number,
+    iconName: string,
+    topText: string,
+    bottomText: string | ReactElement,
+    righetUpText: string,
+    rightBottomText: string | number | ReactElement,
+  ) => void;
 };
 
 const PrimaryList: VFC<Props> = (props) => {
-  const { list } = props;
+  const { list, onClick } = props;
 
   return (
     <>
@@ -19,6 +27,7 @@ const PrimaryList: VFC<Props> = (props) => {
           bottomText={item.bottomText}
           righetUpText={item.righetUpText}
           rightBottomText={item.rightBottomText}
+          onClick={onClick}
         />
       ))}
     </>
