@@ -17,6 +17,7 @@ const Router = () => {
 
   const questList = questData.map((quest) => {
     const item: primaryListItem = {
+      id: quest.id,
       iconName: quest.owner,
       topText: quest.title,
       bottomText: quest.description,
