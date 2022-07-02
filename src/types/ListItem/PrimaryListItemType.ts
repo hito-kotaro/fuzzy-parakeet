@@ -4,7 +4,7 @@ export type primaryListItem = {
   id: number;
   iconName: string;
   topText: string;
-  bottomText: string | ReactElement;
+  bottomText: string;
   rightUpText: string;
   rightBottomText: string | number | ReactElement;
 };

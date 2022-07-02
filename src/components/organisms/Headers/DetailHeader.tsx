@@ -7,15 +7,15 @@ import IconLabel from '../../atoms/Labels/IconLabel';
 
 type Props = {
   headerData: detailHeaderType;
-  toggleIsOpen: () => void;
+  closeDetail: () => void;
 };
 
 const DetailHeader: VFC<Props> = (props) => {
-  const { headerData, toggleIsOpen } = props;
+  const { headerData, closeDetail } = props;
   return (
     <div className=" lead sticky top-0 z-50 bg-base drop-shadow-md p-2">
       <div className="flex ">
-        <BackButton onClick={toggleIsOpen} />
+        <BackButton onClick={closeDetail} />
         <div className="ml-auto">
           <DropdownButton itemList={[]} />
         </div>

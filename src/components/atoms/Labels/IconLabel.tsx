@@ -1,4 +1,4 @@
-import React, { VFC } from 'react';
+import React, { useEffect, useState, VFC } from 'react';
 import MyAvatar from '../Avatar/MyAvatar';
 
 type Props = {
@@ -8,36 +8,37 @@ type Props = {
 
 const IconLabel: VFC<Props> = (props) => {
   const { size, name } = props;
-  let px: number;
-  let leading: number;
-  let textSize: string;
+  const [className, setClassName] = useState('leading-10');
+  const [px, setPx] = useState(40);
 
-  switch (size) {
-    case 'large':
-      px = 48;
-      leading = 12;
-      textSize = 'text-xl';
-      break;
-    case 'medium':
-      px = 40;
-      leading = 10;
-      textSize = 'text-lg';
-      break;
-    case 'small':
-      px = 28;
-      leading = 7;
-      textSize = 'text-sm';
-      break;
-    default:
-      px = 40;
-      leading = 10;
-      textSize = '';
-  }
+  const setLabelSize = () => {
+    switch (size) {
+      case 'large':
+        setClassName('leading-12 text-xl');
+        setPx(48);
+        break;
+      case 'medium':
+        setClassName('leading-10');
+        setPx(40);
+        break;
+      case 'small':
+        setClassName('leading-7 text-sm');
+        setPx(28);
+        break;
+      default:
+        setClassName('leading-10');
+        setPx(40);
+    }
+  };
+
+  useEffect(() => {
+    setLabelSize();
+  }, []);
 
   return (
     <div className="flex">
       <MyAvatar size={px} name={name} />
-      <div className={`leading-${leading} ${textSize} ml-2 `}>{name}</div>
+      <div className={`${className} ml-2 `}>{name}</div>
     </div>
   );
 };
