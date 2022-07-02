@@ -12,7 +12,6 @@ type Props = {
 
 const DetailHeader: VFC<Props> = (props) => {
   const { headerData, toggleIsOpen } = props;
-  console.log(headerData);
   return (
     <div className=" lead sticky top-0 z-50 bg-base drop-shadow-md p-2">
       <div className="flex ">
@@ -29,7 +28,12 @@ const DetailHeader: VFC<Props> = (props) => {
       <div className="h-3" />
       <h2 className="text-2xl font-medium">{headerData?.topText}</h2>
       <div className="h-3" />
-      <div>{headerData?.badges}</div>
+      <div>
+        <Badge color={headerData.status ? 'green' : 'red'}>
+          {headerData.status ? 'Open' : 'Close'}
+        </Badge>
+        <Badge>{headerData.message}</Badge>
+      </div>
     </div>
   );
 };

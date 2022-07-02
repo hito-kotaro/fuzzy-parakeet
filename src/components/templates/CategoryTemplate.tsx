@@ -16,26 +16,11 @@ type Props = {
 
 const CategoryTemplate: VFC<Props> = (props) => {
   const { title, listData } = props;
-  const { isOpen, setIsOpen, detailInfo, setDetailInfo } = useDetailTemplate();
+  const { open, close, isOpen, detailInfo } = useDetailTemplate();
   const { result, search } = useSearchForm();
   const { input, onChange } = useInputForm();
 
   const onClickCreateButton = () => {};
-  const onClick = (
-    id: number,
-    iconName: string,
-    topText: string,
-    bottomText: string | ReactElement,
-    rightUpText: string,
-    rightBottomText: string | number | ReactElement,
-  ) => {
-    setIsOpen(true);
-    const data = { id, iconName, topText, bottomText, rightUpText, rightBottomText };
-    setDetailInfo(data);
-  };
-  const toggleIsOpen = () => {
-    setIsOpen(!isOpen);
-  };
 
   useEffect(() => {
     search(input, listData);
@@ -45,15 +30,16 @@ const CategoryTemplate: VFC<Props> = (props) => {
     <div className="h-screen overflow-scroll">
       <DetailTemplate
         isOpen={isOpen}
-        header={<DetailHeader headerData={detailInfo} toggleIsOpen={toggleIsOpen} />}
+        header={<DetailHeader headerData={detailInfo} toggleIsOpen={close} />}
       />
+
       <CategoryHeader
         title={title}
         input={input}
         onChange={onChange}
         onClick={onClickCreateButton}
       />
-      <PrimaryList list={result} onClick={onClick} />
+      <PrimaryList list={result} onClick={open} />
     </div>
   );
 };
