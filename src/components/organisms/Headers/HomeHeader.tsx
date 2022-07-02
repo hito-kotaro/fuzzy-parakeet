@@ -1,11 +1,13 @@
 import React, { VFC } from 'react';
+import { dropDownItem } from '../../../types/Dropdown/dropDownItemType';
 import DropdownButton from '../../atoms/Buttons/DropdownButton';
 
 type Props = {
   title: string;
+  dropDownItems: dropDownItem[];
 };
 const HomeHeader: VFC<Props> = (props) => {
-  const { title } = props;
+  const { title, dropDownItems } = props;
 
   return (
     <div className="sticky top-0 z-50 bg-base drop-shadow-md p-2">
@@ -14,7 +16,7 @@ const HomeHeader: VFC<Props> = (props) => {
           <h1 className="text-3xl font-semibold">{title}</h1>
         </div>
         <div className="ml-auto">
-          <DropdownButton itemList={[]} />
+          <DropdownButton itemList={dropDownItems} />
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import { Badge } from '@supabase/ui';
 import React, { VFC } from 'react';
+import { dropDownItem } from '../../../types/Dropdown/dropDownItemType';
 import { detailHeaderType } from '../../../types/Header/detailHeaderType';
 import BackButton from '../../atoms/Buttons/BackButton';
 import DropdownButton from '../../atoms/Buttons/DropdownButton';
@@ -8,16 +9,17 @@ import IconLabel from '../../atoms/Labels/IconLabel';
 type Props = {
   headerData: detailHeaderType;
   closeDetail: () => void;
+  dropDownItems: dropDownItem[];
 };
 
 const DetailHeader: VFC<Props> = (props) => {
-  const { headerData, closeDetail } = props;
+  const { headerData, closeDetail, dropDownItems } = props;
   return (
     <div className=" lead sticky top-0 z-50 bg-base drop-shadow-md p-2">
       <div className="flex ">
         <BackButton onClick={closeDetail} />
         <div className="ml-auto">
-          <DropdownButton itemList={[]} />
+          <DropdownButton itemList={dropDownItems} />
         </div>
       </div>
       <div className="h-3" />
