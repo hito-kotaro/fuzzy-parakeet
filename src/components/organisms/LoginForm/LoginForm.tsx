@@ -16,13 +16,24 @@ const LoginForm = () => {
   return (
     <>
       <div className="h-12">
-        <InputForm inputHandler={emailInputHandler} placeholder="hogehoge@email.com" />
+        <InputForm
+          inputHandler={emailInputHandler}
+          placeholder="hogehoge@email.com"
+          color="bg-gray-200"
+          rounded="rounded-lg"
+        />
       </div>
 
       <div className="h-5" />
 
       <div className="h-12">
-        <InputForm inputHandler={passwordInputHandler} placeholder="password" password />
+        <InputForm
+          inputHandler={passwordInputHandler}
+          placeholder="password"
+          password
+          color="bg-gray-200"
+          rounded="rounded-lg"
+        />
       </div>
 
       <div className="h-5" />

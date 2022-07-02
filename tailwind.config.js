@@ -11,6 +11,9 @@ module.exports = {
       lineHeight: {
         12: '48px',
       },
+      spacing: {
+        '70%': '70vh',
+      },
       borderWidth: {
         1: '1px',
       },

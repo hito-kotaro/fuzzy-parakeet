@@ -3,21 +3,23 @@ import type { inputHandlerType } from '../../../../types/Handler/HandlerTypes';
 
 type Props = {
   inputHandler: inputHandlerType;
-  password?: boolean;
+  color: string;
   placeholder: string;
+  password?: boolean;
+  rounded?: string;
 };
 
 const InputForm: VFC<Props> = (props) => {
-  const { inputHandler, placeholder, password } = props;
+  const { inputHandler, placeholder, password, color, rounded } = props;
   const { input, onChange } = inputHandler;
   return (
-    <div className="w-full h-full bg-gray-200 rounded-lg">
+    <div className={`${color} ${rounded} w-full h-full`}>
       <input
         type={password ? 'password' : 'text'}
         value={input}
         onChange={onChange}
         placeholder={placeholder}
-        className="bg-gray-200 text-lg w-full focus:outline-none px-2 rounded-lg h-full"
+        className={`${color} ${rounded} text-lg w-full h-full focus:outline-none px-2`}
       />
     </div>
   );
