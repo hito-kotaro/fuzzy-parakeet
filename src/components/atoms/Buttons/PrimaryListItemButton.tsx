@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import MyAvatar from '../Avatar/MyAvatar';
 
 type Props = {
+  id: number;
   iconName: string;
   topText: string;
   bottomText: string | ReactElement;
@@ -11,12 +12,11 @@ type Props = {
 };
 
 const PrimaryListItemButton: VFC<Props> = (props) => {
-  const { iconName, topText, bottomText, righetUpText, rightBottomText } = props;
-  const navigate = useNavigate();
-  const id = 1;
+  const { id, iconName, topText, bottomText, righetUpText, rightBottomText } = props;
+
   const onClick = () => {
-    // globalStateをセットする
-    navigate(`detail/${id}`);
+    // リストクリック時の動作
+    // modalを開く
   };
 
   return (
