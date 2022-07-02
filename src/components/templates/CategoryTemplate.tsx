@@ -27,10 +27,7 @@ const CategoryTemplate: VFC<Props> = (props) => {
 
   return (
     <div className="h-screen overflow-scroll">
-      <DetailTemplate
-        isOpen={isOpen}
-        header={<DetailHeader headerData={detailInfo} toggleIsOpen={close} />}
-      />
+      <DetailTemplate isOpen={isOpen} closeDetail={close} headerData={detailInfo} />
 
       <CategoryHeader
         title={title}
