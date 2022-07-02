@@ -1,9 +1,6 @@
-import React, { useEffect, useState, VFC } from 'react';
-import { primaryListItem } from '../../types/ListItem/PrimaryListItemType';
+import React, { useEffect, VFC } from 'react';
 import useSearchForm from '../atoms/InputForms/SearchForm/useSearchForm';
-import PrimaryListItem from '../molecules/PrimaryListItem';
 import CategoryHeader from '../organisms/Headers/CategoryHeader';
-import { questType } from '../../types/Quest/QuestType';
 import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
 import PrimaryList from '../molecules/Lists/PrimaryList';
 

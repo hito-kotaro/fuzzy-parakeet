@@ -1,7 +1,7 @@
 import React, { VFC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { primaryListItem } from '../../../types/ListItem/PrimaryListItemType';
-import PrimaryListItem from '../PrimaryListItem';
+import PrimaryListItemButton from '../../atoms/Buttons/PrimaryListItemButton';
 
 type Props = {
   list: any[] | undefined;
@@ -14,19 +14,13 @@ const PrimaryList: VFC<Props> = (props) => {
   return (
     <>
       {list?.map((itema: primaryListItem) => (
-        <button
-          type="button"
-          className="w-full"
-          onClick={() => navigate(`detail/${id}`, { state: { item: itema } })}
-        >
-          <PrimaryListItem
-            iconName={itema.iconName}
-            topText={itema.topText}
-            bottomText={itema.bottomText}
-            righetUpText={itema.righetUpText}
-            rightBottomText={itema.rightBottomText}
-          />
-        </button>
+        <PrimaryListItemButton
+          iconName={itema.iconName}
+          topText={itema.topText}
+          bottomText={itema.bottomText}
+          righetUpText={itema.righetUpText}
+          rightBottomText={itema.rightBottomText}
+        />
       ))}
     </>
   );
