@@ -21,7 +21,7 @@ const DropdownButton: VFC<Props> = (props) => {
         </>
       ))}
     >
-      <Button type="text" icon={<BsThreeDots size={24} className="outline-none" />} />
+      <Button as="span" type="text" icon={<BsThreeDots size={24} className="outline-none" />} />
     </Dropdown>
   );
 };
