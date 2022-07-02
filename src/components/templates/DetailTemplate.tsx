@@ -1,12 +1,12 @@
 import React, { VFC } from 'react';
-import { detailHeaderType } from '../../types/Header/detailHeaderType';
+import { detailTemplateType } from '../../types/detailTemplateType';
 import DetailCard from '../organisms/Cards/DetailCard/DetailCard';
 import DetailHeader from '../organisms/Headers/DetailHeader';
 
 type Props = {
   isOpen: boolean;
   closeDetail: () => void;
-  headerData: detailHeaderType;
+  headerData: detailTemplateType;
 };
 const DetailTemplate: VFC<Props> = (props) => {
   const { isOpen, closeDetail, headerData } = props;
@@ -20,7 +20,7 @@ const DetailTemplate: VFC<Props> = (props) => {
       <DetailHeader headerData={headerData} closeDetail={closeDetail} />
       <div className="h-5" />
       <div>
-        <DetailCard />
+        <DetailCard ownerName={headerData.name} description={headerData.description} />
       </div>
     </div>
   );

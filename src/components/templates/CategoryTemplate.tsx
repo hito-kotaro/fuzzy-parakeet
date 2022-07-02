@@ -1,10 +1,8 @@
-import React, { ReactElement, useEffect, useState, VFC } from 'react';
-import { Badge } from '@supabase/ui';
+import React, { useEffect, VFC } from 'react';
 import useSearchForm from '../atoms/InputForms/SearchForm/useSearchForm';
 import CategoryHeader from '../organisms/Headers/CategoryHeader';
 import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
 import PrimaryList from '../molecules/Lists/PrimaryList';
-import DetailHeader from '../organisms/Headers/DetailHeader';
 import DetailTemplate from './DetailTemplate';
 import useDetailTemplate from '../../hooks/useDetailTemplate';
 import { primaryListItem } from '../../types/ListItem/PrimaryListItemType';

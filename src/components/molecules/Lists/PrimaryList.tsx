@@ -1,12 +1,11 @@
-import React, { ReactElement, VFC } from 'react';
-import { dropDownItem } from '../../../types/Dropdown/dropDownItemType';
-import { detailHeaderType } from '../../../types/Header/detailHeaderType';
+import React, { VFC } from 'react';
+import { detailTemplateType } from '../../../types/detailTemplateType';
 import { primaryListItem } from '../../../types/ListItem/PrimaryListItemType';
 import PrimaryListItemButton from '../../atoms/Buttons/PrimaryListItemButton';
 
 type Props = {
   list: any[] | undefined;
-  onClick: (detailHeaderData: detailHeaderType) => void;
+  onClick: (detailHeaderData: detailTemplateType) => void;
 };
 
 const PrimaryList: VFC<Props> = (props) => {

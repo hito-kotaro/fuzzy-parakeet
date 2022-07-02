@@ -1,13 +1,15 @@
 import { useState } from 'react';
+import { detailTemplateType } from '../types/detailTemplateType';
 import { detailHeaderType } from '../types/Header/detailHeaderType';
 
 const useDetailTemplate = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [detailInfo, setDetailInfo] = useState<detailHeaderType>({
+  const [detailInfo, setDetailInfo] = useState<detailTemplateType>({
     id: -999,
     // itemList?: dropDownItem[];
     name: 'tgdjaiojfd@#)!_',
     title: 'defaultTitle',
+    description: '',
     date: '',
     status: true,
     message: 'default',
@@ -17,7 +19,7 @@ const useDetailTemplate = () => {
     setIsOpen(!isOpen);
   };
 
-  const open = (detailHeaderData: detailHeaderType) => {
+  const open = (detailHeaderData: detailTemplateType) => {
     setIsOpen(true);
     setDetailInfo(detailHeaderData);
   };

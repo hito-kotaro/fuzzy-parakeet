@@ -6,7 +6,7 @@ export const questData: questType[] = [
     id: 1,
     owner: 'sato_hiroki',
     title: '月報提出',
-    description: '翌月第一営業日中に提出',
+    description: '',
     date: '2022/6/29',
     point: 1,
     status: true,
