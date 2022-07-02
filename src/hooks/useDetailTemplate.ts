@@ -1,35 +1,25 @@
-import { ReactElement, useState } from 'react';
+import { useState } from 'react';
+import { detailHeaderType } from '../types/Header/detailHeaderType';
 
 const useDetailTemplate = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [detailInfo, setDetailInfo] = useState<any>();
+  const [detailInfo, setDetailInfo] = useState<detailHeaderType>({
+    id: -999,
+    // itemList?: dropDownItem[];
+    name: 'tgdjaiojfd@#)!_',
+    title: 'defaultTitle',
+    date: '',
+    status: true,
+    message: 'default',
+  });
 
   const close = () => {
     setIsOpen(!isOpen);
   };
 
-  const open = (
-    id: number,
-    iconName: string,
-    topText: string,
-    bottomText: string | ReactElement,
-    rightUpText: string,
-    rightBottomText: string | number | ReactElement,
-    status: boolean,
-    message: string,
-  ) => {
+  const open = (detailHeaderData: detailHeaderType) => {
     setIsOpen(true);
-    const data = {
-      id,
-      iconName,
-      topText,
-      bottomText,
-      rightUpText,
-      rightBottomText,
-      status,
-      message,
-    };
-    setDetailInfo(data);
+    setDetailInfo(detailHeaderData);
   };
 
   return { isOpen, setIsOpen, detailInfo, setDetailInfo, close, open };

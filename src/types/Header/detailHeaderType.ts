@@ -2,9 +2,12 @@ import { ReactElement } from 'react';
 import { dropDownItem } from '../Dropdown/dropDownItemType';
 
 export type detailHeaderType = {
-  itemList?: dropDownItem[];
+  id: number;
   name: string;
   title: string;
-  rightTopText: string;
+  date: string;
+  status: boolean;
+  message: string;
   badges?: ReactElement;
+  itemList?: dropDownItem[];
 };

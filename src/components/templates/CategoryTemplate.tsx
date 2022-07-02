@@ -6,12 +6,12 @@ import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
 import PrimaryList from '../molecules/Lists/PrimaryList';
 import DetailHeader from '../organisms/Headers/DetailHeader';
 import DetailTemplate from './DetailTemplate';
-import useSubWindow from '../atoms/SubWindow/useSubWindow';
 import useDetailTemplate from '../../hooks/useDetailTemplate';
+import { primaryListItem } from '../../types/ListItem/PrimaryListItemType';
 
 type Props = {
   title: string;
-  listData: any[];
+  listData: primaryListItem[];
 };
 
 const CategoryTemplate: VFC<Props> = (props) => {
@@ -19,12 +19,11 @@ const CategoryTemplate: VFC<Props> = (props) => {
   const { open, close, isOpen, detailInfo } = useDetailTemplate();
   const { result, search } = useSearchForm();
   const { input, onChange } = useInputForm();
-
   const onClickCreateButton = () => {};
 
   useEffect(() => {
     search(input, listData);
-  }, [input]);
+  }, [input, listData]);
 
   return (
     <div className="h-screen overflow-scroll">

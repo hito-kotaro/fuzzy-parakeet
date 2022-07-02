@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 // @ts-ignore
 import SlideRoutes from 'react-slide-routes';
+import QuestBoardPage from '../components/pages/QuestBoardPage';
 import CategoryTemplate from '../components/templates/CategoryTemplate';
 import ErrorPageTemplate from '../components/templates/ErrorPageTemplate';
 import HomeTemplates from '../components/templates/HomeTemplates';
@@ -29,11 +30,8 @@ const Router = () => {
     <SlideRoutes location={location} duration={500}>
       <Route path="/" element={<LoginTemplate title="login page" thema="light-color" />} />
       <Route path="/home" element={<HomeTemplates title="home page" />} />
-      <Route
-        path="/questboard"
-        element={<CategoryTemplate title="Quest Board" listData={questList} />}
-      />
-      <Route
+      <Route path="/questboard" element={<QuestBoardPage />} />
+      {/* <Route
         path="/approverequest"
         element={<CategoryTemplate title="Approve Request" listData={questData} />}
       />
@@ -43,7 +41,7 @@ const Router = () => {
       />
       <Route path="/teams" element={<CategoryTemplate title="Teams" listData={questData} />} />
       <Route path="/users" element={<CategoryTemplate title="Users" listData={questData} />} />
-      <Route path="/jobs" element={<CategoryTemplate title="Jobs" listData={questData} />} />
+      <Route path="/jobs" element={<CategoryTemplate title="Jobs" listData={questData} />} /> */}
       <Route path="/test" element={<TestPage />} />
       <Route path="*" element={<ErrorPageTemplate title="404 NotFound" />} />
     </SlideRoutes>
