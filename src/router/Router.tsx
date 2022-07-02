@@ -12,23 +12,9 @@ import ErrorPageTemplate from '../components/templates/ErrorPageTemplate';
 import HomeTemplates from '../components/templates/HomeTemplates';
 import LoginTemplate from '../components/templates/LoginTemplate';
 import TestPage from '../components/templates/TestPage';
-import { questData } from '../testData/QuestTestData';
-import { primaryListItem } from '../types/ListItem/PrimaryListItemType';
 
 const Router = () => {
   const location = useLocation();
-
-  const questList = questData.map((quest) => {
-    const item: primaryListItem = {
-      id: quest.id,
-      iconName: quest.owner,
-      topText: quest.title,
-      bottomText: quest.description,
-      rightUpText: quest.date,
-      rightBottomText: `${quest.point}point`,
-    };
-    return item;
-  });
 
   return (
     <SlideRoutes location={location} duration={500}>
