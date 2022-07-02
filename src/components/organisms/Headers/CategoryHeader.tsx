@@ -3,7 +3,6 @@ import { IoIosAdd } from 'react-icons/io';
 import SearchForm from '../../atoms/InputForms/SearchForm/SearchForm';
 import SelectForm from '../../atoms/InputForms/SelectForm/SelectForm';
 import HeaderLink from '../../atoms/Links/HeaderLink';
-import Footer from '../Footer/Footer';
 
 type Props = {
   title: string;
@@ -39,7 +38,6 @@ const CategoryHeader: VFC<Props> = (props) => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };
