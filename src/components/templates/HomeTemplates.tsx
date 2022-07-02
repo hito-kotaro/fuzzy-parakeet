@@ -1,4 +1,4 @@
-import { IconClipboard, IconCopy, IconTrash } from '@supabase/ui';
+import { IconLogOut, IconSettings } from '@supabase/ui';
 import React, { VFC } from 'react';
 import UserCard from '../organisms/Cards/UserCard';
 import HomeHeader from '../organisms/Headers/HomeHeader';
@@ -11,21 +11,20 @@ type Props = {
 };
 const HomeTemplates: VFC<Props> = (props) => {
   const { logout } = useLogin();
+
   const onClick = () => {
     console.log('click');
   };
 
   const itemList: dropDownItem[] = [
-    { icon: <IconClipboard />, onClick, text: 'Duplicate', divider: false },
-    { icon: <IconCopy />, onClick, text: 'Copy', divider: false },
-    { icon: <IconTrash />, onClick, text: 'Trash', divider: false },
-    { icon: <IconClipboard />, onClick: logout, text: 'Logout', divider: true },
+    { icon: <IconSettings />, onClick, text: 'ユーザー設定', divider: false },
+    { icon: <IconLogOut stroke="red" />, onClick: logout, text: 'ログアウト', divider: true },
   ];
 
   const { title } = props;
   return (
     <div>
-      <HomeHeader title="ホーム" />
+      <HomeHeader title="ホーム" dropDownItems={itemList} />
 
       <div className="h-6" />
 
