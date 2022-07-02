@@ -1,4 +1,5 @@
 import React, { ReactElement, useEffect, useState, VFC } from 'react';
+import { Badge } from '@supabase/ui';
 import useSearchForm from '../atoms/InputForms/SearchForm/useSearchForm';
 import CategoryHeader from '../organisms/Headers/CategoryHeader';
 import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
@@ -15,7 +16,7 @@ type Props = {
 
 const CategoryTemplate: VFC<Props> = (props) => {
   const { title, listData } = props;
-  const { isOpen, setIsOpen } = useDetailTemplate();
+  const { isOpen, setIsOpen, detailInfo, setDetailInfo } = useDetailTemplate();
   const { result, search } = useSearchForm();
   const { input, onChange } = useInputForm();
 
@@ -25,12 +26,12 @@ const CategoryTemplate: VFC<Props> = (props) => {
     iconName: string,
     topText: string,
     bottomText: string | ReactElement,
-    righetUpText: string,
+    rightUpText: string,
     rightBottomText: string | number | ReactElement,
   ) => {
     setIsOpen(true);
-    const test = { id, iconName, topText, bottomText, righetUpText, rightBottomText };
-    console.log(test);
+    const data = { id, iconName, topText, bottomText, rightUpText, rightBottomText };
+    setDetailInfo(data);
   };
   const toggleIsOpen = () => {
     setIsOpen(!isOpen);
@@ -44,17 +45,7 @@ const CategoryTemplate: VFC<Props> = (props) => {
     <div className="h-screen overflow-scroll">
       <DetailTemplate
         isOpen={isOpen}
-        header={
-          <DetailHeader
-            headerData={{
-              itemList: [],
-              name: '',
-              title: '',
-              badged: undefined,
-            }}
-            toggleIsOpen={toggleIsOpen}
-          />
-        }
+        header={<DetailHeader headerData={detailInfo} toggleIsOpen={toggleIsOpen} />}
       />
       <CategoryHeader
         title={title}

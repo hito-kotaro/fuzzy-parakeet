@@ -19,7 +19,7 @@ const Router = () => {
       iconName: quest.owner,
       topText: quest.title,
       bottomText: quest.description,
-      righetUpText: quest.date,
+      rightUpText: quest.date,
       rightBottomText: `${quest.point}point`,
     };
     return item;

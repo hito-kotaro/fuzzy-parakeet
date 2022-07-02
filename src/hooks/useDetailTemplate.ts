@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 
 const useDetailTemplate = () => {
   const [isOpen, setIsOpen] = useState(false);
-  return { isOpen, setIsOpen };
+  const [detailInfo, setDetailInfo] = useState<any>();
+  return { isOpen, setIsOpen, detailInfo, setDetailInfo };
 };
 
 export default useDetailTemplate;

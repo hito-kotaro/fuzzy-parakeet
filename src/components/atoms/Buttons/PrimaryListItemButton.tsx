@@ -1,5 +1,4 @@
 import React, { ReactElement, VFC } from 'react';
-import { useNavigate } from 'react-router-dom';
 import MyAvatar from '../Avatar/MyAvatar';
 
 type Props = {
@@ -7,26 +6,26 @@ type Props = {
   iconName: string;
   topText: string;
   bottomText: string | ReactElement;
-  righetUpText: string;
+  rightUpText: string;
   rightBottomText: string | number | ReactElement;
   onClick: (
     id: number,
     iconName: string,
     topText: string,
     bottomText: string | ReactElement,
-    righetUpText: string,
+    rightUpText: string,
     rightBottomText: string | number | ReactElement,
   ) => void;
 };
 
 const PrimaryListItemButton: VFC<Props> = (props) => {
-  const { id, iconName, topText, bottomText, righetUpText, rightBottomText, onClick } = props;
+  const { id, iconName, topText, bottomText, rightUpText, rightBottomText, onClick } = props;
 
   return (
     <button
       type="button"
       className="w-full"
-      onClick={() => onClick(id, iconName, topText, bottomText, righetUpText, rightBottomText)}
+      onClick={() => onClick(id, iconName, topText, bottomText, rightUpText, rightBottomText)}
     >
       <div className="flex border-b-1 px-3 py-2 bg-white">
         <div className="w-1/5 ">
@@ -38,7 +37,7 @@ const PrimaryListItemButton: VFC<Props> = (props) => {
           <div className="text-lg  whitespace-nowrap truncate">{bottomText}</div>
         </div>
         <div className="text-right text-gray-400">
-          <div>{righetUpText}</div>
+          <div>{rightUpText}</div>
           <div>{rightBottomText}</div>
         </div>
       </div>

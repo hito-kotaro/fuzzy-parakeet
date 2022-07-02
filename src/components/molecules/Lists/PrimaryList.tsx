@@ -25,7 +25,7 @@ const PrimaryList: VFC<Props> = (props) => {
           iconName={item.iconName}
           topText={item.topText}
           bottomText={item.bottomText}
-          righetUpText={item.righetUpText}
+          rightUpText={item.rightUpText}
           rightBottomText={item.rightBottomText}
           onClick={onClick}
         />

@@ -5,5 +5,6 @@ export type detailHeaderType = {
   itemList?: dropDownItem[];
   name: string;
   title: string;
-  badged?: ReactElement;
+  rightTopText: string;
+  badges?: ReactElement;
 };
