@@ -3,6 +3,7 @@ import { questType } from '../types/Quest/QuestType';
 
 export const questData: questType[] = [
   {
+    id: 1,
     owner: 'sato_hiroki',
     title: '月報提出',
     description: '翌月第一営業日中に提出',
@@ -10,6 +11,7 @@ export const questData: questType[] = [
     point: 1,
   },
   {
+    id: 2,
     owner: 'sato_hiroki',
     title: '作業報告書提出',
     description: '翌月第一営業日中に提出',
@@ -17,6 +19,7 @@ export const questData: questType[] = [
     point: 1,
   },
   {
+    id: 3,
     owner: 'sato_hiroki',
     title: 'プレゼン実施',
     description: '発電会でプレゼンを行う',
@@ -24,6 +27,15 @@ export const questData: questType[] = [
     point: 3,
   },
   {
+    id: 4,
+    owner: 'sato_hiroki',
+    title: 'プレゼン実施',
+    description: '発電会でプレゼンを行う',
+    date: '2022/6/29',
+    point: 3,
+  },
+  {
+    id: 5,
     owner: 'sato_hiroki',
     title: '資格取得',
     description: '宣言した資格を取得する',
@@ -31,6 +43,7 @@ export const questData: questType[] = [
     point: 10,
   },
   {
+    id: 4,
     owner: 'sato_hiroki',
     title: '資格取得',
     description: '宣言した資格を取得する',
@@ -38,6 +51,7 @@ export const questData: questType[] = [
     point: 10,
   },
   {
+    id: 6,
     owner: 'sato_hiroki',
     title: '資格取得',
     description: '宣言した資格を取得する',
@@ -45,6 +59,7 @@ export const questData: questType[] = [
     point: 10,
   },
   {
+    id: 7,
     owner: 'sato_hiroki',
     title: '資格取得',
     description: '宣言した資格を取得する',
@@ -52,6 +67,7 @@ export const questData: questType[] = [
     point: 10,
   },
   {
+    id: 8,
     owner: 'sato_hiroki',
     title: '資格取得',
     description: '宣言した資格を取得する',
@@ -59,6 +75,7 @@ export const questData: questType[] = [
     point: 10,
   },
   {
+    id: 9,
     owner: 'sato_hiroki',
     title: '資格取得',
     description: '宣言した資格を取得する',
@@ -66,76 +83,7 @@ export const questData: questType[] = [
     point: 10,
   },
   {
-    owner: 'sato_hiroki',
-    title: '資格取得',
-    description: '宣言した資格を取得する',
-    date: '2022/6/29',
-    point: 10,
-  },
-  {
-    owner: 'sato_hiroki',
-    title: '資格取得',
-    description: '宣言した資格を取得する',
-    date: '2022/6/29',
-    point: 10,
-  },
-  {
-    owner: 'sato_hiroki',
-    title: '資格取得',
-    description: '宣言した資格を取得する',
-    date: '2022/6/29',
-    point: 10,
-  },
-  {
-    owner: 'sato_hiroki',
-    title: '資格取得',
-    description: '宣言した資格を取得する',
-    date: '2022/6/29',
-    point: 10,
-  },
-  {
-    owner: 'sato_hiroki',
-    title: '資格取得',
-    description: '宣言した資格を取得する',
-    date: '2022/6/29',
-    point: 10,
-  },
-  {
-    owner: 'sato_hiroki',
-    title: '資格取得',
-    description: '宣言した資格を取得する',
-    date: '2022/6/29',
-    point: 10,
-  },
-  {
-    owner: 'sato_hiroki',
-    title: '資格取得',
-    description: '宣言した資格を取得する',
-    date: '2022/6/29',
-    point: 10,
-  },
-  {
-    owner: 'sato_hiroki',
-    title: '資格取得',
-    description: '宣言した資格を取得する',
-    date: '2022/6/29',
-    point: 10,
-  },
-  {
-    owner: 'sato_hiroki',
-    title: '資格取得',
-    description: '宣言した資格を取得する',
-    date: '2022/6/29',
-    point: 10,
-  },
-  {
-    owner: 'sato_hiroki',
-    title: '資格取得',
-    description: '宣言した資格を取得する',
-    date: '2022/6/29',
-    point: 10,
-  },
-  {
+    id: 10,
     owner: 'sato_hiroki',
     title: '資格取得',
     description: '宣言した資格を取得する',

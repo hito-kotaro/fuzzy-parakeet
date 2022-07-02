@@ -1,4 +1,5 @@
 export type questType = {
+  id: number;
   owner: string;
   title: string;
   description: string;
