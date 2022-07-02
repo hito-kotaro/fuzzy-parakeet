@@ -6,7 +6,7 @@ import DropdownButton from '../../atoms/Buttons/DropdownButton';
 import IconLabel from '../../atoms/Labels/IconLabel';
 
 type Props = {
-  headerData: any;
+  headerData: detailHeaderType;
   toggleIsOpen: () => void;
 };
 
@@ -22,11 +22,11 @@ const DetailHeader: VFC<Props> = (props) => {
       </div>
       <div className="h-3" />
       <div className="flex">
-        <IconLabel size="small" name={headerData?.iconName} />
-        <div className="ml-auto text-gray-400">{headerData?.rightUpText}</div>
+        <IconLabel size="small" name={headerData?.name} />
+        <div className="ml-auto text-gray-400">{headerData?.date}</div>
       </div>
       <div className="h-3" />
-      <h2 className="text-2xl font-medium">{headerData?.topText}</h2>
+      <h2 className="text-2xl font-medium">{headerData?.title}</h2>
       <div className="h-3" />
       <div>
         <Badge color={headerData.status ? 'green' : 'red'}>

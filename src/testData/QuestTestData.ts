@@ -48,15 +48,6 @@ export const questData: questType[] = [
     status: true,
   },
   {
-    id: 4,
-    owner: 'sato_hiroki',
-    title: '資格取得',
-    description: '宣言した資格を取得する',
-    date: '2022/6/29',
-    point: 10,
-    status: true,
-  },
-  {
     id: 6,
     owner: 'sato_hiroki',
     title: '資格取得',
@@ -94,6 +85,15 @@ export const questData: questType[] = [
   },
   {
     id: 10,
+    owner: 'sato_hiroki',
+    title: '資格取得',
+    description: '宣言した資格を取得する',
+    date: '2022/6/29',
+    point: 10,
+    status: true,
+  },
+  {
+    id: 11,
     owner: 'sato_hiroki',
     title: '資格取得',
     description: '宣言した資格を取得する',

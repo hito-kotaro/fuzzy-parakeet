@@ -1,19 +1,12 @@
 import React, { ReactElement, VFC } from 'react';
+import { dropDownItem } from '../../../types/Dropdown/dropDownItemType';
+import { detailHeaderType } from '../../../types/Header/detailHeaderType';
 import { primaryListItem } from '../../../types/ListItem/PrimaryListItemType';
 import PrimaryListItemButton from '../../atoms/Buttons/PrimaryListItemButton';
 
 type Props = {
   list: any[] | undefined;
-  onClick: (
-    id: number,
-    iconName: string,
-    topText: string,
-    bottomText: string | ReactElement,
-    righetUpText: string,
-    rightBottomText: string | number | ReactElement,
-    status: boolean,
-    message: string,
-  ) => void;
+  onClick: (detailHeaderData: detailHeaderType) => void;
 };
 
 const PrimaryList: VFC<Props> = (props) => {
@@ -23,6 +16,7 @@ const PrimaryList: VFC<Props> = (props) => {
     <>
       {list?.map((item: primaryListItem) => (
         <PrimaryListItemButton
+          key={item.id}
           id={item.id}
           iconName={item.iconName}
           topText={item.topText}

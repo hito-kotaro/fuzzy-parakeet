@@ -1,4 +1,5 @@
 import React, { ReactElement, VFC } from 'react';
+import { detailHeaderType } from '../../../types/Header/detailHeaderType';
 import MyAvatar from '../Avatar/MyAvatar';
 
 type Props = {
@@ -8,38 +9,21 @@ type Props = {
   bottomText: string | ReactElement;
   rightUpText: string;
   rightBottomText: string | number | ReactElement;
-  onClick: (
-    id: number,
-    iconName: string,
-    topText: string,
-    bottomText: string | ReactElement,
-    rightUpText: string,
-    rightBottomText: string | number | ReactElement,
-    status: boolean,
-    message: string,
-  ) => void;
+  onClick: (detailHeaderData: detailHeaderType) => void;
 };
 
 const PrimaryListItemButton: VFC<Props> = (props) => {
   const { id, iconName, topText, bottomText, rightUpText, rightBottomText, onClick } = props;
-
+  const detailHeaderData: detailHeaderType = {
+    id,
+    name: iconName,
+    title: topText,
+    date: rightUpText,
+    status: true,
+    message: `${rightBottomText}`,
+  };
   return (
-    <button
-      type="button"
-      className="w-full"
-      onClick={() =>
-        onClick(
-          id,
-          iconName,
-          topText,
-          bottomText,
-          rightUpText,
-          rightBottomText,
-          true,
-          `${rightBottomText}`,
-        )
-      }
-    >
+    <button type="button" className="w-full" onClick={() => onClick(detailHeaderData)}>
       <div className="flex border-b-1 px-3 py-2 bg-white">
         <div className="w-1/5 ">
           <MyAvatar size={44} name={iconName} />
