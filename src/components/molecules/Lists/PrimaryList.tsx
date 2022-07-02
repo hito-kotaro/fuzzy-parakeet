@@ -13,13 +13,13 @@ const PrimaryList: VFC<Props> = (props) => {
   const id = 1;
   return (
     <>
-      {list?.map((itema: primaryListItem) => (
+      {list?.map((item: primaryListItem) => (
         <PrimaryListItemButton
-          iconName={itema.iconName}
-          topText={itema.topText}
-          bottomText={itema.bottomText}
-          righetUpText={itema.righetUpText}
-          rightBottomText={itema.rightBottomText}
+          iconName={item.iconName}
+          topText={item.topText}
+          bottomText={item.bottomText}
+          righetUpText={item.righetUpText}
+          rightBottomText={item.rightBottomText}
         />
       ))}
     </>
