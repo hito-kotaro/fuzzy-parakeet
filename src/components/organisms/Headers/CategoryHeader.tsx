@@ -18,7 +18,7 @@ const CategoryHeader: VFC<Props> = (props) => {
   const { title, input, selectHandler, selectItemList, onClick, onChange } = props;
   return (
     <>
-      <div className=" sticky top-0 z-50 bg-base drop-shadow-md p-2 w-full">
+      <div className=" sticky top-0 z-30 bg-base drop-shadow-md p-2 w-full">
         <div className="flex">
           <HeaderLink to="/home" linkText="ホーム" backIcon />
           <div className="ml-auto">

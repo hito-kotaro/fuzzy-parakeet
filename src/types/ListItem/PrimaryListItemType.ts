@@ -5,6 +5,6 @@ export type primaryListItem = {
   iconName: string;
   topText: string;
   bottomText: string | ReactElement;
-  righetUpText: string;
+  rightUpText: string;
   rightBottomText: string | number | ReactElement;
 };

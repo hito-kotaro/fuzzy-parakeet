@@ -19,7 +19,7 @@ const Router = () => {
       iconName: quest.owner,
       topText: quest.title,
       bottomText: quest.description,
-      righetUpText: quest.date,
+      rightUpText: quest.date,
       rightBottomText: `${quest.point}point`,
     };
     return item;
@@ -29,7 +29,10 @@ const Router = () => {
     <SlideRoutes location={location} duration={500}>
       <Route path="/" element={<LoginTemplate title="login page" thema="light-color" />} />
       <Route path="/home" element={<HomeTemplates title="home page" />} />
-      <Route element={<CategoryTemplate title="Quest Board" listData={questList} />} />
+      <Route
+        path="/questboard"
+        element={<CategoryTemplate title="Quest Board" listData={questList} />}
+      />
       <Route
         path="/approverequest"
         element={<CategoryTemplate title="Approve Request" listData={questData} />}

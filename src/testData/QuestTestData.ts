@@ -9,6 +9,7 @@ export const questData: questType[] = [
     description: '翌月第一営業日中に提出',
     date: '2022/6/29',
     point: 1,
+    status: true,
   },
   {
     id: 2,
@@ -17,6 +18,7 @@ export const questData: questType[] = [
     description: '翌月第一営業日中に提出',
     date: '2022/6/29',
     point: 1,
+    status: true,
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ export const questData: questType[] = [
     description: '発電会でプレゼンを行う',
     date: '2022/6/29',
     point: 3,
+    status: true,
   },
   {
     id: 4,
@@ -33,6 +36,7 @@ export const questData: questType[] = [
     description: '発電会でプレゼンを行う',
     date: '2022/6/29',
     point: 3,
+    status: true,
   },
   {
     id: 5,
@@ -41,6 +45,7 @@ export const questData: questType[] = [
     description: '宣言した資格を取得する',
     date: '2022/6/29',
     point: 10,
+    status: true,
   },
   {
     id: 4,
@@ -49,6 +54,7 @@ export const questData: questType[] = [
     description: '宣言した資格を取得する',
     date: '2022/6/29',
     point: 10,
+    status: true,
   },
   {
     id: 6,
@@ -57,6 +63,7 @@ export const questData: questType[] = [
     description: '宣言した資格を取得する',
     date: '2022/6/29',
     point: 10,
+    status: true,
   },
   {
     id: 7,
@@ -65,6 +72,7 @@ export const questData: questType[] = [
     description: '宣言した資格を取得する',
     date: '2022/6/29',
     point: 10,
+    status: true,
   },
   {
     id: 8,
@@ -73,6 +81,7 @@ export const questData: questType[] = [
     description: '宣言した資格を取得する',
     date: '2022/6/29',
     point: 10,
+    status: true,
   },
   {
     id: 9,
@@ -81,6 +90,7 @@ export const questData: questType[] = [
     description: '宣言した資格を取得する',
     date: '2022/6/29',
     point: 10,
+    status: true,
   },
   {
     id: 10,
@@ -89,5 +99,6 @@ export const questData: questType[] = [
     description: '宣言した資格を取得する',
     date: '2022/6/29',
     point: 10,
+    status: true,
   },
 ];
