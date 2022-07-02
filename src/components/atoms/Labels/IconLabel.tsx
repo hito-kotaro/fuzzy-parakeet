@@ -37,7 +37,7 @@ const IconLabel: VFC<Props> = (props) => {
   return (
     <div className="flex">
       <MyAvatar size={px} name={name} />
-      <div className={`leading-${leading} ${textSize} ml-2 `}>kotaro</div>
+      <div className={`leading-${leading} ${textSize} ml-2 `}>{name}</div>
     </div>
   );
 };
