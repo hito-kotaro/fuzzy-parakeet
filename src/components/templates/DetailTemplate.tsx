@@ -22,6 +22,9 @@ const DetailTemplate = () => {
   return (
     <div className=" lead sticky top-0 z-50 bg-base drop-shadow-md p-2">
       detail
+      <div className="flex ">
+        <HeaderLink to="/questboard" linkText="" backIcon />
+      </div>
       {/* <div className="flex ">
         <HeaderLink to="/" linkText="" backIcon />
         <div className="w-full text-center leading-8">{headerTitle}</div>
