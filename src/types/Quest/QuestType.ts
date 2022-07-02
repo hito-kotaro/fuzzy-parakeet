@@ -5,4 +5,5 @@ export type questType = {
   description: string;
   date: string;
   point: number;
+  status: boolean;
 };

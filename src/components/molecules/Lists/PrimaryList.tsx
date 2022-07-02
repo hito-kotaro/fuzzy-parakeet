@@ -11,6 +11,8 @@ type Props = {
     bottomText: string | ReactElement,
     righetUpText: string,
     rightBottomText: string | number | ReactElement,
+    status: boolean,
+    message: string,
   ) => void;
 };
 

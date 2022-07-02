@@ -15,6 +15,8 @@ type Props = {
     bottomText: string | ReactElement,
     rightUpText: string,
     rightBottomText: string | number | ReactElement,
+    status: boolean,
+    message: string,
   ) => void;
 };
 
@@ -25,7 +27,18 @@ const PrimaryListItemButton: VFC<Props> = (props) => {
     <button
       type="button"
       className="w-full"
-      onClick={() => onClick(id, iconName, topText, bottomText, rightUpText, rightBottomText)}
+      onClick={() =>
+        onClick(
+          id,
+          iconName,
+          topText,
+          bottomText,
+          rightUpText,
+          rightBottomText,
+          true,
+          `${rightBottomText}`,
+        )
+      }
     >
       <div className="flex border-b-1 px-3 py-2 bg-white">
         <div className="w-1/5 ">
