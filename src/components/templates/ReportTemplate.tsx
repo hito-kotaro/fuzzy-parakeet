@@ -1,7 +1,6 @@
 import React, { useEffect, VFC } from 'react';
-import InputForm from '../atoms/InputForms/InputForm/InputForm';
 import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
-import TextArea from '../atoms/InputForms/TextArea';
+import DocumentationForm from '../molecules/DocumentationForm/DocumentationForm';
 import MiniHeader from '../organisms/Headers/MiniHeader';
 
 type Props = {
@@ -13,9 +12,11 @@ const ReportTemplate: VFC<Props> = (props) => {
   const { toggleComponent, questTitle } = props;
   const titleHandler = useInputForm();
   const descriptionHandler = useInputForm();
+  // const pointHandler = useInputForm();
 
-  const titlePlaceholder = '報告書のタイトルを入力してください(必須)';
+  const titlePlaceholder = 'タイトルを入力してください(必須)';
   const descriptionPlaceholder = '報告内容を入力してください(必須)';
+  // const pointPlaceholder = '付与ポイントを入力してください(必須)';
 
   useEffect(() => {}, []);
   return (
@@ -29,19 +30,16 @@ const ReportTemplate: VFC<Props> = (props) => {
         positiveLinkText="報告"
       />
       <div className="h-2" />
-      <div className="px-2">
-        <div className="h-10 border-1 border-gray-300">
-          <InputForm inputHandler={titleHandler} placeholder={titlePlaceholder} color="bg-base" />
-        </div>
-        <div className="h-2" />
-        <div className="h-70% border-1 border-gray-300">
-          <TextArea
-            inputHandler={descriptionHandler}
-            placeholder={descriptionPlaceholder}
-            color="bg-base"
-          />
-        </div>
-      </div>
+
+      <DocumentationForm
+        titleHandler={titleHandler}
+        titlePlaceholder={titlePlaceholder}
+        descriptionHandler={descriptionHandler}
+        descriptionPlaceholder={descriptionPlaceholder}
+        // pointHandler={pointHandler}
+        // pointPlaceholder={pointPlaceholder}
+        // addPointForm
+      />
     </div>
   );
 };
