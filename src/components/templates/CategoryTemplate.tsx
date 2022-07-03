@@ -1,20 +1,20 @@
-import React, { useEffect, VFC } from 'react';
+import React, { ReactElement, useEffect, VFC } from 'react';
 import useSearchForm from '../atoms/InputForms/SearchForm/useSearchForm';
 import CategoryHeader from '../organisms/Headers/CategoryHeader';
 import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
 import PrimaryList from '../molecules/Lists/PrimaryList';
-import DetailTemplate from './DetailTemplate';
-import useDetailTemplate from '../../hooks/useDetailTemplate';
 import { primaryListItem } from '../../types/ListItem/PrimaryListItemType';
+import { detailTemplateType } from '../../types/detailTemplateType';
 
 type Props = {
   title: string;
   listData: primaryListItem[];
+  openSubWindow: (detailHeaderData: detailTemplateType) => void;
+  SubWindow: ReactElement;
 };
 
 const CategoryTemplate: VFC<Props> = (props) => {
-  const { title, listData } = props;
-  const { open, close, isOpen, detailInfo } = useDetailTemplate();
+  const { title, listData, openSubWindow, SubWindow } = props;
   const { result, search } = useSearchForm();
   const { input, onChange } = useInputForm();
   const onClickCreateButton = () => {};
@@ -25,15 +25,14 @@ const CategoryTemplate: VFC<Props> = (props) => {
 
   return (
     <div className="h-screen overflow-scroll">
-      <DetailTemplate isOpen={isOpen} closeDetail={close} headerData={detailInfo} />
-
+      {SubWindow}
       <CategoryHeader
         title={title}
         input={input}
         onChange={onChange}
         onClick={onClickCreateButton}
       />
-      <PrimaryList list={result} onClick={open} />
+      <PrimaryList list={result} onClick={openSubWindow} />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { ChangeEvent, useState } from 'react';
 const useInputForm = () => {
   const [input, setInput] = useState('');
 
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setInput(e.target.value);
   };
 
@@ -11,7 +11,7 @@ const useInputForm = () => {
     setInput('');
   };
 
-  return { input, clear, onChange };
+  return { input, clear, onChange, setInput };
 };
 
 export default useInputForm;

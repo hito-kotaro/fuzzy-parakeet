@@ -2,6 +2,6 @@ import { ChangeEvent } from 'react';
 
 export type inputHandlerType = {
   input: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   clear: () => void;
 };

@@ -25,6 +25,7 @@ const PrimaryList: VFC<Props> = (props) => {
           onClick={onClick}
         />
       ))}
+      <div className="bg-base h-10" />
     </>
   );
 };
