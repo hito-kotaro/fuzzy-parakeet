@@ -31,12 +31,7 @@ const ReportTemplate: VFC<Props> = (props) => {
       <div className="h-2" />
       <div className="px-2">
         <div className="h-10 border-1 border-gray-300">
-          <InputForm
-            inputHandler={titleHandler}
-            placeholder={titlePlaceholder}
-            password
-            color="bg-base"
-          />
+          <InputForm inputHandler={titleHandler} placeholder={titlePlaceholder} color="bg-base" />
         </div>
         <div className="h-2" />
         <div className="h-70% border-1 border-gray-300">
