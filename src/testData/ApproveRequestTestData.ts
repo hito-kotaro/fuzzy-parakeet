@@ -14,11 +14,13 @@ export const approveRequestData: approveRequestType[] = [
     description: '7月分提出',
     point: 10,
     approve: true,
+    open: false,
+    closeCode: 200,
     date: '2022/2/2',
   },
   {
     id: 2,
-    applicantId: 1,
+    applicantId: 2,
     applicant: 'hosina',
     authorizer: '',
     authorizerId: 1,
@@ -29,6 +31,7 @@ export const approveRequestData: approveRequestType[] = [
     description: '7月分提出',
     point: 10,
     approve: false,
+    open: true,
     date: '2022/2/2',
   },
   {
@@ -44,6 +47,8 @@ export const approveRequestData: approveRequestType[] = [
     description: '7月分提出',
     point: 10,
     approve: false,
+    open: false,
+    closeCode: 300,
     date: '2022/2/2',
   },
   {
@@ -59,6 +64,8 @@ export const approveRequestData: approveRequestType[] = [
     description: '7月分提出',
     point: 10,
     approve: true,
+    open: false,
+    closeCode: 200,
     date: '2022/2/2',
   },
   {
@@ -74,6 +81,7 @@ export const approveRequestData: approveRequestType[] = [
     description: '7月分提出',
     point: 10,
     approve: false,
+    open: true,
     date: '2022/2/2',
   },
   {
@@ -89,6 +97,8 @@ export const approveRequestData: approveRequestType[] = [
     description: '7月分提出',
     point: 10,
     approve: true,
+    open: false,
+    closeCode: 200,
     date: '2022/2/2',
   },
 ];

@@ -6,5 +6,6 @@ export type primaryListItem = {
   title: string;
   description: string;
   date: string;
-  badge: ReactElement;
+  badgeColor: 'red' | 'green' | 'gray' | 'yellow' | 'blue' | 'indigo' | 'purple' | 'pink';
+  badgeText: string;
 };

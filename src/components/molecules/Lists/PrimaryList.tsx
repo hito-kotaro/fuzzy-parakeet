@@ -20,7 +20,8 @@ const PrimaryList: VFC<Props> = (props) => {
           title={item.title}
           description={item.description}
           date={item.date}
-          badge={item.badge}
+          badgeColor={item.badgeColor}
+          badgeText={item.badgeText}
           onClick={onClick}
         />
       ))}

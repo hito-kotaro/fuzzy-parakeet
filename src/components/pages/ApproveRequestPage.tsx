@@ -23,6 +23,7 @@ const ApproveRequestPage = () => {
     questTitle: '',
     questOwner: '',
     questDescription: '',
+    open: false,
   };
 
   const [approveRequest, setApproveRequest] = useState<approveRequestType>(defaultAR);
@@ -33,7 +34,16 @@ const ApproveRequestPage = () => {
   const hidden = '-translate-x-full opacity-0';
 
   useEffect(() => {
-    const primaryList: primaryListItem[] = approveRequestData.map((a) => {
+    const userList: approveRequestType[] = approveRequestData.filter((a) => {
+      // ログイン中のユーザーのIDでフィルターする
+      const role = 2;
+      if (role === 2) {
+        return a.applicantId === 1;
+      }
+      return a;
+    });
+
+    const primaryList: primaryListItem[] = userList.map((a) => {
       const status = a.approve && a.authorizer ? 'close' : 'open';
       const color = status === 'close' ? 'red' : 'green';
       const item: primaryListItem = {
@@ -42,12 +52,15 @@ const ApproveRequestPage = () => {
         title: a.title,
         description: a.description,
         date: a.date,
-        badge: <Badge color={color}>{status}</Badge>,
+        badgeColor: color,
+        badgeText: status,
       };
       return item;
     });
     setList(primaryList);
   }, []);
+
+  useEffect(() => {}, []);
 
   // PrimaryListItemをクリックしたときに詳細を表示する
   const onClickListItem = (id: number) => {
@@ -77,6 +90,7 @@ const ApproveRequestPage = () => {
   const readerMenu: dropDownItem[] = [
     { icon: <IconCheckCircle />, onClick: approve, text: '承認', divider: false },
   ];
+
   return (
     <>
       <div className={` switch-components z-30 ${listTemplate.isOpen ? display : hidden}`}>
@@ -87,7 +101,7 @@ const ApproveRequestPage = () => {
         <ApproveDetailTemplate
           data={approveRequest}
           close={detailTemplate.close}
-          dropDownMenu={readerMenu}
+          dropDownMenu={memberMenu}
         />
       </div>
     </>

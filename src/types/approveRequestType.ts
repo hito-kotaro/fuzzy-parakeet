@@ -11,5 +11,7 @@ export type approveRequestType = {
   description: string;
   point: number;
   approve: boolean;
+  open: boolean;
+  closeCode?: number;
   date: string;
 };

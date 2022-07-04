@@ -48,7 +48,8 @@ const QuestBoardPage = () => {
         title: q.title,
         description: q.description,
         date: q.date,
-        badge: <Badge>{`${q.point}point`}</Badge>,
+        badgeColor: 'green',
+        badgeText: `${q.point}point`,
       };
       return item;
     });

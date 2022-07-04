@@ -1,3 +1,4 @@
+import { Badge } from '@supabase/ui';
 import React, { ReactElement, VFC } from 'react';
 import MyAvatar from '../Avatar/MyAvatar';
 
@@ -7,12 +8,13 @@ type Props = {
   title: string;
   description: string;
   date: string;
-  badge: ReactElement;
+  badgeColor: 'red' | 'green' | 'gray' | 'yellow' | 'blue' | 'indigo' | 'purple' | 'pink';
+  badgeText: string;
   onClick: (id: number) => void;
 };
 
 const PrimaryListItemButton: VFC<Props> = (props) => {
-  const { id, name, title, description, date, badge, onClick } = props;
+  const { id, name, title, description, date, badgeColor, badgeText, onClick } = props;
   const isNoText = description.length === 0;
 
   return (
@@ -28,7 +30,7 @@ const PrimaryListItemButton: VFC<Props> = (props) => {
         </div>
         <div className="ml-auto text-right text-gray-400">
           <div>{date}</div>
-          <div>{badge}</div>
+          <Badge color={badgeColor}>{badgeText}</Badge>
         </div>
       </div>
     </button>
