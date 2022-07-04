@@ -10,10 +10,11 @@ type Props = {
   title: string;
   listData: primaryListItem[];
   onClick: (id: number) => void;
+  onClickPlus: () => void;
 };
 
 const ListTemplate: VFC<Props> = (props) => {
-  const { title, listData, onClick } = props;
+  const { title, listData, onClick, onClickPlus } = props;
   const { result, search } = useSearchForm();
   const { input, onChange } = useInputForm();
   const onClickCreateButton = () => {};
@@ -24,7 +25,13 @@ const ListTemplate: VFC<Props> = (props) => {
 
   return (
     <div className="h-screen overflow-scroll">
-      <ListHeader title={title} input={input} onChange={onChange} onClick={onClickCreateButton} />
+      <ListHeader
+        title={title}
+        input={input}
+        onChange={onChange}
+        onClick={onClickCreateButton}
+        onClickPlus={onClickPlus}
+      />
       <PrimaryList list={result} onClick={onClick} />
     </div>
   );

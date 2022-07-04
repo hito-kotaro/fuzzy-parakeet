@@ -36,7 +36,7 @@ const ReportTemplate: VFC<Props> = (props) => {
   };
 
   return (
-    <div className="bg-base">
+    <div className="bg-base h-screen">
       <ReportHeader
         title={questTitle}
         id={questId}
@@ -45,6 +45,7 @@ const ReportTemplate: VFC<Props> = (props) => {
         onClickCancel={onClickCancel}
         onClickReport={onClickReport}
       />
+
       <div className="h-2" />
 
       <DocumentationForm

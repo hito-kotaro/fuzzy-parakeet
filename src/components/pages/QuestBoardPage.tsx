@@ -1,12 +1,14 @@
 import { Badge } from '@supabase/ui';
+import { create } from 'domain';
 import React, { useEffect, useState } from 'react';
 import usePrimaryList from '../../hooks/usePrimaryList';
 import useQuestBordPage from '../../hooks/useQuestBordPage';
 import useTemplate from '../../hooks/useTemplate';
 import { questData } from '../../testData/QuestTestData';
 import { primaryListItem } from '../../types/ListItem/PrimaryListItemType';
-import { questType } from '../../types/Quest/QuestType';
+import { createQuestType, questType } from '../../types/Quest/QuestType';
 import { reportType } from '../../types/reportType';
+import CreateQuestTemplate from '../templates/CreateQuestTemplate';
 import DetailTemplate from '../templates/DetailTemplate';
 import ListTemplate from '../templates/ListTemplate';
 import ReportTemplate from '../templates/ReportTemplate';
@@ -65,17 +67,29 @@ const QuestBoardPage = () => {
 
   // 報告作成用関数 後でAPI通信実装
   const onClickReportCreate = (r: reportType) => {
-    console.log(r.questId);
-    console.log(r.applicantId);
-    console.log(r.reportTitle);
-    console.log(r.reportDescription);
+    console.log(r);
     reportTemplate.close();
   };
 
+  // クエスト発行画面の表示
+  const onClickPlus = () => {
+    console.log('create');
+    createTemplate.open();
+  };
+
+  const issueQuest = (q: createQuestType) => {
+    console.log(q);
+    createTemplate.close();
+  };
   return (
     <>
       <div className={` switch-components z-30 ${listTemplate.isOpen ? display : hidden}`}>
-        <ListTemplate title="QuestBoard" listData={list} onClick={onClickListItem} />
+        <ListTemplate
+          title="QuestBoard"
+          listData={list}
+          onClick={onClickListItem}
+          onClickPlus={onClickPlus}
+        />
       </div>
 
       <div className={`switch-components z-40 ${detailTemplate.isOpen ? display : hidden}`}>
@@ -93,6 +107,9 @@ const QuestBoardPage = () => {
           sendReport={onClickReportCreate}
           close={reportTemplate.close}
         />
+      </div>
+      <div className={`switch-components z-50 ${createTemplate.isOpen ? display : hidden}`}>
+        <CreateQuestTemplate close={createTemplate.close} issueQuest={issueQuest} />
       </div>
     </>
   );
