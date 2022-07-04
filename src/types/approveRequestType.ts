@@ -5,8 +5,11 @@ export type approveRequestType = {
   authorizer?: string;
   authorizerId: number;
   title: string;
+  questTitle: string;
+  questOwner: string;
+  questDescription: string;
   description: string;
   point: number;
-  status: boolean;
+  approve: boolean;
   date: string;
 };

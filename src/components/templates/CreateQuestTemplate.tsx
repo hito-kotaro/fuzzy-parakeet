@@ -48,6 +48,7 @@ const CreateQuestTemplate: VFC<Props> = (props) => {
         pointHandler={pointHandler}
         pointPlaceholder={pointPlaceholder}
         addPointForm
+        defaultTitle="QuestName"
       />
     </div>
   );

@@ -1,10 +1,10 @@
-import { Badge } from '@supabase/ui';
-import { create } from 'domain';
+import { Badge, IconCheckCircle } from '@supabase/ui';
 import React, { useEffect, useState } from 'react';
 import usePrimaryList from '../../hooks/usePrimaryList';
 import useQuestBordPage from '../../hooks/useQuestBordPage';
 import useTemplate from '../../hooks/useTemplate';
 import { questData } from '../../testData/QuestTestData';
+import { dropDownItem } from '../../types/Dropdown/dropDownItemType';
 import { primaryListItem } from '../../types/ListItem/PrimaryListItemType';
 import { createQuestType, questType } from '../../types/Quest/QuestType';
 import { reportType } from '../../types/reportType';
@@ -81,6 +81,11 @@ const QuestBoardPage = () => {
     console.log(q);
     createTemplate.close();
   };
+
+  const memberMenu: dropDownItem[] = [
+    { icon: <IconCheckCircle />, onClick: reportTemplate.open, text: '完了報告', divider: false },
+  ];
+
   return (
     <>
       <div className={` switch-components z-30 ${listTemplate.isOpen ? display : hidden}`}>
@@ -94,9 +99,14 @@ const QuestBoardPage = () => {
 
       <div className={`switch-components z-40 ${detailTemplate.isOpen ? display : hidden}`}>
         <DetailTemplate
-          quest={quest}
+          data={{
+            name: quest.owner,
+            title: quest.title,
+            description: quest.description,
+            date: quest.date,
+          }}
           close={detailTemplate.close}
-          reportOpen={reportTemplate.open}
+          dropDownMenu={memberMenu}
         />
       </div>
 

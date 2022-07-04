@@ -38,9 +38,9 @@ const ReportTemplate: VFC<Props> = (props) => {
   return (
     <div className="bg-base h-screen">
       <ReportHeader
-        title={questTitle}
+        title={`${questTitle}-report`}
         id={questId}
-        reportTitle={titleHandler.input}
+        reportTitle={`${questTitle}-report`}
         reportDescription={descriptionHandler.input}
         onClickCancel={onClickCancel}
         onClickReport={onClickReport}
@@ -49,10 +49,11 @@ const ReportTemplate: VFC<Props> = (props) => {
       <div className="h-2" />
 
       <DocumentationForm
-        titleHandler={titleHandler}
+        // titleHandler={titleHandler}
         titlePlaceholder={titlePlaceholder}
         descriptionHandler={descriptionHandler}
         descriptionPlaceholder={descriptionPlaceholder}
+        defaultTitle={`${questTitle}-report`}
         // pointHandler={pointHandler}
         // pointPlaceholder={pointPlaceholder}
         // addPointForm

@@ -1,5 +1,4 @@
 import React, { VFC, useEffect } from 'react';
-import { detailTemplateType } from '../../types/detailTemplateType';
 import { primaryListItem } from '../../types/ListItem/PrimaryListItemType';
 import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
 import useSearchForm from '../atoms/InputForms/SearchForm/useSearchForm';

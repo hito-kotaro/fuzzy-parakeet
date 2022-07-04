@@ -4,13 +4,14 @@ import TextArea from '../../atoms/InputForms/TextArea';
 import type { inputHandlerType } from '../../../types/Handler/HandlerTypes';
 
 type Props = {
-  titleHandler: inputHandlerType;
+  titleHandler?: inputHandlerType;
   descriptionHandler: inputHandlerType;
-  titlePlaceholder: string;
+  titlePlaceholder?: string;
   descriptionPlaceholder: string;
   pointHandler?: inputHandlerType;
   pointPlaceholder?: string;
   addPointForm?: boolean;
+  defaultTitle: string;
 };
 
 const DocumentationForm: VFC<Props> = (props) => {
@@ -22,17 +23,22 @@ const DocumentationForm: VFC<Props> = (props) => {
     pointHandler,
     pointPlaceholder,
     addPointForm,
+    defaultTitle,
   } = props;
 
   return (
     <div className="px-2">
       <div className="h-10 border-1 border-gray-300">
-        <InputForm
-          inputHandler={titleHandler}
-          placeholder={titlePlaceholder}
-          color="bg-base"
-          type="text"
-        />
+        {titleHandler && titlePlaceholder ? (
+          <InputForm
+            inputHandler={titleHandler}
+            placeholder={titlePlaceholder}
+            color="bg-base"
+            type="text"
+          />
+        ) : (
+          <div className="font-semibold text-lg leading-10 px-2">{defaultTitle}</div>
+        )}
       </div>
 
       <div className="h-2" />

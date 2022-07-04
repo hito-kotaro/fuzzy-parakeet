@@ -4,7 +4,6 @@ import CategoryHeader from '../organisms/Headers/CategoryHeader';
 import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
 import PrimaryList from '../molecules/Lists/PrimaryList';
 import { primaryListItem } from '../../types/ListItem/PrimaryListItemType';
-import { detailTemplateType } from '../../types/detailTemplateType';
 
 type Props = {
   title: string;
