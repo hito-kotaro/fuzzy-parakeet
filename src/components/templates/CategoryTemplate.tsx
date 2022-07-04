@@ -9,7 +9,7 @@ import { detailTemplateType } from '../../types/detailTemplateType';
 type Props = {
   title: string;
   listData: primaryListItem[];
-  openSubWindow: (detailHeaderData: detailTemplateType) => void;
+  openSubWindow: (detailHeaderData: any) => void;
   SubWindow: ReactElement;
 };
 

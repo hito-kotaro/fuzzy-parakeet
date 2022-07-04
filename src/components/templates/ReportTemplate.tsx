@@ -1,15 +1,18 @@
-import React, { useEffect, VFC } from 'react';
+import React, { VFC } from 'react';
+import { reportType } from '../../types/reportType';
 import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
 import DocumentationForm from '../molecules/DocumentationForm/DocumentationForm';
-import MiniHeader from '../organisms/Headers/MiniHeader';
+import ReportHeader from '../organisms/Headers/ReportHeader';
 
 type Props = {
-  toggleComponent: () => void;
   questTitle: string;
+  questId: number;
+  close: () => void;
+  sendReport: (r: reportType) => void;
 };
 
 const ReportTemplate: VFC<Props> = (props) => {
-  const { toggleComponent, questTitle } = props;
+  const { questId, questTitle, close, sendReport } = props;
   const titleHandler = useInputForm();
   const descriptionHandler = useInputForm();
   // const pointHandler = useInputForm();
@@ -18,16 +21,29 @@ const ReportTemplate: VFC<Props> = (props) => {
   const descriptionPlaceholder = '報告内容を入力してください(必須)';
   // const pointPlaceholder = '付与ポイントを入力してください(必須)';
 
-  useEffect(() => {}, []);
+  const clear = () => {
+    titleHandler.clear();
+    descriptionHandler.clear();
+  };
+  const onClickCancel = () => {
+    clear();
+    close();
+  };
+
+  const onClickReport = (r: reportType) => {
+    sendReport(r);
+    clear();
+  };
+
   return (
-    <div className="">
-      <MiniHeader
+    <div className="bg-base">
+      <ReportHeader
         title={questTitle}
-        backTo=""
-        onClickBack={toggleComponent}
-        goTo="/questboard"
-        onClickGo={toggleComponent}
-        positiveLinkText="報告"
+        id={questId}
+        reportTitle={titleHandler.input}
+        reportDescription={descriptionHandler.input}
+        onClickCancel={onClickCancel}
+        onClickReport={onClickReport}
       />
       <div className="h-2" />
 

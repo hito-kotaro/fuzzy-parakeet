@@ -9,6 +9,7 @@ import { dropDownItem } from '../../types/Dropdown/dropDownItemType';
 type Props = {
   title: string;
 };
+
 const HomeTemplates: VFC<Props> = (props) => {
   const { logout } = useLogin();
 
@@ -23,7 +24,7 @@ const HomeTemplates: VFC<Props> = (props) => {
 
   const { title } = props;
   return (
-    <div>
+    <div className="h-screen">
       <HomeHeader title="ホーム" dropDownItems={itemList} />
 
       <div className="h-6" />
