@@ -1,47 +1,62 @@
-import React, { useEffect, VFC } from 'react';
-import InputForm from '../atoms/InputForms/InputForm/InputForm';
+import React, { VFC } from 'react';
+import { reportType } from '../../types/reportType';
 import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
-import TextArea from '../atoms/InputForms/TextArea';
-import MiniHeader from '../organisms/Headers/MiniHeader';
+import DocumentationForm from '../molecules/DocumentationForm/DocumentationForm';
+import ReportHeader from '../organisms/Headers/ReportHeader';
 
 type Props = {
-  toggleComponent: () => void;
   questTitle: string;
+  questId: number;
+  close: () => void;
+  sendReport: (r: reportType) => void;
 };
 
 const ReportTemplate: VFC<Props> = (props) => {
-  const { toggleComponent, questTitle } = props;
+  const { questId, questTitle, close, sendReport } = props;
   const titleHandler = useInputForm();
   const descriptionHandler = useInputForm();
+  // const pointHandler = useInputForm();
 
-  const titlePlaceholder = '報告書のタイトルを入力してください(必須)';
+  const titlePlaceholder = 'タイトルを入力してください(必須)';
   const descriptionPlaceholder = '報告内容を入力してください(必須)';
+  // const pointPlaceholder = '付与ポイントを入力してください(必須)';
 
-  useEffect(() => {}, []);
+  const clear = () => {
+    titleHandler.clear();
+    descriptionHandler.clear();
+  };
+  const onClickCancel = () => {
+    clear();
+    close();
+  };
+
+  const onClickReport = (r: reportType) => {
+    sendReport(r);
+    clear();
+  };
+
   return (
-    <div className="">
-      <MiniHeader
+    <div className="bg-base h-screen">
+      <ReportHeader
         title={questTitle}
-        backTo=""
-        onClickBack={toggleComponent}
-        goTo="/questboard"
-        onClickGo={toggleComponent}
-        positiveLinkText="報告"
+        id={questId}
+        reportTitle={titleHandler.input}
+        reportDescription={descriptionHandler.input}
+        onClickCancel={onClickCancel}
+        onClickReport={onClickReport}
       />
+
       <div className="h-2" />
-      <div className="px-2">
-        <div className="h-10 border-1 border-gray-300">
-          <InputForm inputHandler={titleHandler} placeholder={titlePlaceholder} color="bg-base" />
-        </div>
-        <div className="h-2" />
-        <div className="h-70% border-1 border-gray-300">
-          <TextArea
-            inputHandler={descriptionHandler}
-            placeholder={descriptionPlaceholder}
-            color="bg-base"
-          />
-        </div>
-      </div>
+
+      <DocumentationForm
+        titleHandler={titleHandler}
+        titlePlaceholder={titlePlaceholder}
+        descriptionHandler={descriptionHandler}
+        descriptionPlaceholder={descriptionPlaceholder}
+        // pointHandler={pointHandler}
+        // pointPlaceholder={pointPlaceholder}
+        // addPointForm
+      />
     </div>
   );
 };

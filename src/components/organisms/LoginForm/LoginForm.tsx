@@ -21,6 +21,7 @@ const LoginForm = () => {
           placeholder="hogehoge@email.com"
           color="bg-gray-200"
           rounded="rounded-lg"
+          type="text"
         />
       </div>
 
@@ -30,9 +31,9 @@ const LoginForm = () => {
         <InputForm
           inputHandler={passwordInputHandler}
           placeholder="password"
-          password
           color="bg-gray-200"
           rounded="rounded-lg"
+          type="password"
         />
       </div>
 

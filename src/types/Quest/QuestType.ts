@@ -7,3 +7,5 @@ export type questType = {
   point: number;
   status: boolean;
 };
+
+export type createQuestType = Omit<questType, 'id'>;

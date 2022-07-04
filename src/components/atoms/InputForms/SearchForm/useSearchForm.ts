@@ -6,7 +6,7 @@ const useSearchForm = () => {
 
   const search = (input: string, list: primaryListItem[]) => {
     const filtered = list.filter((item: primaryListItem) => {
-      return item.topText.includes(input);
+      return item.title.includes(input);
     });
 
     setResult(filtered);

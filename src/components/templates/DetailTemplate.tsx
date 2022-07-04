@@ -1,17 +1,18 @@
 import { IconCheckCircle, IconClipboard, IconCopy, IconEdit, IconMinimize2 } from '@supabase/ui';
-import React, { VFC } from 'react';
+import React, { useEffect, VFC } from 'react';
 import { detailTemplateType } from '../../types/detailTemplateType';
 import { dropDownItem } from '../../types/Dropdown/dropDownItemType';
+import { questType } from '../../types/Quest/QuestType';
 import DetailCard from '../organisms/Cards/DetailCard/DetailCard';
 import DetailHeader from '../organisms/Headers/DetailHeader';
 
 type Props = {
-  isOpen: boolean;
-  closeDetail: () => void;
-  headerData: detailTemplateType;
+  quest: questType;
+  close: () => void;
+  reportOpen: () => void;
 };
 const DetailTemplate: VFC<Props> = (props) => {
-  const { isOpen, closeDetail, headerData } = props;
+  const { quest, close, reportOpen } = props;
   const role = 1;
 
   const questReport = () => {
@@ -27,7 +28,7 @@ const DetailTemplate: VFC<Props> = (props) => {
   };
 
   const memberMenu: dropDownItem[] = [
-    { icon: <IconCheckCircle />, onClick: questReport, text: '完了報告', divider: false },
+    { icon: <IconCheckCircle />, onClick: reportOpen, text: '完了報告', divider: false },
   ];
 
   const masterMenu: dropDownItem[] = [
@@ -41,20 +42,19 @@ const DetailTemplate: VFC<Props> = (props) => {
   ];
 
   return (
-    <div
-      className={`absolute z-50 bg-base h-screen w-full duration-500 ${
-        isOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
-      }`}
-    >
+    <div className="w-full h-screen overflow-scroll bg-base">
       <DetailHeader
-        headerData={headerData}
-        closeDetail={closeDetail}
+        closeDetail={close}
         // ロールによって表示するメニューを変える。
         dropDownItems={role === 1 ? memberMenu : memberMenu}
+        name={quest.owner}
+        title={quest.title}
+        date={quest.date}
       />
+
       <div className="h-5" />
       <div>
-        <DetailCard ownerName={headerData.name} description={headerData.description} />
+        <DetailCard ownerName={quest.owner} description={quest.description} />
       </div>
     </div>
   );

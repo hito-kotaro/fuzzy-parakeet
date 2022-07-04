@@ -47,13 +47,6 @@ const SubWindowTemplate: VFC<Props> = (props) => {
         isOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
       }`}
     >
-      <DetailHeader
-        headerData={headerData}
-        closeDetail={closeDetail}
-        // ロールによって表示するメニューを変える。
-        dropDownItems={role === 1 ? memberMenu : memberMenu}
-      />
-      <div className="h-5" />
       <div>
         <DetailCard ownerName={headerData.name} description={headerData.description} />
       </div>

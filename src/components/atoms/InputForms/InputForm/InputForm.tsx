@@ -5,19 +5,19 @@ type Props = {
   inputHandler: inputHandlerType;
   color: string;
   placeholder: string;
-  password?: boolean;
+  type: string;
   rounded?: string;
 };
 
 const InputForm: VFC<Props> = (props) => {
-  const { inputHandler, placeholder, password, color, rounded } = props;
-  const { input, onChange } = inputHandler;
+  const { inputHandler, placeholder, color, rounded, type } = props;
+  const { input, onChange, onChangeNumber } = inputHandler;
   return (
     <div className={`${color} ${rounded} w-full h-full`}>
       <input
-        type={password ? 'password' : 'text'}
+        type={type}
         value={input}
-        onChange={onChange}
+        onChange={type === 'number' ? onChangeNumber : onChange}
         placeholder={placeholder}
         className={`${color} ${rounded} text-lg w-full h-full focus:outline-none px-2`}
       />

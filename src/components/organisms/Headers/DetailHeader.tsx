@@ -7,15 +7,17 @@ import DropdownButton from '../../atoms/Buttons/DropdownButton';
 import IconLabel from '../../atoms/Labels/IconLabel';
 
 type Props = {
-  headerData: detailHeaderType;
+  name: string;
+  date: string;
+  title: string;
   closeDetail: () => void;
   dropDownItems: dropDownItem[];
 };
 
 const DetailHeader: VFC<Props> = (props) => {
-  const { headerData, closeDetail, dropDownItems } = props;
+  const { name, date, title, closeDetail, dropDownItems } = props;
   return (
-    <div className=" lead sticky top-0 z-50 bg-base drop-shadow-md p-2">
+    <div className="sticky top-0 z-50 bg-base drop-shadow-md p-2 w-full">
       <div className="flex ">
         <BackButton onClick={closeDetail} />
         <div className="ml-auto">
@@ -24,18 +26,12 @@ const DetailHeader: VFC<Props> = (props) => {
       </div>
       <div className="h-3" />
       <div className="flex">
-        <IconLabel size="small" name={headerData?.name} />
-        <div className="ml-auto text-gray-400">{headerData?.date}</div>
+        <IconLabel size="small" name={name} />
+        <div className="ml-auto text-gray-400">{date}</div>
       </div>
       <div className="h-3" />
-      <h2 className="text-2xl font-medium">{headerData?.title}</h2>
+      <h2 className="text-2xl font-medium">{title}</h2>
       <div className="h-3" />
-      <div>
-        <Badge color={headerData.status ? 'green' : 'red'}>
-          {headerData.status ? 'Open' : 'Close'}
-        </Badge>
-        <Badge>{headerData.message}</Badge>
-      </div>
     </div>
   );
 };
