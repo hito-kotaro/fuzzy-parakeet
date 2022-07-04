@@ -9,7 +9,7 @@ type Props = {
   input: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onClick: () => void;
-  onClickPlus: () => void;
+  onClickPlus?: () => void;
   selectItemList?: { value: string; itemText: string }[];
   selectHandler?: any;
 };
@@ -18,18 +18,22 @@ const ListHeader: VFC<Props> = (props) => {
   const { title, input, selectHandler, selectItemList, onClick, onChange, onClickPlus } = props;
   return (
     <>
-      <div className=" sticky top-0 z-30 bg-base drop-shadow-md p-2 w-full">
+      <div className=" bg-base drop-shadow-md p-2 w-full">
         <div className="flex">
           <HeaderLink to="/home" linkText="ホーム" backIcon />
-          <div className="ml-auto">
-            <button
-              onClick={onClickPlus}
-              type="button"
-              className="border-2 border-link rounded-full"
-            >
-              <IoIosAdd size={24} color="#4B72E0" />
-            </button>
-          </div>
+          {onClickPlus ? (
+            <div className="ml-auto">
+              <button
+                onClick={onClickPlus}
+                type="button"
+                className="border-2 border-link rounded-full"
+              >
+                <IoIosAdd size={24} color="#4B72E0" />
+              </button>
+            </div>
+          ) : (
+            ''
+          )}
         </div>
         <div className="mt-3">
           <h1 className="text-2xl font-semibold">{title}</h1>
