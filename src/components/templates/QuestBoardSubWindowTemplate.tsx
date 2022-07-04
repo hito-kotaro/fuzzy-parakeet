@@ -4,6 +4,7 @@ import { detailTemplateType } from '../../types/detailTemplateType';
 import { dropDownItem } from '../../types/Dropdown/dropDownItemType';
 import DetailCard from '../organisms/Cards/DetailCard/DetailCard';
 import DetailHeader from '../organisms/Headers/DetailHeader';
+import DocumentCreateTemplate from './DocumentCreateTemplate';
 import ReportTemplate from './ReportTemplate';
 
 type Props = {
@@ -68,7 +69,12 @@ const QuestBoardSubWindowTemplate: VFC<Props> = (props) => {
           </div>
         </>
       ) : (
-        <ReportTemplate toggleComponent={toggleComponent} questTitle={headerData.title} />
+        <DocumentCreateTemplate
+          toggleComponent={toggleComponent}
+          title={headerData.title}
+          titlePlaceholder="タイトルを入力してください(必須)"
+          descriptionPlaceholder="報告内容を入力してください(必須)"
+        />
       )}
     </div>
   );
