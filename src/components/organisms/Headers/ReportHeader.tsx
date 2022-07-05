@@ -25,7 +25,7 @@ const ReportHeader: VFC<Props> = (props) => {
   };
 
   return (
-    <div className=" lead sticky top-0 z-50 bg-base drop-shadow-md p-2">
+    <div className="sticky top-0 z-50 bg-base drop-shadow-md p-2">
       <div className="flex justify-between">
         <Link to="/questboard" onClick={onClickCancel} className="text-blue-700 text-lg">
           <div className="flex">

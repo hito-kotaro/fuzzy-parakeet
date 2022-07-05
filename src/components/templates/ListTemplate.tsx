@@ -1,6 +1,6 @@
-import React, { VFC, useEffect } from 'react';
-import { detailTemplateType } from '../../types/detailTemplateType';
+import React, { VFC, useEffect, ChangeEvent } from 'react';
 import { primaryListItem } from '../../types/ListItem/PrimaryListItemType';
+import { SelectItem } from '../../types/Select/SelectItemType';
 import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
 import useSearchForm from '../atoms/InputForms/SearchForm/useSearchForm';
 import PrimaryList from '../molecules/Lists/PrimaryList';
@@ -10,11 +10,13 @@ type Props = {
   title: string;
   listData: primaryListItem[];
   onClick: (id: number) => void;
-  onClickPlus: () => void;
+  onClickPlus?: () => void;
+  selectItemList?: SelectItem[];
+  selectHandler?: (e: ChangeEvent<HTMLSelectElement>) => void;
 };
 
 const ListTemplate: VFC<Props> = (props) => {
-  const { title, listData, onClick, onClickPlus } = props;
+  const { title, listData, onClick, onClickPlus, selectItemList, selectHandler } = props;
   const { result, search } = useSearchForm();
   const { input, onChange } = useInputForm();
   const onClickCreateButton = () => {};
@@ -24,16 +26,21 @@ const ListTemplate: VFC<Props> = (props) => {
   }, [input, listData]);
 
   return (
-    <div className="h-screen overflow-scroll">
+    <>
       <ListHeader
         title={title}
         input={input}
         onChange={onChange}
         onClick={onClickCreateButton}
         onClickPlus={onClickPlus}
+        selectItemList={selectItemList}
+        selectHandler={selectHandler}
       />
-      <PrimaryList list={result} onClick={onClick} />
-    </div>
+
+      <div className="h-70% overflow-scroll">
+        <PrimaryList list={result} onClick={onClick} />
+      </div>
+    </>
   );
 };
 

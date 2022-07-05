@@ -1,5 +1,4 @@
 import React, { VFC } from 'react';
-import { detailTemplateType } from '../../../types/detailTemplateType';
 import { primaryListItem } from '../../../types/ListItem/PrimaryListItemType';
 import PrimaryListItemButton from '../../atoms/Buttons/PrimaryListItemButton';
 
@@ -12,7 +11,7 @@ const PrimaryList: VFC<Props> = (props) => {
   const { list, onClick } = props;
 
   return (
-    <div className="h-full">
+    <>
       {list?.map((item: primaryListItem) => (
         <PrimaryListItemButton
           key={item.id}
@@ -21,12 +20,12 @@ const PrimaryList: VFC<Props> = (props) => {
           title={item.title}
           description={item.description}
           date={item.date}
-          badge={item.badge}
+          badgeColor={item.badgeColor}
+          badgeText={item.badgeText}
           onClick={onClick}
         />
       ))}
-      <div className="bg-base h-10" />
-    </div>
+    </>
   );
 };
 
