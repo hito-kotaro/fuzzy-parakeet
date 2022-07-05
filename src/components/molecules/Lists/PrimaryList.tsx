@@ -3,7 +3,7 @@ import { primaryListItem } from '../../../types/ListItem/PrimaryListItemType';
 import PrimaryListItemButton from '../../atoms/Buttons/PrimaryListItemButton';
 
 type Props = {
-  list: any[] | undefined;
+  list: primaryListItem[];
   onClick: (id: number) => void;
 };
 
@@ -12,7 +12,7 @@ const PrimaryList: VFC<Props> = (props) => {
 
   return (
     <>
-      {list?.map((item: primaryListItem) => (
+      {list.map((item: primaryListItem) => (
         <PrimaryListItemButton
           key={item.id}
           id={item.id}
@@ -23,6 +23,7 @@ const PrimaryList: VFC<Props> = (props) => {
           badgeColor={item.badgeColor}
           badgeText={item.badgeText}
           onClick={onClick}
+          isTeam={item.isTeam}
         />
       ))}
     </>
