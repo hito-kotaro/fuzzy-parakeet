@@ -30,16 +30,18 @@ const DetailTemplate: VFC<Props> = (props) => {
       <DetailHeader
         closeDetail={close}
         // ロールによって表示するメニューを変える。
-        dropDownItems={dropDownMenu}
         name={data.name}
         title={data.title}
         date={data.date}
+        isDropdown
+        dropDownItems={dropDownMenu}
       />
 
       <div className="h-5" />
       <div>
         <DetailCard
           ownerName={data.name}
+          date={data.date}
           description={data.description}
           badgeText="owner"
           badgeColor="blue"

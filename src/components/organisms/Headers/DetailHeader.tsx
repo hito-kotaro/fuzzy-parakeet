@@ -1,11 +1,7 @@
-import { Badge } from '@supabase/ui';
 import React, { VFC } from 'react';
 import { dropDownItem } from '../../../types/Dropdown/dropDownItemType';
-import { detailHeaderType } from '../../../types/Header/detailHeaderType';
-import { SelectItem } from '../../../types/Select/SelectItemType';
 import BackButton from '../../atoms/Buttons/BackButton';
 import DropdownButton from '../../atoms/Buttons/DropdownButton';
-import SelectForm from '../../atoms/InputForms/SelectForm/SelectForm';
 import IconLabel from '../../atoms/Labels/IconLabel';
 
 type Props = {
@@ -14,17 +10,22 @@ type Props = {
   title: string;
   closeDetail: () => void;
   dropDownItems: dropDownItem[];
+  isDropdown?: boolean;
 };
 
 const DetailHeader: VFC<Props> = (props) => {
-  const { name, date, title, closeDetail, dropDownItems } = props;
+  const { name, date, title, closeDetail, dropDownItems, isDropdown } = props;
   return (
     <div className="sticky top-0 z-50 bg-base drop-shadow-md p-2 w-full">
       <div className="flex ">
         <BackButton onClick={closeDetail} />
-        <div className="ml-auto">
-          <DropdownButton itemList={dropDownItems} />
-        </div>
+        {isDropdown ? (
+          <div className="ml-auto">
+            <DropdownButton itemList={dropDownItems} />
+          </div>
+        ) : (
+          ''
+        )}
       </div>
       <div className="h-3" />
       <div className="flex">

@@ -28,12 +28,14 @@ const ApproveRequestPage = () => {
     title: '',
     description: '',
     point: 0,
-    date: '',
     questTitle: '',
     questOwner: '',
+    questCreated_at: '',
     questDescription: '',
     status: '',
     authorizer: '',
+    created_at: '',
+    updated_at: '',
   };
 
   const [approveRequest, setApproveRequest] = useState<approveRequestType>(defaultAR);
@@ -77,7 +79,7 @@ const ApproveRequestPage = () => {
         name: a.applicant,
         title: a.title,
         description: a.description,
-        date: a.date,
+        date: a.created_at,
         badgeColor: color,
         badgeText: a.status,
       };
@@ -124,7 +126,7 @@ const ApproveRequestPage = () => {
         name: a.applicant,
         title: a.title,
         description: a.description,
-        date: a.date,
+        date: a.created_at,
         badgeColor: color,
         badgeText: a.status,
       };

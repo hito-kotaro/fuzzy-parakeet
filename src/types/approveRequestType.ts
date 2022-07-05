@@ -7,9 +7,11 @@ export type approveRequestType = {
   title: string;
   questTitle: string;
   questOwner: string;
+  questCreated_at: string;
   questDescription: string;
   description: string;
   point: number;
   status: string;
-  date: string;
+  created_at: string;
+  updated_at: string;
 };

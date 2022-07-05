@@ -19,6 +19,7 @@ const ApproveDetailTemplate: VFC<Props> = (props) => {
         return (
           <DetailCard
             ownerName={data.authorizer}
+            date={data.updated_at}
             description="承認"
             badgeText="authorizer"
             badgeColor="blue"
@@ -28,6 +29,7 @@ const ApproveDetailTemplate: VFC<Props> = (props) => {
         return (
           <DetailCard
             ownerName={data.applicant}
+            date={data.updated_at}
             description="キャンセル"
             badgeText="applicant"
             badgeColor="green"
@@ -37,6 +39,7 @@ const ApproveDetailTemplate: VFC<Props> = (props) => {
         return (
           <DetailCard
             ownerName={data.authorizer}
+            date={data.updated_at}
             description="却下"
             badgeText="authorizer"
             badgeColor="blue"
@@ -54,17 +57,20 @@ const ApproveDetailTemplate: VFC<Props> = (props) => {
         dropDownItems={dropDownMenu}
         name={data.applicant}
         title={data.title}
-        date={data.date}
+        date={data.created_at}
+        isDropdown={data.status === 'open'}
       />
       <DetailCard
         ownerName={data.questOwner}
         description={data.questDescription}
+        date={data.created_at}
         badgeText="owner"
         badgeColor="purple"
       />
       <DetailCard
         ownerName={data.applicant}
         description={data.description}
+        date={data.created_at}
         badgeText="applicant"
         badgeColor="green"
       />

@@ -4,12 +4,13 @@ import IconLabel from '../../../atoms/Labels/IconLabel';
 
 type Props = {
   ownerName: string;
+  date: string;
   description: string;
   badgeText: string;
   badgeColor?: 'gray' | 'red' | 'yellow' | 'green' | 'blue' | 'indigo' | 'purple' | 'pink';
 };
 const DetailCard: VFC<Props> = (props) => {
-  const { ownerName, description, badgeText, badgeColor } = props;
+  const { ownerName, date, description, badgeText, badgeColor } = props;
 
   const isNoDescription = description.length === 0;
 
@@ -21,6 +22,7 @@ const DetailCard: VFC<Props> = (props) => {
           <IconLabel size="medium" name={ownerName} />
           <div className="ml-auto">
             <Badge color={badgeColor}>{badgeText}</Badge>
+            <div className="text-gray-400 text-right">{date}</div>
           </div>
         </div>
         <div className="h-2" />
