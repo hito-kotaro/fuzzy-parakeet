@@ -1,5 +1,5 @@
 import React, { VFC } from 'react';
-import { createQuestType } from '../../types/Quest/QuestType';
+import { createTeamType } from '../../types/teamsType';
 import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
 import DocumentationForm from '../molecules/DocumentationForm/DocumentationForm';
 import MiniHeader from '../organisms/Headers/MiniHeader';
@@ -8,17 +8,16 @@ type Props = {
   close: () => void;
 };
 
-const CreateQuestTemplate: VFC<Props> = (props) => {
+const CreateTeamTemplate: VFC<Props> = (props) => {
   const { close } = props;
-  const titleHandler = useInputForm();
-  const pointHandler = useInputForm();
+  const nameHandler = useInputForm();
   const descriptionHandler = useInputForm();
 
-  const titlePlaceholder = 'タイトルを入力してください(必須)';
+  const namePlaceholder = 'タイトルを入力してください(必須)';
   const descriptionPlaceholder = 'クエスト内容を入力してください(任意)';
-  const pointPlaceholder = '達成ポイントを入力してください(必須)';
+
   const clear = () => {
-    titleHandler.clear();
+    nameHandler.clear();
     descriptionHandler.clear();
   };
 
@@ -28,15 +27,15 @@ const CreateQuestTemplate: VFC<Props> = (props) => {
   };
 
   const onClickCreate = () => {
-    const newQuest: createQuestType = {
-      owner: 'kotaro',
-      title: titleHandler.input,
+    const newTeam: createTeamType = {
+      name: nameHandler.input,
       description: descriptionHandler.input,
-      date: '2022/12/21',
-      point: Number(pointHandler.input),
-      status: true,
+      created_at: 'today',
+      updated_at: '',
     };
-    console.log(newQuest);
+
+    console.log(newTeam);
+
     clear();
     close();
   };
@@ -44,25 +43,20 @@ const CreateQuestTemplate: VFC<Props> = (props) => {
   return (
     <div className="bg-base h-screen">
       <MiniHeader
-        title="新しいクエストを発行"
-        createText="発行"
+        title="新しいチームを作成"
+        createText="作成"
         onClickCancel={onClickCancel}
         onClickCreate={onClickCreate}
       />
       <div className="h-2" />
-
       <DocumentationForm
-        titleHandler={titleHandler}
-        titlePlaceholder={titlePlaceholder}
+        titleHandler={nameHandler}
+        titlePlaceholder={namePlaceholder}
         descriptionHandler={descriptionHandler}
         descriptionPlaceholder={descriptionPlaceholder}
-        pointHandler={pointHandler}
-        pointPlaceholder={pointPlaceholder}
-        addPointForm
-        defaultTitle="QuestName"
       />
     </div>
   );
 };
 
-export default CreateQuestTemplate;
+export default CreateTeamTemplate;

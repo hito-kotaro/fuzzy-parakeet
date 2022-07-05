@@ -1,5 +1,3 @@
-import { ReactElement } from 'react';
-
 export type primaryListItem = {
   id: number;
   name: string;
@@ -8,4 +6,5 @@ export type primaryListItem = {
   date: string;
   badgeColor: 'red' | 'green' | 'gray' | 'yellow' | 'blue' | 'indigo' | 'purple' | 'pink';
   badgeText: string;
+  isTeam?: boolean;
 };

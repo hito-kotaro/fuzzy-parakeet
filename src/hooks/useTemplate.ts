@@ -10,6 +10,7 @@ const useTemplate = (defaultState: boolean) => {
   const close = () => {
     setIsOpen(false);
   };
+
   return { isOpen, open, close };
 };
 
