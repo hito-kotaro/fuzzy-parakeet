@@ -84,12 +84,19 @@ const QuestBoardPage = () => {
   };
 
   const memberMenu: dropDownItem[] = [
-    { icon: <IconCheckCircle />, onClick: reportTemplate.open, text: '完了報告', divider: false },
+    {
+      icon: <IconCheckCircle />,
+      onClick: reportTemplate.open,
+      text: '完了報告',
+      divider: false,
+    },
   ];
 
   return (
     <>
-      <div className={` switch-components z-30 ${listTemplate.isOpen ? display : hidden}`}>
+      <div
+        className={` switch-components z-30 ${listTemplate.isOpen ? display : hidden}`}
+      >
         <ListTemplate
           title="QuestBoard"
           listData={list}
@@ -98,7 +105,9 @@ const QuestBoardPage = () => {
         />
       </div>
 
-      <div className={`switch-components z-40 ${detailTemplate.isOpen ? display : hidden}`}>
+      <div
+        className={`switch-components z-40 ${detailTemplate.isOpen ? display : hidden}`}
+      >
         <DetailTemplate
           data={{
             name: quest.owner,
@@ -111,7 +120,9 @@ const QuestBoardPage = () => {
         />
       </div>
 
-      <div className={`switch-components z-50 ${reportTemplate.isOpen ? display : hidden}`}>
+      <div
+        className={`switch-components z-50 ${reportTemplate.isOpen ? display : hidden}`}
+      >
         <ReportTemplate
           questTitle={quest.title}
           questId={quest.id}
@@ -119,8 +130,10 @@ const QuestBoardPage = () => {
           close={reportTemplate.close}
         />
       </div>
-      <div className={`switch-components z-50 ${createTemplate.isOpen ? display : hidden}`}>
-        <CreateQuestTemplate close={createTemplate.close} issueQuest={issueQuest} />
+      <div
+        className={`switch-components z-50 ${createTemplate.isOpen ? display : hidden}`}
+      >
+        <CreateQuestTemplate close={createTemplate.close} />
       </div>
     </>
   );

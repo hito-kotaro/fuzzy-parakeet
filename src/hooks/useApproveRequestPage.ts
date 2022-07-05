@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import useSelectForm from '../components/atoms/InputForms/SelectForm/useSelectForm';
 import { defaultAR } from '../lib/defaultData';
 import { approveRequestData } from '../testData/ApproveRequestTestData';
@@ -72,6 +72,7 @@ const useApproveRequestPage = () => {
     });
     setList(primaryList);
   };
+
   return {
     list,
     value,

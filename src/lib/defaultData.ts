@@ -1,4 +1,13 @@
 import { approveRequestType } from '../types/approveRequestType';
+import { teamType } from '../types/teamsType';
+
+export const defaultTeam: teamType = {
+  id: 0,
+  name: 'けつばん',
+  description: 'みたな？',
+  created_at: 'あした',
+  updated_at: 'きのう',
+};
 
 export const defaultAR: approveRequestType = {
   id: 0,
