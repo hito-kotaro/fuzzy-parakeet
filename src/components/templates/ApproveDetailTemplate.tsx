@@ -12,6 +12,40 @@ type Props = {
 
 const ApproveDetailTemplate: VFC<Props> = (props) => {
   const { data, close, dropDownMenu } = props;
+
+  const checkStatus = (status: string) => {
+    switch (status) {
+      case 'approved':
+        return (
+          <DetailCard
+            ownerName={data.authorizer}
+            description="承認"
+            badgeText="authorizer"
+            badgeColor="blue"
+          />
+        );
+      case 'canceled':
+        return (
+          <DetailCard
+            ownerName={data.applicant}
+            description="キャンセル"
+            badgeText="applicant"
+            badgeColor="green"
+          />
+        );
+      case 'rejected':
+        return (
+          <DetailCard
+            ownerName={data.authorizer}
+            description="却下"
+            badgeText="authorizer"
+            badgeColor="blue"
+          />
+        );
+      default:
+        return '';
+    }
+  };
   return (
     <div className="bg-base h-screen">
       <DetailHeader
@@ -26,7 +60,7 @@ const ApproveDetailTemplate: VFC<Props> = (props) => {
         ownerName={data.questOwner}
         description={data.questDescription}
         badgeText="owner"
-        badgeColor="blue"
+        badgeColor="purple"
       />
       <DetailCard
         ownerName={data.applicant}
@@ -34,16 +68,8 @@ const ApproveDetailTemplate: VFC<Props> = (props) => {
         badgeText="applicant"
         badgeColor="green"
       />
-      {data.approve && data.authorizer ? (
-        <DetailCard
-          ownerName={data.authorizer}
-          description="承認"
-          badgeText="authorizer"
-          badgeColor="yellow"
-        />
-      ) : (
-        ''
-      )}
+
+      {checkStatus(data.status)}
     </div>
   );
 };

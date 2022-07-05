@@ -11,7 +11,7 @@ type Props = {
   onClick: () => void;
   onClickPlus?: () => void;
   selectItemList?: { value: string; itemText: string }[];
-  selectHandler?: any;
+  selectHandler?: (e: ChangeEvent<HTMLSelectElement>) => void;
 };
 
 const ListHeader: VFC<Props> = (props) => {
@@ -39,7 +39,7 @@ const ListHeader: VFC<Props> = (props) => {
           <h1 className="text-2xl font-semibold">{title}</h1>
           <SearchForm input={input} onChange={onChange} />
           <div className="w-1/3 mt-2 ml-auto">
-            {selectItemList ? (
+            {selectItemList && selectHandler ? (
               <SelectForm selectItemList={selectItemList} selectHandler={selectHandler} />
             ) : (
               ''

@@ -2,8 +2,10 @@ import { Badge } from '@supabase/ui';
 import React, { VFC } from 'react';
 import { dropDownItem } from '../../../types/Dropdown/dropDownItemType';
 import { detailHeaderType } from '../../../types/Header/detailHeaderType';
+import { SelectItem } from '../../../types/Select/SelectItemType';
 import BackButton from '../../atoms/Buttons/BackButton';
 import DropdownButton from '../../atoms/Buttons/DropdownButton';
+import SelectForm from '../../atoms/InputForms/SelectForm/SelectForm';
 import IconLabel from '../../atoms/Labels/IconLabel';
 
 type Props = {
