@@ -30,8 +30,6 @@ const MyWorkList = () => {
 
       <div className={`h-${space}`} />
 
-      <div className={`h-${space}`} />
-
       <IconLabelButton
         text="Teams"
         icon={<RiTeamLine color="#ffffff" />}
