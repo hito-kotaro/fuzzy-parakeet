@@ -2,6 +2,7 @@ import { IconCheckCircle } from '@supabase/ui';
 import React, { useEffect } from 'react';
 import useUsersPage from '../../hooks/useUsersPage';
 import { dropDownItem } from '../../types/Dropdown/dropDownItemType';
+import PrimaryModal from '../molecules/PrimaryModal';
 import ListTemplate from '../templates/ListTemplate';
 import UserAttributeUpdateTemplate from '../templates/UserAttributeUpdateTemplate';
 import UserCreateTemplate from '../templates/UserCreateTemplate';
@@ -17,9 +18,10 @@ const UsersPage = () => {
     detailTemplateState,
     updateUserInfoTemplateState,
     updateUserAttributeTemplateState,
+    modal,
+    deleteExec,
     onClickListItem,
     filterList,
-    onClickPlus,
   } = useUsersPage();
 
   const display = 'translate-x-0 opacity-100';
@@ -28,10 +30,6 @@ const UsersPage = () => {
   useEffect(() => {
     filterList();
   }, []);
-
-  const dummy = () => {
-    console.log('test');
-  };
 
   const myMenu: dropDownItem[] = [
     {
@@ -51,7 +49,7 @@ const UsersPage = () => {
     },
     {
       icon: <IconCheckCircle stroke="red" />,
-      onClick: dummy,
+      onClick: modal.toggle,
       text: 'ユーザー削除',
       divider: true,
     },
@@ -59,6 +57,13 @@ const UsersPage = () => {
 
   return (
     <>
+      <PrimaryModal
+        onCancel={modal.toggle}
+        onConfirm={deleteExec}
+        toggle={modal.toggle}
+        visible={modal.visible}
+        name={user.name}
+      />
       <div
         className={` switch-components z-30 ${
           listTemplateState.isOpen ? display : hidden
@@ -68,7 +73,7 @@ const UsersPage = () => {
           title="Users"
           listData={list}
           onClick={onClickListItem}
-          onClickPlus={onClickPlus}
+          onClickPlus={createTemplateState.open}
         />
       </div>
 

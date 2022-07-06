@@ -30,3 +30,7 @@ export type updateUserAttributeType = {
   roleId: number;
   teamId: number;
 };
+
+export type deleteUserType = {
+  id: number;
+};

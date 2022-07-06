@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { defaultUser } from '../lib/defaultData';
 import { usersData } from '../testData/UsersTestData';
 import { primaryListItem } from '../types/ListItem/PrimaryListItemType';
-import { userType } from '../types/usersType';
+import { deleteUserType, userType } from '../types/usersType';
+import useModal from './useModal';
 import usePrimaryList from './usePrimaryList';
 import useTemplate from './useTemplate';
 
@@ -14,6 +15,7 @@ const useUsersPage = () => {
   const detailTemplateState = useTemplate(false);
   const updateUserInfoTemplateState = useTemplate(false);
   const updateUserAttributeTemplateState = useTemplate(false);
+  const modal = useModal();
 
   // 詳細画面に渡す情報をステートにセット
   const onClickListItem = (id: number) => {
@@ -44,6 +46,14 @@ const useUsersPage = () => {
     setList(primaryList);
   };
 
+  const deleteExec = () => {
+    const deleteUser: deleteUserType = {
+      id: user.id,
+    };
+    console.log(deleteUser);
+    modal.toggle();
+  };
+
   return {
     listTemplateState,
     detailTemplateState,
@@ -52,9 +62,10 @@ const useUsersPage = () => {
     updateUserAttributeTemplateState,
     list,
     user,
+    modal,
     onClickListItem,
+    deleteExec,
     filterList,
-    onClickPlus,
   };
 };
 
