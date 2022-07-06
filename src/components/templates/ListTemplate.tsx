@@ -1,4 +1,5 @@
 import React, { VFC, useEffect, ChangeEvent } from 'react';
+import { selectHandlerType } from '../../types/Handler/HandlerTypes';
 import { primaryListItem } from '../../types/ListItem/PrimaryListItemType';
 import { SelectItem } from '../../types/Select/SelectItemType';
 import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
@@ -12,7 +13,7 @@ type Props = {
   onClick: (id: number) => void;
   onClickPlus?: () => void;
   selectItemList?: SelectItem[];
-  selectHandler?: (e: ChangeEvent<HTMLSelectElement>) => void;
+  selectHandler?: selectHandlerType;
 };
 
 const ListTemplate: VFC<Props> = (props) => {

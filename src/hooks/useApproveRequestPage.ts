@@ -12,7 +12,7 @@ import useTemplate from './useTemplate';
 const useApproveRequestPage = () => {
   const [approveRequest, setApproveRequest] = useState<approveRequestType>(defaultAR);
   const { list, setList, filterByApproveStatus } = usePrimaryList();
-  const { value, handleChange } = useSelectForm('open');
+  const statusSelectHandler = useSelectForm('open');
   const listTemplateState = useTemplate(true);
   const detailTemplateState = useTemplate(false);
 
@@ -35,13 +35,11 @@ const useApproveRequestPage = () => {
 
   return {
     list,
-    value,
     approveRequest,
     detailTemplateState,
     listTemplateState,
     statusFilter,
-
-    handleChange,
+    statusSelectHandler,
     onClickListItem,
     filterByApproveStatus,
   };

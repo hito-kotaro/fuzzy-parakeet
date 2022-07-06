@@ -8,12 +8,12 @@ import useApproveRequestPage from '../../hooks/useApproveRequestPage';
 const ApproveRequestPage = () => {
   const {
     list,
-    value,
+
     approveRequest,
     detailTemplateState,
     listTemplateState,
     statusFilter,
-    handleChange,
+    statusSelectHandler,
     onClickListItem,
     filterByApproveStatus,
   } = useApproveRequestPage();
@@ -23,8 +23,8 @@ const ApproveRequestPage = () => {
 
   // フィルターが変わるたびにリストを更新
   useEffect(() => {
-    filterByApproveStatus(value);
-  }, [value]);
+    filterByApproveStatus(statusSelectHandler.value);
+  }, [statusSelectHandler.value]);
 
   const requestCancel = () => {
     console.log('Cancel Request!!!');
@@ -65,7 +65,7 @@ const ApproveRequestPage = () => {
           title="ApproveRequest"
           listData={list}
           onClick={onClickListItem}
-          selectHandler={handleChange}
+          selectHandler={statusSelectHandler}
           selectItemList={statusFilter}
         />
       </div>

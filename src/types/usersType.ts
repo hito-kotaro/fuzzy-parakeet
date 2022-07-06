@@ -11,3 +11,11 @@ export type userType = {
   created_at: string;
   updated_at: string;
 };
+
+export type createUserType = {
+  name: string;
+  email: string;
+  roleId: number;
+  teamId: number;
+  password: string;
+};

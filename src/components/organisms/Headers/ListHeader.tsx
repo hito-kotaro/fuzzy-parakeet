@@ -1,5 +1,6 @@
 import React, { ChangeEvent, VFC } from 'react';
 import { IoIosAdd } from 'react-icons/io';
+import { selectHandlerType } from '../../../types/Handler/HandlerTypes';
 import SearchForm from '../../atoms/InputForms/SearchForm/SearchForm';
 import SelectForm from '../../atoms/InputForms/SelectForm/SelectForm';
 import HeaderLink from '../../atoms/Links/HeaderLink';
@@ -11,11 +12,12 @@ type Props = {
   onClick: () => void;
   onClickPlus?: () => void;
   selectItemList?: { value: string; itemText: string }[];
-  selectHandler?: (e: ChangeEvent<HTMLSelectElement>) => void;
+  selectHandler?: selectHandlerType;
 };
 
 const ListHeader: VFC<Props> = (props) => {
-  const { title, input, selectHandler, selectItemList, onClick, onChange, onClickPlus } = props;
+  const { title, input, selectHandler, selectItemList, onClick, onChange, onClickPlus } =
+    props;
   return (
     <>
       <div className=" bg-base drop-shadow-md p-2 w-full">

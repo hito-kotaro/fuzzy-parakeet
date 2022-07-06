@@ -6,3 +6,8 @@ export type inputHandlerType = {
   onChangeNumber: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   clear: () => void;
 };
+
+export type selectHandlerType = {
+  value: string;
+  handleChange: (e: ChangeEvent<HTMLSelectElement>) => void;
+};

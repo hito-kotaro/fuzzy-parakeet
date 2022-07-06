@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import useUsersPage from '../../hooks/useUsersPage';
 import ListTemplate from '../templates/ListTemplate';
+import UserCreateTemplate from '../templates/UserCreateTemplate';
 import UserDetailTemplate from '../templates/UserDetailTemplate';
 
 const UsersPage = () => {
@@ -39,12 +40,21 @@ const UsersPage = () => {
           onClickPlus={onClickPlus}
         />
       </div>
+
       <div
         className={` switch-components z-30 ${
           detailTemplateState.isOpen ? display : hidden
         }`}
       >
         <UserDetailTemplate data={user} close={detailTemplateState.close} />
+      </div>
+
+      <div
+        className={` switch-components z-30 ${
+          createTemplateState.isOpen ? display : hidden
+        }`}
+      >
+        <UserCreateTemplate close={createTemplateState.close} />
       </div>
     </>
   );
