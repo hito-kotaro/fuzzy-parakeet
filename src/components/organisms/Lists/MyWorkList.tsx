@@ -31,15 +31,6 @@ const MyWorkList = () => {
       <div className={`h-${space}`} />
 
       <IconLabelButton
-        text="TimeLine"
-        icon={<AiOutlineHistory />}
-        iconColor="bg-yellow-400"
-        path="/timeline"
-      />
-
-      <div className={`h-${space}`} />
-
-      <IconLabelButton
         text="Teams"
         icon={<RiTeamLine color="#ffffff" />}
         iconColor="bg-purple-500"
