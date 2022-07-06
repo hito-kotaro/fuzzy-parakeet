@@ -20,7 +20,7 @@ export const approveRequestData: approveRequestType[] = [
   },
   {
     id: 2,
-    applicantId: 1,
+    applicantId: 2,
     applicant: 'hosina',
     authorizer: '',
     authorizerId: 1,
@@ -54,7 +54,7 @@ export const approveRequestData: approveRequestType[] = [
   },
   {
     id: 4,
-    applicantId: 1,
+    applicantId: 3,
     applicant: 'konishi',
     authorizer: 'sato',
     authorizerId: 1,
@@ -71,7 +71,7 @@ export const approveRequestData: approveRequestType[] = [
   },
   {
     id: 5,
-    applicantId: 1,
+    applicantId: 4,
     applicant: 'haraguchi',
     authorizer: 'sato',
     authorizerId: 1,
@@ -88,7 +88,7 @@ export const approveRequestData: approveRequestType[] = [
   },
   {
     id: 6,
-    applicantId: 1,
+    applicantId: 5,
     applicant: 'nakamura',
     authorizer: 'sato',
     authorizerId: 1,
@@ -105,7 +105,7 @@ export const approveRequestData: approveRequestType[] = [
   },
   {
     id: 7,
-    applicantId: 1,
+    applicantId: 5,
     applicant: 'nakamura',
     authorizer: 'sato',
     authorizerId: 1,
@@ -122,7 +122,7 @@ export const approveRequestData: approveRequestType[] = [
   },
   {
     id: 8,
-    applicantId: 1,
+    applicantId: 5,
     applicant: 'nakamura',
     authorizer: 'sato',
     authorizerId: 1,
@@ -139,7 +139,7 @@ export const approveRequestData: approveRequestType[] = [
   },
   {
     id: 9,
-    applicantId: 1,
+    applicantId: 5,
     applicant: 'nakamura',
     authorizer: 'sato',
     authorizerId: 1,
@@ -156,7 +156,7 @@ export const approveRequestData: approveRequestType[] = [
   },
   {
     id: 10,
-    applicantId: 1,
+    applicantId: 5,
     applicant: 'nakamura',
     authorizer: 'sato',
     authorizerId: 1,

@@ -5,8 +5,10 @@ const useSelectForm = (defaultValue: string) => {
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setValue(e.target.value);
+    console.log(e.target.value);
   };
-  return { value, handleChange };
+
+  return { value, handleChange, setValue };
 };
 
 export default useSelectForm;

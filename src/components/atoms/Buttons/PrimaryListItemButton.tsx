@@ -22,7 +22,7 @@ const PrimaryListItemButton: VFC<Props> = (props) => {
   return (
     <button type="button" className="w-full" onClick={() => onClick(id)}>
       <div className="flex border-b-1 px-3 py-2 bg-white">
-        <MyAvatar size={44} name={name} isTeam />
+        <MyAvatar size={44} name={name} isTeam={isTeam} />
 
         <div className="ml-5 text-left">
           <div className="text-sm text-gray-500 whitespace-nowrap truncate">{title}</div>
