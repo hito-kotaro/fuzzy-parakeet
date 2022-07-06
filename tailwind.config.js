@@ -10,6 +10,7 @@ module.exports = {
       },
       lineHeight: {
         12: '48px',
+        16: '64px',
       },
       spacing: {
         '70%': '70vh',
