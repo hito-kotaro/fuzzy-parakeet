@@ -24,3 +24,9 @@ export type updateUserPasswordType = {
   id: number;
   password: string;
 };
+
+export type updateUserAttributeType = {
+  id: number;
+  roleId: number;
+  teamId: number;
+};

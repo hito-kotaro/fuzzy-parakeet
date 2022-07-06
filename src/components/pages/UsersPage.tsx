@@ -1,9 +1,12 @@
+import { IconCheckCircle } from '@supabase/ui';
 import React, { useEffect } from 'react';
 import useUsersPage from '../../hooks/useUsersPage';
+import { dropDownItem } from '../../types/Dropdown/dropDownItemType';
 import ListTemplate from '../templates/ListTemplate';
+import UserAttributeUpdateTemplate from '../templates/UserAttributeUpdateTemplate';
 import UserCreateTemplate from '../templates/UserCreateTemplate';
 import UserDetailTemplate from '../templates/UserDetailTemplate';
-import UserUpdateTemplate from '../templates/UserUpdateTemplate';
+import UserInfoUpdateTemplate from '../templates/UserInfoUpdateTemplate';
 
 const UsersPage = () => {
   const {
@@ -12,7 +15,8 @@ const UsersPage = () => {
     listTemplateState,
     createTemplateState,
     detailTemplateState,
-    updateUserTemplateState,
+    updateUserInfoTemplateState,
+    updateUserAttributeTemplateState,
     onClickListItem,
     filterList,
     onClickPlus,
@@ -28,6 +32,30 @@ const UsersPage = () => {
   const dummy = () => {
     console.log('test');
   };
+
+  const myMenu: dropDownItem[] = [
+    {
+      icon: <IconCheckCircle />,
+      onClick: updateUserInfoTemplateState.open,
+      text: 'ユーザー情報更新',
+      divider: false,
+    },
+  ];
+
+  const masterMenu: dropDownItem[] = [
+    {
+      icon: <IconCheckCircle />,
+      onClick: updateUserAttributeTemplateState.open,
+      text: 'ユーザー属性変更',
+      divider: false,
+    },
+    {
+      icon: <IconCheckCircle stroke="red" />,
+      onClick: dummy,
+      text: 'ユーザー削除',
+      divider: true,
+    },
+  ];
 
   return (
     <>
@@ -52,16 +80,31 @@ const UsersPage = () => {
         <UserDetailTemplate
           data={user}
           close={detailTemplateState.close}
-          updateUserTemplateState={updateUserTemplateState}
+          // masterならmasterMenuを、idが自分と一致したらmyIdを渡す
+          menuItem={masterMenu}
         />
       </div>
 
       <div
         className={` switch-components z-40 ${
-          updateUserTemplateState.isOpen ? display : hidden
+          updateUserInfoTemplateState.isOpen ? display : hidden
         }`}
       >
-        <UserUpdateTemplate close={updateUserTemplateState.close} name={user.name} />
+        <UserInfoUpdateTemplate
+          close={updateUserInfoTemplateState.close}
+          name={user.name}
+        />
+      </div>
+
+      <div
+        className={` switch-components z-40 ${
+          updateUserAttributeTemplateState.isOpen ? display : hidden
+        }`}
+      >
+        <UserAttributeUpdateTemplate
+          close={updateUserAttributeTemplateState.close}
+          user={user}
+        />
       </div>
 
       <div

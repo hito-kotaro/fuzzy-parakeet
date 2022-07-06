@@ -12,7 +12,8 @@ const useUsersPage = () => {
   const listTemplateState = useTemplate(true);
   const createTemplateState = useTemplate(false);
   const detailTemplateState = useTemplate(false);
-  const updateUserTemplateState = useTemplate(false);
+  const updateUserInfoTemplateState = useTemplate(false);
+  const updateUserAttributeTemplateState = useTemplate(false);
 
   // 詳細画面に渡す情報をステートにセット
   const onClickListItem = (id: number) => {
@@ -47,7 +48,8 @@ const useUsersPage = () => {
     listTemplateState,
     detailTemplateState,
     createTemplateState,
-    updateUserTemplateState,
+    updateUserInfoTemplateState,
+    updateUserAttributeTemplateState,
     list,
     user,
     onClickListItem,
