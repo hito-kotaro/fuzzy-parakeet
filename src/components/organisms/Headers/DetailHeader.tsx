@@ -11,10 +11,11 @@ type Props = {
   closeDetail: () => void;
   dropDownItems: dropDownItem[];
   isDropdown?: boolean;
+  iconSize?: 'small' | 'medium' | 'large';
 };
 
 const DetailHeader: VFC<Props> = (props) => {
-  const { name, date, title, closeDetail, dropDownItems, isDropdown } = props;
+  const { name, date, title, closeDetail, dropDownItems, isDropdown, iconSize } = props;
   return (
     <div className="sticky top-0 z-50 bg-base drop-shadow-md p-2 w-full">
       <div className="flex ">
@@ -29,7 +30,7 @@ const DetailHeader: VFC<Props> = (props) => {
       </div>
       <div className="h-3" />
       <div className="flex">
-        <IconLabel size="small" name={name} />
+        <IconLabel size={iconSize || 'small'} name={name} />
         <div className="ml-auto text-gray-400">{date}</div>
       </div>
       <div className="h-3" />

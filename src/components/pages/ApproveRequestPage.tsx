@@ -13,9 +13,9 @@ const ApproveRequestPage = () => {
     detailTemplateState,
     listTemplateState,
     statusFilter,
-    filterList,
     handleChange,
     onClickListItem,
+    filterByApproveStatus,
   } = useApproveRequestPage();
 
   const display = 'translate-x-0 opacity-100';
@@ -23,7 +23,7 @@ const ApproveRequestPage = () => {
 
   // フィルターが変わるたびにリストを更新
   useEffect(() => {
-    filterList();
+    filterByApproveStatus(value);
   }, [value]);
 
   const requestCancel = () => {
