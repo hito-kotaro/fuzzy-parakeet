@@ -19,3 +19,8 @@ export type createUserType = {
   teamId: number;
   password: string;
 };
+
+export type updateUserPasswordType = {
+  id: number;
+  password: string;
+};

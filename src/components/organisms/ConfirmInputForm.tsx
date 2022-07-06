@@ -3,22 +3,25 @@ import { inputHandlerType } from '../../types/Handler/HandlerTypes';
 import InputForm from '../atoms/InputForms/InputForm/InputForm';
 
 type Props = {
-  emailInputHandler: inputHandlerType;
+  legend: string;
+  inputPlaceholder: string;
+  textType: string;
+  inputHandler: inputHandlerType;
   confirmInputHandler: inputHandlerType;
 };
 
-const EmailInputForm: VFC<Props> = (props) => {
-  const { emailInputHandler, confirmInputHandler } = props;
+const ConfirnInputForm: VFC<Props> = (props) => {
+  const { legend, textType, inputPlaceholder, inputHandler, confirmInputHandler } = props;
 
   return (
     <fieldset className="border-b-1 border-gray-300 ">
-      <legend className="text-gray-400">Email</legend>
+      <legend className="text-gray-400">{legend}</legend>
       <div className="h-10">
         <InputForm
-          inputHandler={emailInputHandler}
+          inputHandler={inputHandler}
           color="bg-gray-200"
-          placeholder="newcomer@probie.com"
-          type="text"
+          placeholder={inputPlaceholder}
+          type={textType}
         />
       </div>
 
@@ -28,8 +31,8 @@ const EmailInputForm: VFC<Props> = (props) => {
         <InputForm
           inputHandler={confirmInputHandler}
           color="bg-gray-200"
-          placeholder="confirm email adders"
-          type="text"
+          placeholder="confirm input"
+          type={textType}
         />
       </div>
 
@@ -38,4 +41,4 @@ const EmailInputForm: VFC<Props> = (props) => {
   );
 };
 
-export default EmailInputForm;
+export default ConfirnInputForm;

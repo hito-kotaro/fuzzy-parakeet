@@ -2,17 +2,21 @@ import { IconCheckCircle } from '@supabase/ui';
 import React, { useEffect, VFC } from 'react';
 import usePrimaryList from '../../hooks/usePrimaryList';
 import { dropDownItem } from '../../types/Dropdown/dropDownItemType';
+import { templateType } from '../../types/templateType';
 import { userType } from '../../types/usersType';
 import PrimaryList from '../molecules/Lists/PrimaryList';
 import DetailHeader from '../organisms/Headers/DetailHeader';
+import UserUpdateTemplate from './UserUpdateTemplate';
 
 type Props = {
   data: userType;
   close: () => void;
+  updateUserTemplateState: templateType;
 };
 const UserDetailTemplate: VFC<Props> = (props) => {
   const { list, filterByUserId } = usePrimaryList();
-  const { data, close } = props;
+
+  const { data, close, updateUserTemplateState } = props;
 
   const dummy = () => {
     console.log(data.id);
@@ -21,7 +25,7 @@ const UserDetailTemplate: VFC<Props> = (props) => {
   const myMenu: dropDownItem[] = [
     {
       icon: <IconCheckCircle />,
-      onClick: dummy,
+      onClick: updateUserTemplateState.open,
       text: 'ユーザー情報更新',
       divider: false,
     },

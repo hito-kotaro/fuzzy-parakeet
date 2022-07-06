@@ -3,6 +3,7 @@ import useUsersPage from '../../hooks/useUsersPage';
 import ListTemplate from '../templates/ListTemplate';
 import UserCreateTemplate from '../templates/UserCreateTemplate';
 import UserDetailTemplate from '../templates/UserDetailTemplate';
+import UserUpdateTemplate from '../templates/UserUpdateTemplate';
 
 const UsersPage = () => {
   const {
@@ -11,10 +12,12 @@ const UsersPage = () => {
     listTemplateState,
     createTemplateState,
     detailTemplateState,
+    updateUserTemplateState,
     onClickListItem,
     filterList,
     onClickPlus,
   } = useUsersPage();
+
   const display = 'translate-x-0 opacity-100';
   const hidden = '-translate-x-full opacity-0';
 
@@ -46,7 +49,19 @@ const UsersPage = () => {
           detailTemplateState.isOpen ? display : hidden
         }`}
       >
-        <UserDetailTemplate data={user} close={detailTemplateState.close} />
+        <UserDetailTemplate
+          data={user}
+          close={detailTemplateState.close}
+          updateUserTemplateState={updateUserTemplateState}
+        />
+      </div>
+
+      <div
+        className={` switch-components z-40 ${
+          updateUserTemplateState.isOpen ? display : hidden
+        }`}
+      >
+        <UserUpdateTemplate close={updateUserTemplateState.close} name={user.name} />
       </div>
 
       <div

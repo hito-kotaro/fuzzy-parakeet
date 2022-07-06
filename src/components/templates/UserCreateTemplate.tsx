@@ -1,13 +1,9 @@
-import React, { useEffect, useState, VFC } from 'react';
-import { defaultTeam } from '../../lib/defaultData';
-import { teamsData } from '../../testData/TeamsTestData';
-import { SelectItem } from '../../types/Select/SelectItemType';
+import React, { VFC } from 'react';
 import { createUserType } from '../../types/usersType';
 import MyAvatar from '../atoms/Avatar/MyAvatar';
-import InputForm from '../atoms/InputForms/InputForm/InputForm';
 import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
 import useSelectForm from '../atoms/InputForms/SelectForm/useSelectForm';
-import EmailInputForm from '../organisms/EmailInputForm';
+import ConfirnInputForm from '../organisms/ConfirmInputForm';
 import MiniHeader from '../organisms/Headers/MiniHeader';
 import UserAttributeForm from '../organisms/UserAttributeForm';
 import UserNameInputForm from '../organisms/UserNameInputForm';
@@ -18,8 +14,6 @@ type Props = {
 
 const UserCreateTemplate: VFC<Props> = (props) => {
   const { close } = props;
-  const [teams, setTeams] = useState(teamsData);
-  const [teamSelect, setTeamSelect] = useState<SelectItem[]>();
   const firstNameInputHandler = useInputForm();
   const lastNameInputHandler = useInputForm();
   const emailInputHandler = useInputForm();
@@ -85,8 +79,11 @@ const UserCreateTemplate: VFC<Props> = (props) => {
           <div className={space} />
 
           <div>
-            <EmailInputForm
-              emailInputHandler={emailInputHandler}
+            <ConfirnInputForm
+              legend="Email"
+              textType="text"
+              inputPlaceholder="newcomer@probi.com"
+              inputHandler={emailInputHandler}
               confirmInputHandler={confirmInputHandler}
             />
           </div>
