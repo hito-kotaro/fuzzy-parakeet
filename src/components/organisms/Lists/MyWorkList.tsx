@@ -56,13 +56,6 @@ const MyWorkList = () => {
       />
 
       <div className={`h-${space}`} />
-
-      <IconLabelButton
-        text="Job"
-        icon={<TbTie color="#ffffff" />}
-        iconColor="bg-gray-500"
-        path="/jobs"
-      />
     </div>
   );
 };
