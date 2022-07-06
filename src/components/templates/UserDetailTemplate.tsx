@@ -1,5 +1,7 @@
+import { IconCheckCircle } from '@supabase/ui';
 import React, { useEffect, VFC } from 'react';
 import usePrimaryList from '../../hooks/usePrimaryList';
+import { dropDownItem } from '../../types/Dropdown/dropDownItemType';
 import { userType } from '../../types/usersType';
 import PrimaryList from '../molecules/Lists/PrimaryList';
 import DetailHeader from '../organisms/Headers/DetailHeader';
@@ -16,6 +18,30 @@ const UserDetailTemplate: VFC<Props> = (props) => {
     console.log(data.id);
   };
 
+  const myMenu: dropDownItem[] = [
+    {
+      icon: <IconCheckCircle />,
+      onClick: dummy,
+      text: 'ユーザー情報更新',
+      divider: false,
+    },
+  ];
+
+  const masterMenu: dropDownItem[] = [
+    {
+      icon: <IconCheckCircle />,
+      onClick: dummy,
+      text: 'ユーザー属性変更',
+      divider: false,
+    },
+    {
+      icon: <IconCheckCircle stroke="red" />,
+      onClick: dummy,
+      text: 'ユーザー削除',
+      divider: true,
+    },
+  ];
+
   // userDataをPrimaryListに入れる
   useEffect(() => {
     filterByUserId(data.id);
@@ -28,8 +54,11 @@ const UserDetailTemplate: VFC<Props> = (props) => {
         date={data.created_at}
         title="最近のアクティビティ"
         closeDetail={close}
-        dropDownItems={[]}
         iconSize="large"
+        // data.idがcurrent_userと一致すればmyMenuを表示
+        // data.roleIdが3ならadminMenuを表示する
+        dropDownItems={myMenu}
+        isDropdown
       />
       <div className="h-70% overflow-scroll">
         <PrimaryList list={list} onClick={dummy} />
