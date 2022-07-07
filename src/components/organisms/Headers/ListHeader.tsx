@@ -19,7 +19,7 @@ const ListHeader: VFC<Props> = (props) => {
   const { title, input, selectHandler, selectItemList, onClick, onChange, onClickPlus } =
     props;
   return (
-    <>
+    <div className="sticky top-0">
       <div className=" bg-base drop-shadow-md p-2 w-full">
         <div className="flex">
           <HeaderLink to="/home" linkText="ホーム" backIcon />
@@ -49,7 +49,7 @@ const ListHeader: VFC<Props> = (props) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -19,12 +19,17 @@ const HomeTemplates: VFC<Props> = (props) => {
 
   const itemList: dropDownItem[] = [
     { icon: <IconSettings />, onClick, text: 'ユーザー設定', divider: false },
-    { icon: <IconLogOut stroke="red" />, onClick: logout, text: 'ログアウト', divider: true },
+    {
+      icon: <IconLogOut stroke="red" />,
+      onClick: logout,
+      text: 'ログアウト',
+      divider: true,
+    },
   ];
 
   const { title } = props;
   return (
-    <div className="h-screen">
+    <div>
       <HomeHeader title="ホーム" dropDownItems={itemList} />
 
       <div className="h-6" />

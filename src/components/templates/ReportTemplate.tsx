@@ -36,7 +36,7 @@ const ReportTemplate: VFC<Props> = (props) => {
   };
 
   return (
-    <div className="bg-base h-screen">
+    <div className="bg-base h-full">
       <ReportHeader
         title={`${questTitle}-report`}
         id={questId}

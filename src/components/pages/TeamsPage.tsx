@@ -30,7 +30,7 @@ const TeamsPage = () => {
   return (
     <>
       <div
-        className={` switch-components bg-red-200 z-30 ${
+        className={` switch-components z-30 ${
           listTemplateState.isOpen ? display : hidden
         }`}
       >

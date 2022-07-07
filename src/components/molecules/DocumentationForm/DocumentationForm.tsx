@@ -58,7 +58,7 @@ const DocumentationForm: VFC<Props> = (props) => {
 
       <div className="h-2" />
 
-      <div className="h-70% border-1 border-gray-300">
+      <div className="border-1 border-gray-300 h-96">
         <TextArea
           inputHandler={descriptionHandler}
           placeholder={descriptionPlaceholder}

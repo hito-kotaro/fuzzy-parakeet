@@ -24,7 +24,7 @@ const UserAttributeUpdateTemplate: VFC<Props> = (props) => {
     close();
   };
   return (
-    <div className="h-screen bg-base">
+    <div className="bg-base h-full">
       <MiniHeader
         title="ユーザー属性の更新"
         createText="更新"

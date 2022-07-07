@@ -26,7 +26,7 @@ const UserUpdateTemplate: VFC<Props> = (props) => {
   };
 
   return (
-    <div className="h-screen bg-base">
+    <div className="bg-base h-full">
       <MiniHeader
         title="ユーザー情報の更新"
         createText="更新"
