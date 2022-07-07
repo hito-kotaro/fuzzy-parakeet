@@ -7,7 +7,15 @@ type Props = {
   date: string;
   description: string;
   badgeText: string;
-  badgeColor?: 'gray' | 'red' | 'yellow' | 'green' | 'blue' | 'indigo' | 'purple' | 'pink';
+  badgeColor?:
+    | 'gray'
+    | 'red'
+    | 'yellow'
+    | 'green'
+    | 'blue'
+    | 'indigo'
+    | 'purple'
+    | 'pink';
 };
 const DetailCard: VFC<Props> = (props) => {
   const { ownerName, date, description, badgeText, badgeColor } = props;
@@ -19,7 +27,7 @@ const DetailCard: VFC<Props> = (props) => {
       <div className="h-5" />
       <div className="border-1 p-2">
         <div className="flex">
-          <IconLabel size="medium" name={ownerName} />
+          <IconLabel name={ownerName} />
           <div className="ml-auto">
             <Badge color={badgeColor}>{badgeText}</Badge>
             <div className="text-gray-400 text-right">{date}</div>
