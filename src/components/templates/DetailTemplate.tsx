@@ -26,7 +26,7 @@ const DetailTemplate: VFC<Props> = (props) => {
   };
 
   return (
-    <div className="w-full h-screen overflow-scroll bg-base">
+    <div className="bg-base h-full">
       <DetailHeader
         closeDetail={close}
         // ロールによって表示するメニューを変える。

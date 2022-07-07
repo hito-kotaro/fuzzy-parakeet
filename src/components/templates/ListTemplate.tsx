@@ -27,7 +27,7 @@ const ListTemplate: VFC<Props> = (props) => {
   }, [input, listData]);
 
   return (
-    <>
+    <div>
       <ListHeader
         title={title}
         input={input}
@@ -38,10 +38,10 @@ const ListTemplate: VFC<Props> = (props) => {
         selectHandler={selectHandler}
       />
 
-      <div className="h-70% overflow-scroll">
+      <div className="h-full">
         <PrimaryList list={result} onClick={onClick} />
       </div>
-    </>
+    </div>
   );
 };
 

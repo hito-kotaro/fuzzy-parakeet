@@ -25,7 +25,7 @@ const UserDetailTemplate: VFC<Props> = (props) => {
   }, [data]);
 
   return (
-    <div className="bg-base h-screen">
+    <div className="bg-base h-full">
       <DetailHeader
         name={data.name}
         date={data.created_at}
@@ -37,7 +37,7 @@ const UserDetailTemplate: VFC<Props> = (props) => {
         dropDownItems={menuItem}
         isDropdown
       />
-      <div className="h-70% overflow-scroll">
+      <div className="">
         <PrimaryList list={list} onClick={dummy} />
       </div>
     </div>

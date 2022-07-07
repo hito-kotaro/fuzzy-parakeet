@@ -46,7 +46,7 @@ const UserCreateTemplate: VFC<Props> = (props) => {
   };
 
   return (
-    <div className="h-screen bg-base">
+    <div className="bg-base h-full">
       <div>
         <MiniHeader
           title="新しいユーザーを作成"

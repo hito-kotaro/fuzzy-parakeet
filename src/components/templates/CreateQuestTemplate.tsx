@@ -42,25 +42,27 @@ const CreateQuestTemplate: VFC<Props> = (props) => {
   };
 
   return (
-    <div className="bg-base h-screen">
+    <div className="bg-base h-full">
       <MiniHeader
         title="新しいクエストを発行"
         createText="発行"
         onClickCancel={onClickCancel}
         onClickCreate={onClickCreate}
       />
-      <div className="h-2" />
 
-      <DocumentationForm
-        titleHandler={titleHandler}
-        titlePlaceholder={titlePlaceholder}
-        descriptionHandler={descriptionHandler}
-        descriptionPlaceholder={descriptionPlaceholder}
-        pointHandler={pointHandler}
-        pointPlaceholder={pointPlaceholder}
-        addPointForm
-        defaultTitle="QuestName"
-      />
+      <div className="h-2" />
+      <div>
+        <DocumentationForm
+          titleHandler={titleHandler}
+          titlePlaceholder={titlePlaceholder}
+          descriptionHandler={descriptionHandler}
+          descriptionPlaceholder={descriptionPlaceholder}
+          pointHandler={pointHandler}
+          pointPlaceholder={pointPlaceholder}
+          addPointForm
+          defaultTitle="QuestName"
+        />
+      </div>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React, { VFC } from 'react';
-import { Button, Modal, Typography } from '@supabase/ui';
+import { Button, Modal } from '@supabase/ui';
 
 type Props = {
   onCancel: () => void;
@@ -14,9 +14,7 @@ const PrimaryModal: VFC<Props> = (props) => {
 
   return (
     <>
-      <Button onClick={toggle} type="default">
-        Open modal
-      </Button>
+      <Button onClick={toggle} type="default" />
       <Modal
         title="Delete User"
         description={`Do you want to delete ${name}?`}

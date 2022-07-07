@@ -50,7 +50,7 @@ const ApproveDetailTemplate: VFC<Props> = (props) => {
     }
   };
   return (
-    <div className="bg-base h-screen">
+    <div className="bg-base h-full">
       <DetailHeader
         closeDetail={close}
         // ロールによって表示するメニューを変える。

@@ -38,8 +38,8 @@ const useUsersPage = () => {
         title: u.name,
         description: u.description,
         date: u.created_at,
-        badgeColor: 'blue',
-        badgeText: '',
+        badgeColor: 'green',
+        badgeText: String(u.point),
       };
       return item;
     });
