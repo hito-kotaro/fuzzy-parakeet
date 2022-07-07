@@ -12,6 +12,7 @@ export type penaltyType = {
 export type applyPenaltyType = {
   teamId: number;
   penaltyId: number;
+  description: string;
   created_at: string;
   updated_at: string;
 };

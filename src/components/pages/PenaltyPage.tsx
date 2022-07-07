@@ -16,15 +16,18 @@ const PenaltyPage = () => {
     applyTemplateState,
     list,
     penalty,
+    teamSelectList,
     filterList,
     onClickListItem,
     onClickPlus,
+    collectTeam,
   } = usePenaltyPage();
   const display = 'translate-x-0 opacity-100';
   const hidden = '-translate-x-full opacity-0';
 
   useEffect(() => {
     filterList();
+    collectTeam();
   }, []);
 
   const masterMenu: dropDownItem[] = [
@@ -76,7 +79,11 @@ const PenaltyPage = () => {
           applyTemplateState.isOpen ? display : hidden
         }`}
       >
-        <ApplyPenaltyTemplate close={applyTemplateState.close} data={penalty} />
+        <ApplyPenaltyTemplate
+          close={applyTemplateState.close}
+          data={penalty}
+          teamSelect={teamSelectList}
+        />
       </div>
     </>
   );
