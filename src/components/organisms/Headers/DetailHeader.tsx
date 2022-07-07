@@ -12,10 +12,12 @@ type Props = {
   dropDownItems: dropDownItem[];
   isDropdown?: boolean;
   iconSize?: 'small' | 'medium' | 'large';
+  isTeam?: boolean;
 };
 
 const DetailHeader: VFC<Props> = (props) => {
-  const { name, date, title, closeDetail, dropDownItems, isDropdown, iconSize } = props;
+  const { name, date, title, closeDetail, dropDownItems, isDropdown, iconSize, isTeam } =
+    props;
   return (
     <div className="sticky top-0 z-50 bg-base drop-shadow-md p-2 w-full">
       <div className="flex ">
@@ -30,7 +32,7 @@ const DetailHeader: VFC<Props> = (props) => {
       </div>
       <div className="h-3" />
       <div className="flex">
-        <IconLabel size={iconSize || 'small'} name={name} />
+        <IconLabel size={iconSize || 'small'} name={name} isTeam={isTeam} />
         <div className="ml-auto text-gray-400">{date}</div>
       </div>
       <div className="h-3" />
