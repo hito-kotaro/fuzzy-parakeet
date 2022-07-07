@@ -21,11 +21,13 @@ const PrimaryListItemButton: VFC<Props> = (props) => {
 
   return (
     <button type="button" className="w-full" onClick={() => onClick(id)}>
-      <div className="flex border-b-1 px-3 py-2 bg-white">
+      <div className="flex border-b-1 px-3 py-2 bg-white w-full">
         <MyAvatar size={44} name={name} isTeam={isTeam} />
 
-        <div className="ml-5 text-left">
+        <div className="w-2" />
+        <div className="text-left w-3/5">
           <div className="text-sm text-gray-500 whitespace-nowrap truncate">{title}</div>
+
           <div
             className={`text-lg  whitespace-nowrap truncate ${
               isNoText ? 'text-gray-400' : ''
@@ -34,6 +36,7 @@ const PrimaryListItemButton: VFC<Props> = (props) => {
             {isNoText ? 'No Text' : description}
           </div>
         </div>
+
         <div className="ml-auto text-right text-gray-400">
           <div>{date}</div>
           <Badge color={badgeColor}>{badgeText}</Badge>

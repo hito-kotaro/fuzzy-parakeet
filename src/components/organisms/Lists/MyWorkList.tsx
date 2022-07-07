@@ -1,7 +1,7 @@
 import React from 'react';
 import { BsFillInboxFill } from 'react-icons/bs';
 import { GiStamper } from 'react-icons/gi';
-import { AiOutlineHistory, AiOutlineUser } from 'react-icons/ai';
+import { AiOutlineHistory, AiOutlineUser, AiOutlineWarning } from 'react-icons/ai';
 import { RiTeamLine } from 'react-icons/ri';
 import { TbTie } from 'react-icons/tb';
 import IconLabelButton from '../../atoms/Buttons/IconLabelButton';
@@ -44,6 +44,15 @@ const MyWorkList = () => {
         icon={<AiOutlineUser color="#ffffff" />}
         iconColor="bg-orange-500"
         path="/users"
+      />
+
+      <div className={`h-${space}`} />
+
+      <IconLabelButton
+        text="Penalty"
+        icon={<AiOutlineWarning color="#ffffff" />}
+        iconColor="bg-rose-500"
+        path="/penalty"
       />
 
       <div className={`h-${space}`} />
