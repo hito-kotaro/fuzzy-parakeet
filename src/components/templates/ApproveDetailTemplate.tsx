@@ -18,7 +18,7 @@ const ApproveDetailTemplate: VFC<Props> = (props) => {
       case 'approved':
         return (
           <DetailCard
-            ownerName={data.authorizer}
+            ownerName=""
             date={data.updated_at}
             description="承認"
             badgeText="authorizer"
@@ -36,15 +36,18 @@ const ApproveDetailTemplate: VFC<Props> = (props) => {
           />
         );
       case 'rejected':
-        return (
-          <DetailCard
-            ownerName={data.authorizer}
-            date={data.updated_at}
-            description="却下"
-            badgeText="authorizer"
-            badgeColor="blue"
-          />
-        );
+        if (data.authorizer) {
+          return (
+            <DetailCard
+              ownerName={data.authorizer}
+              date={data.updated_at}
+              description="却下"
+              badgeText="authorizer"
+              badgeColor="blue"
+            />
+          );
+        }
+        return '';
       default:
         return '';
     }

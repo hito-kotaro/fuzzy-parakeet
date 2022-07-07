@@ -4,7 +4,7 @@ import { questType } from '../types/Quest/QuestType';
 export const questData: questType[] = [
   {
     id: 1,
-    owner: 'sato',
+    owner: 'Joseph',
     title: 'メンバー紹介',
     description: '紹介した人との面接を実施したら付与',
     date: '2022/7/8',
@@ -13,7 +13,7 @@ export const questData: questType[] = [
   },
   {
     id: 2,
-    owner: 'sato',
+    owner: 'Joseph',
     title: 'メンバー入社',
     description: '紹介した人が入社してくれたら付与',
     date: '2022/7/8',
@@ -22,16 +22,16 @@ export const questData: questType[] = [
   },
   {
     id: 3,
-    owner: 'sato',
+    owner: 'Joseph',
     title: 'プレゼン実施',
     description: '社内ミーティングでプレゼンを行う',
     date: '2022/7/8',
-    point: 3,
+    point: 2,
     status: true,
   },
   {
     id: 4,
-    owner: 'sato',
+    owner: 'Joseph',
     title: '社内勉強会の参加',
     description: '社員の企画した勉強会に参加する',
     date: '2022/7/8',
@@ -40,7 +40,7 @@ export const questData: questType[] = [
   },
   {
     id: 5,
-    owner: 'sato',
+    owner: 'Joseph',
     title: '社外イベントの企画開催',
     description: '3名以上参加したイベントを実施したら付与',
     date: '2022/7/8',
@@ -49,7 +49,7 @@ export const questData: questType[] = [
   },
   // {
   //   id: 6,
-  //   owner: 'sato_hiroki',
+  //   owner: 'Joseph',
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
@@ -58,7 +58,7 @@ export const questData: questType[] = [
   // },
   // {
   //   id: 7,
-  //   owner: 'sato_hiroki',
+  //   owner: 'Joseph',
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
@@ -67,7 +67,7 @@ export const questData: questType[] = [
   // },
   // {
   //   id: 8,
-  //   owner: 'sato_hiroki',
+  //   owner: 'Joseph',
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
@@ -76,7 +76,7 @@ export const questData: questType[] = [
   // },
   // {
   //   id: 9,
-  //   owner: 'sato_hiroki',
+  //   owner: 'Joseph',
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
@@ -85,7 +85,7 @@ export const questData: questType[] = [
   // },
   // {
   //   id: 10,
-  //   owner: 'sato_hiroki',
+  //   owner: 'Joseph',
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
@@ -94,7 +94,7 @@ export const questData: questType[] = [
   // },
   // {
   //   id: 11,
-  //   owner: 'sato_hiroki',
+  //   owner: 'Joseph',
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
@@ -103,7 +103,7 @@ export const questData: questType[] = [
   // },
   // {
   //   id: 12,
-  //   owner: 'sato_hiroki',
+  //   owner: 'Joseph',
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
@@ -112,7 +112,7 @@ export const questData: questType[] = [
   // },
   // {
   //   id: 13,
-  //   owner: 'sato_hiroki',
+  //   owner: 'Joseph',
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
@@ -121,7 +121,7 @@ export const questData: questType[] = [
   // },
   // {
   //   id: 14,
-  //   owner: 'sato_hiroki',
+  //   owner: 'Joseph',
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
@@ -130,7 +130,7 @@ export const questData: questType[] = [
   // },
   // {
   //   id: 15,
-  //   owner: 'sato_hiroki',
+  //   owner: 'Joseph',
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
@@ -139,7 +139,7 @@ export const questData: questType[] = [
   // },
   // {
   //   id: 16,
-  //   owner: 'sato_hiroki',
+  //   owner: 'Joseph',
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
@@ -148,7 +148,7 @@ export const questData: questType[] = [
   // },
   // {
   //   id: 17,
-  //   owner: 'sato_hiroki',
+  //   owner: 'Joseph',
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
@@ -157,7 +157,7 @@ export const questData: questType[] = [
   // },
   // {
   //   id: 18,
-  //   owner: 'sato_hiroki',
+  //   owner: 'Joseph',
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
@@ -166,7 +166,7 @@ export const questData: questType[] = [
   // },
   // {
   //   id: 19,
-  //   owner: 'sato_hiroki',
+  //   owner: 'Joseph',
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
@@ -175,7 +175,7 @@ export const questData: questType[] = [
   // },
   // {
   //   id: 20,
-  //   owner: 'sato_hiroki',
+  //   owner: 'Joseph',
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
