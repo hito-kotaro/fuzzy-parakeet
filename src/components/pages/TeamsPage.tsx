@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import useTeamsPage from '../../hooks/useTeamsPage';
+import DetailHeader from '../organisms/Headers/DetailHeader';
 import CreateTeamTemplate from '../templates/CreateTeamTemplate';
 import ListTemplate from '../templates/ListTemplate';
 import TeamDetailTemplate from '../templates/TeamDetailTemplate';
@@ -29,7 +30,7 @@ const TeamsPage = () => {
   return (
     <>
       <div
-        className={` switch-components z-30 ${
+        className={` switch-components bg-red-200 z-30 ${
           listTemplateState.isOpen ? display : hidden
         }`}
       >
@@ -42,7 +43,7 @@ const TeamsPage = () => {
       </div>
 
       <div
-        className={` switch-components z-30 ${
+        className={` switch-components z-30 overflow-scroll ${
           detailTemplateState.isOpen ? display : hidden
         }`}
       >

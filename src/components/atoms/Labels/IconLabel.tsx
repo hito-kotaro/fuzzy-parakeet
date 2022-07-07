@@ -9,7 +9,6 @@ type Props = {
 
 const IconLabel: VFC<Props> = (props) => {
   const { size, name, isTeam } = props;
-  console.log(isTeam);
   const [className, setClassName] = useState('leading-10');
   const [px, setPx] = useState(40);
 

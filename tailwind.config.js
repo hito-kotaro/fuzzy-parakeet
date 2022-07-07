@@ -16,6 +16,7 @@ module.exports = {
         '70%': '70vh',
         '75%': '75vh',
         '95%': '95vh',
+        lvh: '100lvh',
       },
       borderWidth: {
         1: '1px',
