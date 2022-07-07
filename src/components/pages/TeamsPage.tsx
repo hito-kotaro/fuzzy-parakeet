@@ -2,10 +2,19 @@ import React, { useEffect } from 'react';
 import useTeamsPage from '../../hooks/useTeamsPage';
 import CreateTeamTemplate from '../templates/CreateTeamTemplate';
 import ListTemplate from '../templates/ListTemplate';
+import TeamDetailTemplate from '../templates/TeamDetailTemplate';
 
 const TeamsPage = () => {
-  const { list, listTemplateState, createTemplateState, filterList, onClickPlus } =
-    useTeamsPage();
+  const {
+    list,
+    team,
+    listTemplateState,
+    detailTemplateState,
+    createTemplateState,
+    filterList,
+    onClickPlus,
+    onClickListItem,
+  } = useTeamsPage();
   const display = 'translate-x-0 opacity-100';
   const hidden = '-translate-x-full opacity-0';
 
@@ -27,10 +36,19 @@ const TeamsPage = () => {
         <ListTemplate
           title="Teams"
           listData={list}
-          onClick={dummy}
+          onClick={onClickListItem}
           onClickPlus={onClickPlus}
         />
       </div>
+
+      <div
+        className={` switch-components z-30 ${
+          detailTemplateState.isOpen ? display : hidden
+        }`}
+      >
+        <TeamDetailTemplate data={team} close={detailTemplateState.close} />
+      </div>
+
       <div
         className={` switch-components z-40 ${
           createTemplateState.isOpen ? display : hidden

@@ -15,7 +15,6 @@ const useTeamsPage = () => {
   const [team, setTeam] = useState<teamType>(defaultTeam);
 
   // 詳細画面に渡す情報をステートにセット
-  // 今のところ実装なし
   const onClickListItem = (id: number) => {
     const data = teamsData.filter((t: teamType) => {
       return t.id === id;
@@ -28,16 +27,24 @@ const useTeamsPage = () => {
     createTemplateState.open();
   };
 
+  const badgeConfig = (totalPoint: number) => {
+    if (totalPoint < 0) {
+      return 'red';
+    }
+    return 'green';
+  };
+
   const filterList = () => {
     const primaryList: primaryListItem[] = teamsData.map((t) => {
+      const totalPoint = t.teamTotalPoint - t.teamPenalty;
       const item: primaryListItem = {
         id: t.id,
         name: t.name,
         title: t.name,
         description: t.description,
         date: t.created_at,
-        badgeColor: 'blue',
-        badgeText: '',
+        badgeText: `${totalPoint} point`,
+        badgeColor: badgeConfig(totalPoint),
         isTeam: true,
       };
       return item;
@@ -45,7 +52,16 @@ const useTeamsPage = () => {
     setList(primaryList);
   };
 
-  return { listTemplateState, createTemplateState, list, filterList, onClickPlus };
+  return {
+    listTemplateState,
+    createTemplateState,
+    detailTemplateState,
+    list,
+    filterList,
+    onClickPlus,
+    onClickListItem,
+    team,
+  };
 };
 
 export default useTeamsPage;
