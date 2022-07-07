@@ -1,5 +1,5 @@
 import React, { VFC } from 'react';
-import { createQuestType } from '../../types/Quest/QuestType';
+import { createPenaltyType } from '../../types/PenaltyType';
 import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
 import DocumentationForm from '../molecules/DocumentationForm/DocumentationForm';
 import MiniHeader from '../organisms/Headers/MiniHeader';
@@ -7,20 +7,34 @@ import MiniHeader from '../organisms/Headers/MiniHeader';
 type Props = {
   close: () => void;
 };
-
-const CreateQuestTemplate: VFC<Props> = (props) => {
+const createPenaltyTemplate: VFC<Props> = (props) => {
   const { close } = props;
   const titleHandler = useInputForm();
   const pointHandler = useInputForm();
   const descriptionHandler = useInputForm();
 
   const titlePlaceholder = 'タイトルを入力してください(必須)';
-  const descriptionPlaceholder = 'クエスト内容を入力してください(任意)';
-  const pointPlaceholder = '達成ポイントを入力してください(必須)';
+  const descriptionPlaceholder = 'ペナルティ内容を入力してください(任意)';
+  const pointPlaceholder = 'ペナルティポイントを入力してください(必須)';
 
   const clear = () => {
     titleHandler.clear();
     descriptionHandler.clear();
+  };
+
+  const onClickCreate = () => {
+    const newQuest: createPenaltyType = {
+      ownerId: 0,
+      owner: 'kotaro',
+      title: titleHandler.input,
+      description: descriptionHandler.input,
+      created_at: '2022/12/21',
+      updated_at: '',
+      penalty: Number(pointHandler.input),
+    };
+    console.log(newQuest);
+    clear();
+    close();
   };
 
   const onClickCancel = () => {
@@ -28,24 +42,10 @@ const CreateQuestTemplate: VFC<Props> = (props) => {
     close();
   };
 
-  const onClickCreate = () => {
-    const newQuest: createQuestType = {
-      owner: 'kotaro',
-      title: titleHandler.input,
-      description: descriptionHandler.input,
-      date: '2022/12/21',
-      point: Number(pointHandler.input),
-      status: true,
-    };
-    console.log(newQuest);
-    clear();
-    close();
-  };
-
   return (
     <div className="bg-base h-full">
       <MiniHeader
-        title="新しいクエストを発行"
+        title="新しいペナルティを発行"
         createText="発行"
         onClickCancel={onClickCancel}
         onClickCreate={onClickCreate}
@@ -61,11 +61,11 @@ const CreateQuestTemplate: VFC<Props> = (props) => {
           pointHandler={pointHandler}
           pointPlaceholder={pointPlaceholder}
           addPointForm
-          defaultTitle="QuestName"
+          defaultTitle="PenaltyName"
         />
       </div>
     </div>
   );
 };
 
-export default CreateQuestTemplate;
+export default createPenaltyTemplate;

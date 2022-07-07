@@ -1,7 +1,18 @@
 import { approveRequestType } from '../types/approveRequestType';
+import { penaltyType } from '../types/PenaltyType';
 import { teamType } from '../types/teamsType';
 import { userType } from '../types/usersType';
 
+export const defaultPenalty: penaltyType = {
+  id: 0,
+  title: '',
+  owner: '',
+  ownerId: 0,
+  description: '',
+  penalty: 0,
+  created_at: '',
+  updated_at: '',
+};
 export const defaultUser: userType = {
   id: 0,
   name: '',

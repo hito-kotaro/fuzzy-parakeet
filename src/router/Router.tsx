@@ -4,6 +4,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import SlideRoutes from 'react-slide-routes';
 import ApproveRequestPage from '../components/pages/ApproveRequestPage';
 import JobsPage from '../components/pages/JobsPage';
+import PenaltyPage from '../components/pages/PenaltyPage';
 import QuestBoardPage from '../components/pages/QuestBoardPage';
 import TeamsPage from '../components/pages/TeamsPage';
 import TimelinePage from '../components/pages/TimelinePage';
@@ -18,14 +19,17 @@ const Router = () => {
 
   return (
     <SlideRoutes location={location} duration={500}>
-      <Route path="/" element={<LoginTemplate title="login page" thema="light-color" />} />
+      <Route
+        path="/"
+        element={<LoginTemplate title="login page" thema="light-color" />}
+      />
       <Route path="/home" element={<HomeTemplates title="home page" />} />
       <Route path="/questboard" element={<QuestBoardPage />} />
       <Route path="/approverequest" element={<ApproveRequestPage />} />
       <Route path="/timeline" element={<TimelinePage />} />
       <Route path="/teams" element={<TeamsPage />} />
       <Route path="/users" element={<UsersPage />} />
-      <Route path="/jobs" element={<JobsPage />} />
+      <Route path="/penalty" element={<PenaltyPage />} />
       <Route path="/test" element={<TestPage />} />
       <Route path="*" element={<ErrorPageTemplate title="404 NotFound" />} />
     </SlideRoutes>
