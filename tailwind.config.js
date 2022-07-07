@@ -10,11 +10,13 @@ module.exports = {
       },
       lineHeight: {
         12: '48px',
+        16: '64px',
       },
       spacing: {
         '70%': '70vh',
         '75%': '75vh',
         '95%': '95vh',
+        lvh: '100lvh',
       },
       borderWidth: {
         1: '1px',

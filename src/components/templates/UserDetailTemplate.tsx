@@ -10,16 +10,16 @@ type Props = {
   close: () => void;
   menuItem: dropDownItem[];
 };
+
 const UserDetailTemplate: VFC<Props> = (props) => {
   const { list, filterByUserId } = usePrimaryList();
-
   const { data, close, menuItem } = props;
 
   const dummy = () => {
     console.log(data.id);
   };
 
-  // userDataをPrimaryListに入れる
+  // UserIDでアクティビティをフィルター
   useEffect(() => {
     filterByUserId(data.id);
   }, [data]);

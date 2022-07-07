@@ -30,6 +30,8 @@ const CreateTeamTemplate: VFC<Props> = (props) => {
     const newTeam: createTeamType = {
       name: nameHandler.input,
       description: descriptionHandler.input,
+      teamTotalPoint: 0,
+      teamPenalty: 0,
       created_at: 'today',
       updated_at: '',
     };

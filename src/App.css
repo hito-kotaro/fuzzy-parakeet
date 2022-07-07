@@ -9,8 +9,14 @@ body {
 
 .switch-components {
   width: 100vw;
+  height: 100dvh;
+  overflow: scroll;
   position: absolute;
   top: 0;
   left: 0;
   transition-duration: 500ms;
+}
+
+.h-test {
+  height: 100dvh;
 }

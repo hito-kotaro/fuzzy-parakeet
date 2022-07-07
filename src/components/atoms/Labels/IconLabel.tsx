@@ -4,10 +4,11 @@ import MyAvatar from '../Avatar/MyAvatar';
 type Props = {
   size: 'large' | 'medium' | 'small';
   name: string;
+  isTeam?: boolean;
 };
 
 const IconLabel: VFC<Props> = (props) => {
-  const { size, name } = props;
+  const { size, name, isTeam } = props;
   const [className, setClassName] = useState('leading-10');
   const [px, setPx] = useState(40);
 
@@ -37,7 +38,7 @@ const IconLabel: VFC<Props> = (props) => {
 
   return (
     <div className="flex">
-      <MyAvatar size={px} name={name} />
+      <MyAvatar size={px} name={name} isTeam={isTeam} />
       <div className={`${className} ml-2 `}>{name}</div>
     </div>
   );
