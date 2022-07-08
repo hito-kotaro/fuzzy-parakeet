@@ -8,6 +8,7 @@ extends:
   - prettier
 settings:
   import/resolver:
+    webpack:
     node:
       extensions:
         - '.js'
