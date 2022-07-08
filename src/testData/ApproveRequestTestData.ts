@@ -52,7 +52,7 @@ export const approveRequestData: approveRequestType[] = [
   },
   {
     id: 4,
-    applicantId: 3,
+    applicantId: 4,
     applicant: 'Hirose',
     title: '社内勉強会の参加-report',
     questTitle: '社内勉強会の参加',
@@ -67,7 +67,7 @@ export const approveRequestData: approveRequestType[] = [
   },
   {
     id: 5,
-    applicantId: 4,
+    applicantId: 5,
     applicant: 'Kakyoin',
     authorizerId: 1,
     authorizer: 'Joseph',
