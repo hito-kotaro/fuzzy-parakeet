@@ -1,5 +1,5 @@
-import { IconLogOut, IconSettings } from '@supabase/ui';
 import React, { VFC } from 'react';
+import { IconLogOut, IconSettings } from '@supabase/ui';
 import UserCard from '../organisms/Cards/UserCard';
 import HomeHeader from '../organisms/Headers/HomeHeader';
 import MyWorkList from '../organisms/Lists/MyWorkList';
@@ -12,7 +12,6 @@ type Props = {
 
 const HomeTemplates: VFC<Props> = (props) => {
   const { logout } = useLogin();
-
   const onClick = () => {
     console.log('click');
   };
@@ -28,6 +27,7 @@ const HomeTemplates: VFC<Props> = (props) => {
   ];
 
   const { title } = props;
+
   return (
     <div>
       <HomeHeader title="ホーム" dropDownItems={itemList} />

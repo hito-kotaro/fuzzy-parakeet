@@ -7,6 +7,7 @@ import PenaltyDetailTemplate from '../templates/PenaltyDetailTemplate';
 import CreatePenaltyTemplate from '../templates/CreatePenaltyTemplate';
 import { dropDownItem } from '../../types/dropdownType';
 import ApplyPenaltyTemplate from '../templates/ApplyPenaltyTemplate';
+import useUserAgent from '../../hooks/useUserAgent';
 
 const PenaltyPage = () => {
   const {
@@ -22,6 +23,8 @@ const PenaltyPage = () => {
     onClickPlus,
     collectTeam,
   } = usePenaltyPage();
+  const { isSafari } = useUserAgent();
+  const className = isSafari ? 'switch-components-safari' : 'switch-components';
   const display = 'translate-x-0 opacity-100';
   const hidden = '-translate-x-full opacity-0';
 
@@ -42,9 +45,7 @@ const PenaltyPage = () => {
   return (
     <>
       <div
-        className={` switch-components z-30 ${
-          listTemplateState.isOpen ? display : hidden
-        }`}
+        className={` ${className} z-30 ${listTemplateState.isOpen ? display : hidden}`}
       >
         <ListTemplate
           title="Penalty"
@@ -55,9 +56,7 @@ const PenaltyPage = () => {
       </div>
 
       <div
-        className={` switch-components z-30 ${
-          detailTemplateState.isOpen ? display : hidden
-        }`}
+        className={` ${className} z-30 ${detailTemplateState.isOpen ? display : hidden}`}
       >
         <PenaltyDetailTemplate
           data={penalty}
@@ -67,17 +66,13 @@ const PenaltyPage = () => {
       </div>
 
       <div
-        className={` switch-components z-30 ${
-          createTemplateState.isOpen ? display : hidden
-        }`}
+        className={` ${className} z-30 ${createTemplateState.isOpen ? display : hidden}`}
       >
         <CreatePenaltyTemplate close={createTemplateState.close} />
       </div>
 
       <div
-        className={` switch-components z-30 ${
-          applyTemplateState.isOpen ? display : hidden
-        }`}
+        className={` ${className} z-30 ${applyTemplateState.isOpen ? display : hidden}`}
       >
         <ApplyPenaltyTemplate
           close={applyTemplateState.close}

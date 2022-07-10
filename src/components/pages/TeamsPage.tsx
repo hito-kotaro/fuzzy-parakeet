@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import useTeamsPage from '../../hooks/useTeamsPage';
+import useUserAgent from '../../hooks/useUserAgent';
 import DetailHeader from '../organisms/Headers/DetailHeader';
 import CreateTeamTemplate from '../templates/CreateTeamTemplate';
 import ListTemplate from '../templates/ListTemplate';
@@ -16,6 +17,9 @@ const TeamsPage = () => {
     onClickPlus,
     onClickListItem,
   } = useTeamsPage();
+  const { isSafari } = useUserAgent();
+  const className = isSafari ? 'switch-components-safari' : 'switch-components';
+
   const display = 'translate-x-0 opacity-100';
   const hidden = '-translate-x-full opacity-0';
 
@@ -30,9 +34,7 @@ const TeamsPage = () => {
   return (
     <>
       <div
-        className={` switch-components z-30 ${
-          listTemplateState.isOpen ? display : hidden
-        }`}
+        className={` ${className} z-30 ${listTemplateState.isOpen ? display : hidden}`}
       >
         <ListTemplate
           title="Teams"
@@ -43,7 +45,7 @@ const TeamsPage = () => {
       </div>
 
       <div
-        className={` switch-components z-30 overflow-scroll ${
+        className={` ${className} z-30 overflow-scroll ${
           detailTemplateState.isOpen ? display : hidden
         }`}
       >
@@ -51,9 +53,7 @@ const TeamsPage = () => {
       </div>
 
       <div
-        className={` switch-components z-40 ${
-          createTemplateState.isOpen ? display : hidden
-        }`}
+        className={` ${className} z-40 ${createTemplateState.isOpen ? display : hidden}`}
       >
         <CreateTeamTemplate close={createTemplateState.close} />
       </div>
