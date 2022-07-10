@@ -1,6 +1,7 @@
 import { Badge } from '@supabase/ui';
 import React, { VFC } from 'react';
 import IconLabel from '../../../atoms/Labels/IconLabel';
+import IconLabelMedium from '../../../atoms/Labels/IconLabelMedium';
 
 type Props = {
   ownerName: string;
@@ -27,7 +28,7 @@ const DetailCard: VFC<Props> = (props) => {
       <div className="h-5" />
       <div className="border-1 p-2">
         <div className="flex">
-          <IconLabel name={ownerName} />
+          <IconLabel size="medium" name={ownerName} />
           <div className="ml-auto">
             <Badge color={badgeColor}>{badgeText}</Badge>
             <div className="text-gray-400 text-right">{date}</div>
