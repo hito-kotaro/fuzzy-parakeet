@@ -11,38 +11,45 @@ type Props = {
 const IconLabel: VFC<Props> = (props) => {
   const { size, name, isTeam } = props;
   const [className, setClassName] = useState('leading-10');
+  const [sizeClass, setSizeClass] = useState(10);
   const [px, setPx] = useState(40);
 
-  // const setLabelSize = () => {
-  //   switch (size) {
-  //     case 'large':
-  //       setClassName('leading-12 text-xl');
-  //       setPx(48);
-  //       break;
-  //     case 'medium':
-  //       setClassName('leading-10');
-  //       setPx(40);
-  //       break;
-  //     case 'small':
-  //       setClassName('leading-7 text-sm');
-  //       setPx(28);
-  //       break;
-  //     default:
-  //       setClassName('leading-10');
-  //       setPx(40);
-  //   }
-  // };
+  const setLabelSize = () => {
+    switch (size) {
+      case 'large':
+        setClassName('leading-12 text-xl');
+        setSizeClass(12);
+        setPx(48);
+        break;
+      case 'medium':
+        setClassName('leading-10');
+        setSizeClass(10);
+        setPx(40);
+        break;
+      case 'small':
+        setClassName('leading-7 text-sm');
+        setSizeClass(7);
+        setPx(28);
+        break;
+      default:
+        setClassName('leading-10');
+        setSizeClass(10);
+        setPx(40);
+    }
+  };
 
-  // useEffect(() => {
-  //   setLabelSize();
-  // }, []);
-  // setLabelSize();
+  useEffect(() => {
+    setLabelSize();
+  }, []);
+
   return (
     <div className="flex">
       {/* <MyAvatar size={px} name={name} isTeam={isTeam} /> */}
-      <div className="rounded-full overflow-hidden">
+      <div
+        className={`rounded-full overflow-hidden bg-red-200 h-${sizeClass} w-${sizeClass}`}
+      >
         <Avatar
-          size={40}
+          size={px}
           name={name}
           variant={isTeam ? 'bauhaus' : 'beam'}
           colors={['#FFAD08', '#EDD75A', '#73B06F', '#0C8F8F', '#405059']}
