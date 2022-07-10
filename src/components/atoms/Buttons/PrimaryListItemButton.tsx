@@ -1,7 +1,6 @@
 import { Badge } from '@supabase/ui';
 import Avatar from 'boring-avatars';
 import React, { VFC } from 'react';
-import MyAvatar from '../Avatar/MyAvatar';
 
 type Props = {
   id: number;
