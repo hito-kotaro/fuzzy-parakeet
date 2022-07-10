@@ -1,5 +1,6 @@
 import { IconCheckCircle } from '@supabase/ui';
 import React, { useEffect } from 'react';
+import useUserAgent from '../../hooks/useUserAgent';
 import useUsersPage from '../../hooks/useUsersPage';
 import { dropDownItem } from '../../types/dropdownType';
 import PrimaryModal from '../molecules/PrimaryModal';
@@ -23,7 +24,8 @@ const UsersPage = () => {
     onClickListItem,
     filterList,
   } = useUsersPage();
-
+  const { isSafari } = useUserAgent();
+  const className = isSafari ? 'switch-components-safari' : 'switch-components';
   const display = 'translate-x-0 opacity-100';
   const hidden = '-translate-x-full opacity-0';
 
@@ -65,9 +67,7 @@ const UsersPage = () => {
         name={user.name}
       />
       <div
-        className={` switch-components z-30 ${
-          listTemplateState.isOpen ? display : hidden
-        }`}
+        className={` ${className} z-30 ${listTemplateState.isOpen ? display : hidden}`}
       >
         <ListTemplate
           title="Users"
@@ -78,9 +78,7 @@ const UsersPage = () => {
       </div>
 
       <div
-        className={` switch-components z-30 ${
-          detailTemplateState.isOpen ? display : hidden
-        }`}
+        className={` ${className} z-30 ${detailTemplateState.isOpen ? display : hidden}`}
       >
         <UserDetailTemplate
           data={user}
@@ -91,7 +89,7 @@ const UsersPage = () => {
       </div>
 
       <div
-        className={` switch-components z-40 ${
+        className={` ${className} z-40 ${
           updateUserInfoTemplateState.isOpen ? display : hidden
         }`}
       >
@@ -102,7 +100,7 @@ const UsersPage = () => {
       </div>
 
       <div
-        className={` switch-components z-40 ${
+        className={` ${className} z-40 ${
           updateUserAttributeTemplateState.isOpen ? display : hidden
         }`}
       >
@@ -113,9 +111,7 @@ const UsersPage = () => {
       </div>
 
       <div
-        className={` switch-components z-30 ${
-          createTemplateState.isOpen ? display : hidden
-        }`}
+        className={` ${className} z-30 ${createTemplateState.isOpen ? display : hidden}`}
       >
         <UserCreateTemplate close={createTemplateState.close} />
       </div>

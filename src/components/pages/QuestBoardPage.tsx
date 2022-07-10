@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import usePrimaryList from '../../hooks/usePrimaryList';
 import useQuestBordPage from '../../hooks/useQuestBordPage';
 import useTemplate from '../../hooks/useTemplate';
+import useUserAgent from '../../hooks/useUserAgent';
 import { questData } from '../../testData/QuestTestData';
 import { dropDownItem } from '../../types/dropdownType';
 import { primaryListItem } from '../../types/ListItem/PrimaryListItemType';
@@ -25,7 +26,8 @@ const QuestBoardPage = () => {
     point: -999,
     status: false,
   };
-
+  const { isSafari } = useUserAgent();
+  const className = isSafari ? 'switch-components-safari' : 'switch-components';
   const { questList, setQuestList } = useQuestBordPage();
   const { list, setList } = usePrimaryList();
   const [quest, setQuest] = useState<questType>(defaultQuest);
@@ -94,9 +96,7 @@ const QuestBoardPage = () => {
 
   return (
     <>
-      <div
-        className={` switch-components z-30 ${listTemplate.isOpen ? display : hidden}`}
-      >
+      <div className={`${className} z-30 ${listTemplate.isOpen ? display : hidden}`}>
         <ListTemplate
           title="QuestBoard"
           listData={list}
@@ -105,9 +105,7 @@ const QuestBoardPage = () => {
         />
       </div>
 
-      <div
-        className={`switch-components z-40 ${detailTemplate.isOpen ? display : hidden}`}
-      >
+      <div className={`${className} z-40 ${detailTemplate.isOpen ? display : hidden}`}>
         <DetailTemplate
           data={{
             name: quest.owner,
@@ -120,9 +118,7 @@ const QuestBoardPage = () => {
         />
       </div>
 
-      <div
-        className={`switch-components z-50 ${reportTemplate.isOpen ? display : hidden}`}
-      >
+      <div className={`${className} z-50 ${reportTemplate.isOpen ? display : hidden}`}>
         <ReportTemplate
           questTitle={quest.title}
           questId={quest.id}
@@ -130,9 +126,7 @@ const QuestBoardPage = () => {
           close={reportTemplate.close}
         />
       </div>
-      <div
-        className={`switch-components z-50 ${createTemplate.isOpen ? display : hidden}`}
-      >
+      <div className={`${className} z-50 ${createTemplate.isOpen ? display : hidden}`}>
         <CreateQuestTemplate close={createTemplate.close} />
       </div>
     </>
