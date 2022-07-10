@@ -1,6 +1,6 @@
 import { Badge } from '@supabase/ui';
+import Avatar from 'boring-avatars';
 import React, { VFC } from 'react';
-import MyAvatar from '../Avatar/MyAvatar';
 
 type Props = {
   id: number;
@@ -22,7 +22,14 @@ const PrimaryListItemButton: VFC<Props> = (props) => {
   return (
     <button type="button" className="w-full" onClick={() => onClick(id)}>
       <div className="flex border-b-1 px-3 py-2 bg-white w-full">
-        <MyAvatar size={44} name={name} isTeam={isTeam} />
+        <div className="rounded-full overflow-hidden h-11 w-11">
+          <Avatar
+            size={44}
+            name={name}
+            variant={isTeam ? 'bauhaus' : 'beam'}
+            colors={['#FFAD08', '#EDD75A', '#73B06F', '#0C8F8F', '#405059']}
+          />
+        </div>
 
         <div className="w-2" />
         <div className="text-left w-3/5">
