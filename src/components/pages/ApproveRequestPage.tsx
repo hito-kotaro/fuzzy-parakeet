@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { IconCheckCircle } from '@supabase/ui';
 import ListTemplate from '../templates/ListTemplate';
-import { dropDownItem } from '../../types/Dropdown/dropDownItemType';
+import { dropDownItem } from '../../types/dropdownType';
 import ApproveDetailTemplate from '../templates/ApproveDetailTemplate';
 import useApproveRequestPage from '../../hooks/useApproveRequestPage';
 

@@ -5,7 +5,7 @@ import DetailTemplate from '../templates/DetailTemplate';
 import ListTemplate from '../templates/ListTemplate';
 import PenaltyDetailTemplate from '../templates/PenaltyDetailTemplate';
 import CreatePenaltyTemplate from '../templates/CreatePenaltyTemplate';
-import { dropDownItem } from '../../types/Dropdown/dropDownItemType';
+import { dropDownItem } from '../../types/dropdownType';
 import ApplyPenaltyTemplate from '../templates/ApplyPenaltyTemplate';
 
 const PenaltyPage = () => {

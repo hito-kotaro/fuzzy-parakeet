@@ -1,5 +1,5 @@
 import React, { VFC } from 'react';
-import { dropDownItem } from '../../../types/Dropdown/dropDownItemType';
+import { dropDownItem } from '../../../types/dropdownType';
 import BackButton from '../../atoms/Buttons/BackButton';
 import DropdownButton from '../../atoms/Buttons/DropdownButton';
 import IconLabel from '../../atoms/Labels/IconLabel';

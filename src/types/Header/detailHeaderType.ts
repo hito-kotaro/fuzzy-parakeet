@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import { dropDownItem } from '../Dropdown/dropDownItemType';
+import { dropDownItem } from '../dropdownType';
 
 export type detailHeaderType = {
   id: number;

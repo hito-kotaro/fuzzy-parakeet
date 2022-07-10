@@ -1,6 +1,6 @@
 import React, { VFC } from 'react';
 import { detailTemplateType } from '../../types/detailTemplateType';
-import { dropDownItem } from '../../types/Dropdown/dropDownItemType';
+import { dropDownItem } from '../../types/dropdownType';
 import DetailCard from '../organisms/Cards/DetailCard/DetailCard';
 import DetailHeader from '../organisms/Headers/DetailHeader';
 

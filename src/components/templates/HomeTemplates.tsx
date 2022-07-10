@@ -4,7 +4,7 @@ import UserCard from '../organisms/Cards/UserCard';
 import HomeHeader from '../organisms/Headers/HomeHeader';
 import MyWorkList from '../organisms/Lists/MyWorkList';
 import useLogin from '../../hooks/useLogin';
-import { dropDownItem } from '../../types/Dropdown/dropDownItemType';
+import { dropDownItem } from '../../types/dropdownType';
 
 type Props = {
   title: string;

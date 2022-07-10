@@ -1,6 +1,6 @@
 import React, { useEffect, VFC } from 'react';
 import usePrimaryList from '../../hooks/usePrimaryList';
-import { dropDownItem } from '../../types/Dropdown/dropDownItemType';
+import { dropDownItem } from '../../types/dropdownType';
 import { userType } from '../../types/usersType';
 import PrimaryList from '../molecules/Lists/PrimaryList';
 import DetailHeader from '../organisms/Headers/DetailHeader';

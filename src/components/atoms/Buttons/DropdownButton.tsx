@@ -1,7 +1,7 @@
 import React, { VFC } from 'react';
 import { Button, Divider, Dropdown, Typography } from '@supabase/ui';
 import { BsThreeDots } from 'react-icons/bs';
-import type { dropDownItem } from '../../../types/Dropdown/dropDownItemType';
+import type { dropDownItem } from '../../../types/dropdownType';
 
 type Props = {
   itemList: dropDownItem[];
@@ -21,7 +21,11 @@ const DropdownButton: VFC<Props> = (props) => {
         </>
       ))}
     >
-      <Button as="span" type="text" icon={<BsThreeDots size={24} className="outline-none" />} />
+      <Button
+        as="span"
+        type="text"
+        icon={<BsThreeDots size={24} className="outline-none" />}
+      />
     </Dropdown>
   );
 };

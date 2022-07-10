@@ -4,7 +4,7 @@ import usePrimaryList from '../../hooks/usePrimaryList';
 import useQuestBordPage from '../../hooks/useQuestBordPage';
 import useTemplate from '../../hooks/useTemplate';
 import { questData } from '../../testData/QuestTestData';
-import { dropDownItem } from '../../types/Dropdown/dropDownItemType';
+import { dropDownItem } from '../../types/dropdownType';
 import { primaryListItem } from '../../types/ListItem/PrimaryListItemType';
 import { createQuestType, questType } from '../../types/Quest/QuestType';
 import { reportType } from '../../types/reportType';

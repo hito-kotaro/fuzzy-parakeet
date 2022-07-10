@@ -1,5 +1,5 @@
 import React, { VFC } from 'react';
-import { dropDownItem } from '../../types/Dropdown/dropDownItemType';
+import { dropDownItem } from '../../types/dropdownType';
 import { penaltyType } from '../../types/PenaltyType';
 import DetailCard from '../organisms/Cards/DetailCard/DetailCard';
 import DetailHeader from '../organisms/Headers/DetailHeader';
