@@ -1,35 +1,45 @@
-import React, { VFC } from 'react';
-import InputForm from '../atoms/InputForms/InputForm/InputForm';
-import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
-import PrimaryButton from '../atoms/Buttons/PrimaryButton/PrimaryButton';
+import React, { useState, VFC } from 'react';
 import MyAvatar from '../atoms/Avatar/MyAvatar';
 import LoginForm from '../organisms/LoginForm/LoginForm';
+import RegisterAccountForm from '../organisms/RegisterAccountForm';
 
 type Props = {
   title: string;
   thema: string;
 };
 const LoginTemplate: VFC<Props> = (props) => {
+  const [isRegister, setIsRegister] = useState(false);
   const { title, thema } = props;
 
   const dummy = () => {
     console.log('test');
   };
 
+  const toggleForm = () => {
+    setIsRegister(!isRegister);
+  };
   return (
     <div>
       <div className="h-10" />
       <div>
         <div className="flex justify-center">
-          <MyAvatar size={108} name="Mother Frances" />
+          <MyAvatar size={96} name="Mother Frances" />
         </div>
         <div className="text-3xl font-mono text-center text-gray-500">QuestHub</div>
       </div>
 
-      <div className="h-10" />
+      <div className="h-8" />
+      <div className="text-xl font-mono text-center text-gray-500">
+        {isRegister ? '新規登録' : 'ログイン'}
+      </div>
+      <div className="h-3" />
 
       <div className="px-5">
-        <LoginForm />
+        {isRegister ? (
+          <RegisterAccountForm toggleForm={toggleForm} />
+        ) : (
+          <LoginForm toggleForm={toggleForm} />
+        )}
       </div>
     </div>
   );

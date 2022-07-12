@@ -7,6 +7,11 @@ body {
   color: #f1f3f5;
 }
 
+.secondary {
+  background-color: #808080;
+  color: #f1f3f5;
+}
+
 .switch-components {
   width: 100vw;
   height: 100vh;

@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { VFC } from 'react';
 import useLogin from '../../../hooks/useLogin';
 import PrimaryButton from '../../atoms/Buttons/PrimaryButton/PrimaryButton';
 import InputForm from '../../atoms/InputForms/InputForm/InputForm';
 import useInputForm from '../../atoms/InputForms/InputForm/useInputForm';
+import LinkButton from '../../atoms/LinkButton';
 
-const LoginForm = () => {
+type Props = {
+  toggleForm: () => void;
+};
+
+const LoginForm: VFC<Props> = (props) => {
+  const { toggleForm } = props;
   const accountInputHandler = useInputForm();
   const emailInputHandler = useInputForm();
   const passwordInputHandler = useInputForm();
@@ -64,6 +70,8 @@ const LoginForm = () => {
         >
           Login
         </PrimaryButton>
+        <div className="h-5" />
+        <LinkButton onClick={toggleForm}>新規登録</LinkButton>
       </div>
     </>
   );
