@@ -5,6 +5,7 @@ import InputForm from '../../atoms/InputForms/InputForm/InputForm';
 import useInputForm from '../../atoms/InputForms/InputForm/useInputForm';
 
 const LoginForm = () => {
+  const accountInputHandler = useInputForm();
   const emailInputHandler = useInputForm();
   const passwordInputHandler = useInputForm();
   const { login } = useLogin();
@@ -15,6 +16,18 @@ const LoginForm = () => {
 
   return (
     <>
+      <div className="h-12">
+        <InputForm
+          inputHandler={accountInputHandler}
+          placeholder="9桁のアカウントID"
+          color="bg-gray-200"
+          rounded="rounded-lg"
+          type="number"
+        />
+      </div>
+
+      <div className="h-5" />
+
       <div className="h-12">
         <InputForm
           inputHandler={emailInputHandler}
@@ -40,7 +53,13 @@ const LoginForm = () => {
       <div className="h-5" />
       <div className="px-5">
         <PrimaryButton
-          onClick={() => login(emailInputHandler.input, passwordInputHandler.input)}
+          onClick={() =>
+            login(
+              Number(accountInputHandler.input),
+              emailInputHandler.input,
+              passwordInputHandler.input,
+            )
+          }
           thema="primary"
         >
           Login
