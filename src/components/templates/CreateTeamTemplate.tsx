@@ -1,4 +1,5 @@
 import React, { VFC } from 'react';
+import useTeamApi from '../../hooks/useTeamApi';
 import { createTeamType } from '../../types/teamsType';
 import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
 import DocumentationForm from '../molecules/DocumentationForm/DocumentationForm';
@@ -12,6 +13,7 @@ const CreateTeamTemplate: VFC<Props> = (props) => {
   const { close } = props;
   const nameHandler = useInputForm();
   const descriptionHandler = useInputForm();
+  const { createTeam } = useTeamApi();
 
   const namePlaceholder = 'チーム名を入力してください(必須)';
   const descriptionPlaceholder = 'コメントを入力してください(任意)';
@@ -27,17 +29,7 @@ const CreateTeamTemplate: VFC<Props> = (props) => {
   };
 
   const onClickCreate = () => {
-    const newTeam: createTeamType = {
-      name: nameHandler.input,
-      description: descriptionHandler.input,
-      teamTotalPoint: 0,
-      teamPenalty: 0,
-      created_at: 'today',
-      updated_at: '',
-    };
-
-    console.log(newTeam);
-
+    createTeam(nameHandler.input, descriptionHandler.input);
     clear();
     close();
   };

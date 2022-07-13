@@ -1,8 +1,8 @@
 export type teamType = {
   id: number;
   name: string;
-  teamTotalPoint: number;
-  teamPenalty: number;
+  point: number;
+  penalty: number;
   description: string;
   created_at: string;
   updated_at: string;

@@ -30,12 +30,12 @@ const TeamDetailTemplate: VFC<Props> = (props) => {
       color: 'bg-emerald-400',
     },
     {
-      score: data.teamPenalty,
+      score: data.penalty,
       label: 'penalty',
       color: 'bg-rose-500',
     },
     {
-      score: totalUserPoint - data.teamPenalty,
+      score: data.point - data.penalty,
       label: 'total',
       color: 'bg-indigo-400',
     },

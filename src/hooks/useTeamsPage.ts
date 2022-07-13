@@ -6,6 +6,7 @@ import { primaryListItem } from '../types/ListItem/PrimaryListItemType';
 import { teamType } from '../types/teamsType';
 import { userType } from '../types/usersType';
 import usePrimaryList from './usePrimaryList';
+import useTeamApi from './useTeamApi';
 import useTemplate from './useTemplate';
 
 const useTeamsPage = () => {
@@ -13,17 +14,22 @@ const useTeamsPage = () => {
   const listTemplateState = useTemplate(true);
   const createTemplateState = useTemplate(false);
   const detailTemplateState = useTemplate(false);
+  const { teamListRaw, fetchTeamById } = useTeamApi();
 
   // チームの詳細画面を作成したら使用する
   const [team, setTeam] = useState<teamType>(defaultTeam);
 
   // 詳細画面に渡す情報をステートにセット
-  const onClickListItem = (id: number) => {
-    const data = teamsData.filter((t: teamType) => {
+  const onClickListItem = async (id: number) => {
+    console.log(`id=${id}`);
+    await fetchTeamById(id);
+    console.log(teamListRaw);
+    const data = teamListRaw.filter((t: teamType) => {
       return t.id === id;
     });
-    setTeam(data[0]);
-    detailTemplateState.open();
+    // console.log(data);
+    // setTeam(data[0]);
+    // detailTemplateState.open();
   };
 
   const onClickPlus = () => {
@@ -49,17 +55,20 @@ const useTeamsPage = () => {
     return total;
   };
 
-  const filterList = () => {
-    const primaryList: primaryListItem[] = teamsData.map((t) => {
-      const totalPoint = filterUserByTeamId(t.id) - t.teamPenalty;
+  // # 画面を開いたときに読み込まれるようにしたい
+  const filterList = (data: teamType[]) => {
+    console.log(data);
+    const primaryList: primaryListItem[] = data.map((t) => {
+      const date = t.created_at.replace(/-/g, '/').substring(0, 10);
+
       const item: primaryListItem = {
         id: t.id,
         name: t.name,
         title: t.name,
         description: t.description,
-        date: t.created_at,
-        badgeText: `${totalPoint} point`,
-        badgeColor: badgeConfig(totalPoint),
+        date,
+        badgeText: `${t.point} point`,
+        badgeColor: badgeConfig(t.point - t.penalty),
         isTeam: true,
       };
       return item;

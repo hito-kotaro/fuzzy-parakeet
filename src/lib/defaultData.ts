@@ -29,8 +29,8 @@ export const defaultUser: userType = {
 export const defaultTeam: teamType = {
   id: 0,
   name: 'けつばん',
-  teamTotalPoint: 0,
-  teamPenalty: 0,
+  point: 0,
+  penalty: 0,
   description: 'みたね？',
   created_at: 'あした',
   updated_at: 'きのう',

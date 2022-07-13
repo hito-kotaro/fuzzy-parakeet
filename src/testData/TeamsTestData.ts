@@ -4,8 +4,8 @@ export const teamsData: teamType[] = [
   {
     id: 1,
     name: 'チーム杜王町',
-    teamTotalPoint: 0,
-    teamPenalty: 1,
+    point: 0,
+    penalty: 1,
     description: 'モリモリモリモリ',
     created_at: '2022/1/1',
     updated_at: '2022/2/1',

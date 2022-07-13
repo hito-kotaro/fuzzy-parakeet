@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
+import { useRecoilValue } from 'recoil';
+import useTeamApi from '../../hooks/useTeamApi';
 import useTeamsPage from '../../hooks/useTeamsPage';
 import useUserAgent from '../../hooks/useUserAgent';
-import DetailHeader from '../organisms/Headers/DetailHeader';
 import CreateTeamTemplate from '../templates/CreateTeamTemplate';
 import ListTemplate from '../templates/ListTemplate';
 import TeamDetailTemplate from '../templates/TeamDetailTemplate';
@@ -17,15 +18,23 @@ const TeamsPage = () => {
     onClickPlus,
     onClickListItem,
   } = useTeamsPage();
+
+  const { fetchAllTeam, teamListRaw } = useTeamApi();
   const { isSafari } = useUserAgent();
   const className = isSafari ? 'switch-components-safari' : 'switch-components';
 
   const display = 'translate-x-0 opacity-100';
   const hidden = '-translate-x-full opacity-0';
 
+  // レンダリング時にバックエンドからチーム一覧を取得
   useEffect(() => {
-    filterList();
+    fetchAllTeam();
   }, []);
+
+  useEffect(() => {
+    console.log('update raw team list');
+    filterList(teamListRaw);
+  }, [teamListRaw]);
 
   const dummy = () => {
     console.log('test');
