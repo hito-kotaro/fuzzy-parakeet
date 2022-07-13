@@ -13,8 +13,8 @@ const CreateTeamTemplate: VFC<Props> = (props) => {
   const nameHandler = useInputForm();
   const descriptionHandler = useInputForm();
 
-  const namePlaceholder = 'タイトルを入力してください(必須)';
-  const descriptionPlaceholder = 'クエスト内容を入力してください(任意)';
+  const namePlaceholder = 'チーム名を入力してください(必須)';
+  const descriptionPlaceholder = 'コメントを入力してください(任意)';
 
   const clear = () => {
     nameHandler.clear();

@@ -2,6 +2,7 @@ import { atom } from 'recoil';
 
 const checkUserAgent = () => {
   const agent = window.navigator.userAgent.toLowerCase();
+  console.log(agent);
   if (agent.indexOf('safari') !== -1 && agent.indexOf('iphone') !== -1) {
     return true;
   }
