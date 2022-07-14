@@ -1,6 +1,5 @@
 import React, { VFC } from 'react';
 import useTeamApi from '../../hooks/useTeamApi';
-import { createTeamType } from '../../types/teamsType';
 import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
 import DocumentationForm from '../molecules/DocumentationForm/DocumentationForm';
 import MiniHeader from '../organisms/Headers/MiniHeader';

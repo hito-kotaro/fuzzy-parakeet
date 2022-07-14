@@ -1,4 +1,4 @@
-import React, { useEffect, useState, VFC } from 'react';
+import React, { useEffect } from 'react';
 import useTeamApi from '../../hooks/useTeamApi';
 import useTeamListState from '../../hooks/useTeamListState';
 import useTeamsPage from '../../hooks/useTeamsPage';
@@ -7,8 +7,6 @@ import CreateTeamTemplate from '../templates/CreateTeamTemplate';
 import ListTemplate from '../templates/ListTemplate';
 import TeamDetailTemplate from '../templates/TeamDetailTemplate';
 import Loading from '../atoms/Loading';
-import { primaryListItem } from '../../types/ListItem/PrimaryListItemType';
-import { teamType } from '../../types/teamsType';
 import useLoading from '../../hooks/useLoading';
 
 const TeamsPage = () => {

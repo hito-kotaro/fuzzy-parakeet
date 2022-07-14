@@ -1,6 +1,8 @@
 import { IconCheckCircle } from '@supabase/ui';
 import React, { useEffect } from 'react';
+import useLoading from '../../hooks/useLoading';
 import useUserAgent from '../../hooks/useUserAgent';
+import useUserApi from '../../hooks/useUserApi';
 import useUsersPage from '../../hooks/useUsersPage';
 import { dropDownItem } from '../../types/dropdownType';
 import PrimaryModal from '../molecules/PrimaryModal';
@@ -9,8 +11,10 @@ import UserAttributeUpdateTemplate from '../templates/UserAttributeUpdateTemplat
 import UserCreateTemplate from '../templates/UserCreateTemplate';
 import UserDetailTemplate from '../templates/UserDetailTemplate';
 import UserInfoUpdateTemplate from '../templates/UserInfoUpdateTemplate';
+import Loading from '../atoms/Loading';
 
 const UsersPage = () => {
+  const { isLoading } = useLoading();
   const {
     list,
     user,
@@ -24,13 +28,15 @@ const UsersPage = () => {
     onClickListItem,
     filterList,
   } = useUsersPage();
+  const { fetchUserAll } = useUserApi();
   const { isSafari } = useUserAgent();
   const className = isSafari ? 'switch-components-safari' : 'switch-components';
   const display = 'translate-x-0 opacity-100';
   const hidden = '-translate-x-full opacity-0';
 
   useEffect(() => {
-    filterList();
+    // filterList();
+    fetchUserAll();
   }, []);
 
   const myMenu: dropDownItem[] = [
@@ -69,12 +75,16 @@ const UsersPage = () => {
       <div
         className={` ${className} z-30 ${listTemplateState.isOpen ? display : hidden}`}
       >
-        <ListTemplate
-          title="Users"
-          listData={list}
-          onClick={onClickListItem}
-          onClickPlus={createTemplateState.open}
-        />
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <ListTemplate
+            title="Users"
+            listData={list}
+            onClick={onClickListItem}
+            onClickPlus={createTemplateState.open}
+          />
+        )}
       </div>
 
       <div

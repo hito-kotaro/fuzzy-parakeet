@@ -32,6 +32,7 @@ const UserCreateTemplate: VFC<Props> = (props) => {
   };
 
   const createUser = () => {
+    
     const newUser: createUserType = {
       name: `${lastNameInputHandler.input}_${firstNameInputHandler.input}`,
       email: emailInputHandler.input,
