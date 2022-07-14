@@ -3,7 +3,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 // @ts-ignore
 import SlideRoutes from 'react-slide-routes';
 import ApproveRequestPage from '../components/pages/ApproveRequestPage';
-import JobsPage from '../components/pages/JobsPage';
+
 import PenaltyPage from '../components/pages/PenaltyPage';
 import QuestBoardPage from '../components/pages/QuestBoardPage';
 import TeamsPage from '../components/pages/TeamsPage';
@@ -16,7 +16,6 @@ import TestPage from '../components/templates/TestPage';
 
 const Router = () => {
   const location = useLocation();
-
   return (
     <SlideRoutes location={location} duration={500}>
       <Route

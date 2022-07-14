@@ -1,15 +1,11 @@
 import React, { useEffect, useState, VFC } from 'react';
-import { listenerCount } from 'stream';
 import usePrimaryList from '../../hooks/usePrimaryList';
 import { primaryListItem } from '../../types/ListItem/PrimaryListItemType';
 import { scoreItem } from '../../types/ScoreDisplayType';
 import { teamType } from '../../types/teamsType';
-import { userType } from '../../types/usersType';
-import ScoreDisplayItem from '../atoms/ScoreDisplayItem';
 import PrimaryList from '../molecules/Lists/PrimaryList';
 import DetailHeader from '../organisms/Headers/DetailHeader';
 import ScoreDisplay from '../organisms/ScoreDisplay';
-import ListTemplate from './ListTemplate';
 
 type Props = {
   data: teamType;

@@ -56,7 +56,6 @@ const useTeamsPage = () => {
     return total;
   };
 
-  // # 画面を開いたときに読み込まれるようにしたい
   const filterList = (data: teamType[]) => {
     console.log(data);
     const primaryList: primaryListItem[] = data.map((t) => {
