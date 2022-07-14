@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { Axios, AxiosResponse } from 'axios';
 import { createAxiosTokenInstance } from '../lib/axiosInstance';
 import { teamType } from '../types/teamsType';
+import useTeamListState from './useTeamListState';
 
 const useTeamApi = () => {
   const authInstance = createAxiosTokenInstance();
   const [teamListRaw, setTeamListRaw] = useState<teamType[]>([]);
-
+  const { teamList, setTeamList } = useTeamListState();
   const createTeam = async (name: string, description: string) => {
     const newTeamParams = {
       name,
@@ -41,24 +42,18 @@ const useTeamApi = () => {
         return teamData;
       });
       console.log(data);
-      setTeamListRaw(data);
+      setTeamList(data);
+      // setTeamListRaw(data);
     } catch (error) {
       alert('取得失敗');
     }
   };
 
   const fetchTeamById = async (id: number) => {
-    try {
-      const result: AxiosResponse = await authInstance.get(`/team/${id}`);
-      console.log(result.data);
-      return result.data;
-    } catch (error) {
-      alert('取得失敗');
-    }
-    return 0;
+    console.log(id);
   };
 
-  return { fetchAllTeam, fetchTeamById, createTeam, teamListRaw };
+  return { fetchAllTeam, fetchTeamById, createTeam };
 };
 
 export default useTeamApi;

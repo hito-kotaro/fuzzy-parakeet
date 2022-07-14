@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
 import useTeamApi from '../../hooks/useTeamApi';
+import useTeamListState from '../../hooks/useTeamListState';
 import useTeamsPage from '../../hooks/useTeamsPage';
 import useUserAgent from '../../hooks/useUserAgent';
 import CreateTeamTemplate from '../templates/CreateTeamTemplate';
@@ -19,8 +20,9 @@ const TeamsPage = () => {
     onClickListItem,
   } = useTeamsPage();
 
-  const { fetchAllTeam, teamListRaw } = useTeamApi();
+  const { fetchAllTeam } = useTeamApi();
   const { isSafari } = useUserAgent();
+  const { teamList, setTeamList } = useTeamListState();
   const className = isSafari ? 'switch-components-safari' : 'switch-components';
 
   const display = 'translate-x-0 opacity-100';
@@ -33,8 +35,8 @@ const TeamsPage = () => {
 
   useEffect(() => {
     console.log('update raw team list');
-    filterList(teamListRaw);
-  }, [teamListRaw]);
+    filterList(teamList);
+  }, [teamList]);
 
   const dummy = () => {
     console.log('test');

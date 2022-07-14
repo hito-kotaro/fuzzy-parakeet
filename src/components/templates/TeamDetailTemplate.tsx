@@ -64,7 +64,7 @@ const TeamDetailTemplate: VFC<Props> = (props) => {
       <DetailHeader
         name={data.name}
         date={data.created_at}
-        title="Team詳細"
+        title={data.description}
         iconSize="large"
         closeDetail={close}
         dropDownItems={[]}

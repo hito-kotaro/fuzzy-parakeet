@@ -7,6 +7,7 @@ import { teamType } from '../types/teamsType';
 import { userType } from '../types/usersType';
 import usePrimaryList from './usePrimaryList';
 import useTeamApi from './useTeamApi';
+import useTeamListState from './useTeamListState';
 import useTemplate from './useTemplate';
 
 const useTeamsPage = () => {
@@ -14,22 +15,22 @@ const useTeamsPage = () => {
   const listTemplateState = useTemplate(true);
   const createTemplateState = useTemplate(false);
   const detailTemplateState = useTemplate(false);
-  const { teamListRaw, fetchTeamById } = useTeamApi();
+  const { fetchTeamById } = useTeamApi();
 
   // チームの詳細画面を作成したら使用する
   const [team, setTeam] = useState<teamType>(defaultTeam);
+  const { teamList } = useTeamListState();
 
   // 詳細画面に渡す情報をステートにセット
-  const onClickListItem = async (id: number) => {
+  const onClickListItem = (id: number) => {
     console.log(`id=${id}`);
-    await fetchTeamById(id);
-    console.log(teamListRaw);
-    const data = teamListRaw.filter((t: teamType) => {
+    console.log(teamList);
+    const data = teamList.filter((t: teamType) => {
       return t.id === id;
     });
-    // console.log(data);
-    // setTeam(data[0]);
-    // detailTemplateState.open();
+    console.log(data);
+    setTeam(data[0]);
+    detailTemplateState.open();
   };
 
   const onClickPlus = () => {
