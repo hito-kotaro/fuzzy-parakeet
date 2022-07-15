@@ -6,6 +6,7 @@ import { deleteUserType, userType } from '../types/usersType';
 import useModal from './useModal';
 import usePrimaryList from './usePrimaryList';
 import useTemplate from './useTemplate';
+import useUserList from './useUserList';
 
 const useUsersPage = () => {
   const [user, setUser] = useState<userType>(defaultUser);
@@ -16,10 +17,11 @@ const useUsersPage = () => {
   const updateUserInfoTemplateState = useTemplate(false);
   const updateUserAttributeTemplateState = useTemplate(false);
   const modal = useModal();
+  const { userList } = useUserList();
 
   // 詳細画面に渡す情報をステートにセット
   const onClickListItem = (id: number) => {
-    const data = usersData.filter((u: userType) => {
+    const data = userList.filter((u: userType) => {
       return u.id === id;
     });
     setUser(data[0]);
@@ -31,15 +33,18 @@ const useUsersPage = () => {
   };
 
   const filterList = () => {
-    const primaryList: primaryListItem[] = usersData.map((u) => {
+    const primaryList: primaryListItem[] = userList.map((u) => {
       const item: primaryListItem = {
+        // descriptioinとpointはレスポンスを用意していなかったので一旦固定値
         id: u.id,
         name: u.name,
         title: u.name,
-        description: u.description,
+        description: '',
         date: u.created_at,
         badgeColor: 'green',
-        badgeText: String(u.point),
+        badgeText: '1',
+
+        // badgeText: String(u.point),
       };
       return item;
     });

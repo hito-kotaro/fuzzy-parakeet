@@ -12,6 +12,7 @@ import UserCreateTemplate from '../templates/UserCreateTemplate';
 import UserDetailTemplate from '../templates/UserDetailTemplate';
 import UserInfoUpdateTemplate from '../templates/UserInfoUpdateTemplate';
 import Loading from '../atoms/Loading';
+import useUserList from '../../hooks/useUserList';
 
 const UsersPage = () => {
   const { isLoading } = useLoading();
@@ -28,17 +29,22 @@ const UsersPage = () => {
     onClickListItem,
     filterList,
   } = useUsersPage();
+  const { userList } = useUserList();
   const { fetchUserAll } = useUserApi();
   const { isSafari } = useUserAgent();
   const className = isSafari ? 'switch-components-safari' : 'switch-components';
   const display = 'translate-x-0 opacity-100';
   const hidden = '-translate-x-full opacity-0';
 
+  // レンダリング時にバックエンドからユーザー一覧を取得
   useEffect(() => {
-    // filterList();
     fetchUserAll();
   }, []);
 
+  useEffect(() => {
+    filterList();
+    console.log(userList);
+  }, [userList]);
   const myMenu: dropDownItem[] = [
     {
       icon: <IconCheckCircle />,
