@@ -1,4 +1,6 @@
 import React, { useEffect, useState, VFC } from 'react';
+import useTeamApi from '../../hooks/useTeamApi';
+import useTeamListState from '../../hooks/useTeamListState';
 import { roleSelectItem } from '../../lib/SelectItems';
 import { teamsData } from '../../testData/TeamsTestData';
 import { selectHandlerType } from '../../types/Handler/HandlerTypes';
@@ -14,11 +16,16 @@ const UserAttributeForm: VFC<Props> = (props) => {
   const { teamSelectHandler, roleSelectHandler } = props;
   const roleItems: SelectItem[] = roleSelectItem;
   const [teamSelect, setTeamSelect] = useState<SelectItem[]>([]);
-
+  const { teamList } = useTeamListState();
+  const { fetchAllTeam } = useTeamApi();
   // teamsを取得
   useEffect(() => {
+    fetchAllTeam();
+  }, []);
+
+  useEffect(() => {
     // ItemListに入れる
-    const list = teamsData.map((t) => {
+    const list = teamList.map((t) => {
       const item: SelectItem = {
         value: String(t.id),
         itemText: t.name,
@@ -26,7 +33,7 @@ const UserAttributeForm: VFC<Props> = (props) => {
       return item;
     });
     setTeamSelect(list);
-  }, []);
+  }, [teamList]);
 
   return (
     <div>
