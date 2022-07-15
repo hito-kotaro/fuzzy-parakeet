@@ -7,6 +7,7 @@ import ConfirnInputForm from '../organisms/ConfirmInputForm';
 import MiniHeader from '../organisms/Headers/MiniHeader';
 import UserAttributeForm from '../organisms/UserAttributeForm';
 import UserNameInputForm from '../organisms/UserNameInputForm';
+import useUserApi from '../../hooks/useUserApi';
 
 type Props = {
   close: () => void;
@@ -18,9 +19,10 @@ const UserCreateTemplate: VFC<Props> = (props) => {
   const lastNameInputHandler = useInputForm();
   const emailInputHandler = useInputForm();
   const confirmInputHandler = useInputForm();
-  const roleSelectHandler = useSelectForm('0');
+  const roleSelectHandler = useSelectForm('1');
   const teamSelectHandler = useSelectForm('0');
   const space = 'h-5';
+  const { createUser } = useUserApi();
 
   const clear = () => {
     roleSelectHandler.setValue('1');
@@ -31,16 +33,16 @@ const UserCreateTemplate: VFC<Props> = (props) => {
     confirmInputHandler.clear();
   };
 
-  const createUser = () => {
-    
+  const create = () => {
     const newUser: createUserType = {
       name: `${lastNameInputHandler.input}_${firstNameInputHandler.input}`,
       email: emailInputHandler.input,
-      roleId: Number(roleSelectHandler.value),
-      teamId: Number(teamSelectHandler.value),
+      role_id: Number(roleSelectHandler.value),
+      team_id: Number(teamSelectHandler.value),
       password: 'password',
     };
-    console.log(newUser);
+
+    createUser(newUser);
 
     clear();
     close();
@@ -53,7 +55,7 @@ const UserCreateTemplate: VFC<Props> = (props) => {
           title="新しいユーザーを作成"
           createText="作成"
           onClickCancel={close}
-          onClickCreate={createUser}
+          onClickCreate={create}
         />
       </div>
 

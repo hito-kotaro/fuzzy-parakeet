@@ -15,8 +15,8 @@ export type userType = {
 export type createUserType = {
   name: string;
   email: string;
-  roleId: number;
-  teamId: number;
+  role_id: number;
+  team_id: number;
   password: string;
 };
 
