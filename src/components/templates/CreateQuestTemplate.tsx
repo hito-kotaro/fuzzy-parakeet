@@ -1,4 +1,5 @@
 import React, { VFC } from 'react';
+import useQuestApi from '../../hooks/useQuestApi';
 import { createQuestType } from '../../types/Quest/QuestType';
 import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
 import DocumentationForm from '../molecules/DocumentationForm/DocumentationForm';
@@ -13,7 +14,7 @@ const CreateQuestTemplate: VFC<Props> = (props) => {
   const titleHandler = useInputForm();
   const pointHandler = useInputForm();
   const descriptionHandler = useInputForm();
-
+  const { createQuest } = useQuestApi();
   const titlePlaceholder = 'タイトルを入力してください(必須)';
   const descriptionPlaceholder = 'クエスト内容を入力してください(任意)';
   const pointPlaceholder = '達成ポイントを入力してください(必須)';
@@ -21,6 +22,7 @@ const CreateQuestTemplate: VFC<Props> = (props) => {
   const clear = () => {
     titleHandler.clear();
     descriptionHandler.clear();
+    pointHandler.clear();
   };
 
   const onClickCancel = () => {
@@ -30,13 +32,11 @@ const CreateQuestTemplate: VFC<Props> = (props) => {
 
   const onClickCreate = () => {
     const newQuest: createQuestType = {
-      owner: 'kotaro',
       title: titleHandler.input,
       description: descriptionHandler.input,
-      date: '2022/12/21',
-      point: Number(pointHandler.input),
-      status: true,
+      reward: Number(pointHandler.input),
     };
+    createQuest(newQuest);
     console.log(newQuest);
     clear();
     close();

@@ -1,7 +1,10 @@
-import { Badge, IconCheckCircle } from '@supabase/ui';
+import { IconCheckCircle } from '@supabase/ui';
 import React, { useEffect, useState } from 'react';
+import useLoading from '../../hooks/useLoading';
 import usePrimaryList from '../../hooks/usePrimaryList';
+import useQuestApi from '../../hooks/useQuestApi';
 import useQuestBordPage from '../../hooks/useQuestBordPage';
+import useQuestList from '../../hooks/useQuestList';
 import useTemplate from '../../hooks/useTemplate';
 import useUserAgent from '../../hooks/useUserAgent';
 import { questData } from '../../testData/QuestTestData';
@@ -15,6 +18,8 @@ import ListTemplate from '../templates/ListTemplate';
 import ReportTemplate from '../templates/ReportTemplate';
 
 const QuestBoardPage = () => {
+  const { isLoading } = useLoading();
+  const { fetchQuestAll } = useQuestApi();
   const display = 'translate-x-0 opacity-100';
   const hidden = '-translate-x-full opacity-0';
   const defaultQuest: questType = {
@@ -23,35 +28,37 @@ const QuestBoardPage = () => {
     title: 'けつばん',
     description: 'けつばん',
     date: '20xx/xx/xx',
-    point: -999,
+    reward: -999,
     status: false,
   };
+
   const { isSafari } = useUserAgent();
   const className = isSafari ? 'switch-components-safari' : 'switch-components';
-  const { questList, setQuestList } = useQuestBordPage();
+  // const { questList, setQuestList } = useQuestBordPage();
   const { list, setList } = usePrimaryList();
   const [quest, setQuest] = useState<questType>(defaultQuest);
   const listTemplate = useTemplate(true);
   const detailTemplate = useTemplate(false);
   const reportTemplate = useTemplate(false);
   const createTemplate = useTemplate(false);
+  const { questList } = useQuestList();
 
   useEffect(() => {
     // クエストを取得
-    setQuestList(questData);
+    fetchQuestAll();
   }, []);
 
   // クエスト情報をprimaryListItemに投入
   useEffect(() => {
-    const primaryList: primaryListItem[] = questData.map((q) => {
+    const primaryList: primaryListItem[] = questList.map((q) => {
       const item: primaryListItem = {
         id: q.id,
         name: q.owner,
         title: q.title,
         description: q.description,
-        date: q.date,
+        date: 'no',
         badgeColor: 'green',
-        badgeText: `${q.point}point`,
+        badgeText: `${q.reward}point`,
       };
       return item;
     });
@@ -61,7 +68,7 @@ const QuestBoardPage = () => {
   // PrimaryListItemをクリックしたときに詳細を表示する
   const onClickListItem = (id: number) => {
     // idで対象データを探す
-    const data = questData.filter((d: questType) => {
+    const data = questList.filter((d: questType) => {
       return d.id === id;
     });
     setQuest(data[0]);

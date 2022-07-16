@@ -8,7 +8,7 @@ export const questData: questType[] = [
     title: 'メンバー紹介',
     description: '紹介した人との面接を実施したら付与',
     date: '2022/7/8',
-    point: 1,
+    reward: 1,
     status: true,
   },
   {
@@ -17,7 +17,7 @@ export const questData: questType[] = [
     title: 'メンバー入社',
     description: '紹介した人が入社してくれたら付与',
     date: '2022/7/8',
-    point: 3,
+    reward: 3,
     status: true,
   },
   {
@@ -26,7 +26,7 @@ export const questData: questType[] = [
     title: 'プレゼン実施',
     description: '社内ミーティングでプレゼンを行う',
     date: '2022/7/8',
-    point: 2,
+    reward: 2,
     status: true,
   },
   {
@@ -35,7 +35,7 @@ export const questData: questType[] = [
     title: '社内勉強会の参加',
     description: '社員の企画した勉強会に参加する',
     date: '2022/7/8',
-    point: 1,
+    reward: 1,
     status: true,
   },
   {
@@ -44,7 +44,7 @@ export const questData: questType[] = [
     title: '社外イベントの企画開催',
     description: '3名以上参加したイベントを実施したら付与',
     date: '2022/7/8',
-    point: 3,
+    reward: 3,
     status: true,
   },
   // {
@@ -53,7 +53,7 @@ export const questData: questType[] = [
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
-  //   point: 10,
+  //   reward: 10,
   //   status: true,
   // },
   // {
@@ -62,7 +62,7 @@ export const questData: questType[] = [
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
-  //   point: 10,
+  //   reward: 10,
   //   status: true,
   // },
   // {
@@ -71,7 +71,7 @@ export const questData: questType[] = [
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
-  //   point: 10,
+  //   reward: 10,
   //   status: true,
   // },
   // {
@@ -80,7 +80,7 @@ export const questData: questType[] = [
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
-  //   point: 10,
+  //   reward: 10,
   //   status: true,
   // },
   // {
@@ -89,7 +89,7 @@ export const questData: questType[] = [
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
-  //   point: 10,
+  //   reward: 10,
   //   status: true,
   // },
   // {
@@ -98,7 +98,7 @@ export const questData: questType[] = [
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
-  //   point: 10,
+  //   reward: 10,
   //   status: true,
   // },
   // {
@@ -107,7 +107,7 @@ export const questData: questType[] = [
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
-  //   point: 10,
+  //   reward: 10,
   //   status: true,
   // },
   // {
@@ -116,7 +116,7 @@ export const questData: questType[] = [
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
-  //   point: 10,
+  //   reward: 10,
   //   status: true,
   // },
   // {
@@ -125,7 +125,7 @@ export const questData: questType[] = [
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
-  //   point: 10,
+  //   reward: 10,
   //   status: true,
   // },
   // {
@@ -134,7 +134,7 @@ export const questData: questType[] = [
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
-  //   point: 10,
+  //   reward: 10,
   //   status: true,
   // },
   // {
@@ -143,7 +143,7 @@ export const questData: questType[] = [
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
-  //   point: 10,
+  //   reward: 10,
   //   status: true,
   // },
   // {
@@ -152,7 +152,7 @@ export const questData: questType[] = [
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
-  //   point: 10,
+  //   reward: 10,
   //   status: true,
   // },
   // {
@@ -161,7 +161,7 @@ export const questData: questType[] = [
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
-  //   point: 10,
+  //   reward: 10,
   //   status: true,
   // },
   // {
@@ -170,7 +170,7 @@ export const questData: questType[] = [
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
-  //   point: 10,
+  //   reward: 10,
   //   status: true,
   // },
   // {
@@ -179,7 +179,7 @@ export const questData: questType[] = [
   //   title: '資格取得',
   //   description: '宣言した資格を取得する',
   //   date: '2022/7/8',
-  //   point: 10,
+  //   reward: 10,
   //   status: true,
   // },
 ];

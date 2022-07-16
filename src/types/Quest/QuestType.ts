@@ -4,8 +4,12 @@ export type questType = {
   title: string;
   description: string;
   date: string;
-  point: number;
+  reward: number;
   status: boolean;
 };
 
-export type createQuestType = Omit<questType, 'id'>;
+export type createQuestType = {
+  title: string;
+  description: string;
+  reward: number;
+};

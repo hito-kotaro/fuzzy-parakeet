@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { defaultTeam } from '../lib/defaultData';
-import { teamsData } from '../testData/TeamsTestData';
 import { usersData } from '../testData/UsersTestData';
 import { primaryListItem } from '../types/ListItem/PrimaryListItemType';
 import { teamType } from '../types/teamsType';
