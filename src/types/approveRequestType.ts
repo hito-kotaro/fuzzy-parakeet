@@ -1,17 +1,23 @@
 export type approveRequestType = {
   id: number;
   applicant: string;
-  applicantId: number;
-  authorizer?: string;
-  authorizerId?: number;
+  applicant_id: number;
   title: string;
-  questTitle: string;
-  questOwner: string;
-  questCreated_at: string;
-  questDescription: string;
+  quest_title: string;
+  quest_owner: string;
+  quest_created_at: string;
+  quest_description: string;
   description: string;
-  point: number;
+  reward: number;
   status: string;
   created_at: string;
   updated_at: string;
+  authorizer?: string;
+  authorizerId?: number;
+};
+
+export type createApproveRequests = {
+  title: string;
+  description: string;
+  quest_id: number;
 };

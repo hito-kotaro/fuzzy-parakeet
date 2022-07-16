@@ -5,10 +5,11 @@ import { approveRequestType } from '../types/approveRequestType';
 import { badgeColor } from '../types/colorType';
 import { primaryListItem } from '../types/ListItem/PrimaryListItemType';
 import { userType } from '../types/usersType';
+import useApproveRequestList from './useApproveRequestList';
 
 const usePrimaryList = () => {
   const [list, setList] = useState<primaryListItem[]>([]);
-
+  const { ARList } = useApproveRequestList();
   const badgeConfig = (status: string) => {
     let color: badgeColor = 'green';
 
@@ -59,19 +60,20 @@ const usePrimaryList = () => {
   };
 
   const filterByApproveStatus = (filterStatus: string) => {
-    const filterByStatus: approveRequestType[] = approveRequestData.filter((u) => {
+    const filterByStatus: approveRequestType[] = ARList.filter((a) => {
       if (filterStatus === 'all') {
-        return u;
+        return a;
       }
-      return u.status === filterStatus;
+      return a.status === filterStatus;
     });
+    console.log(filterByStatus);
 
     insertApproveRequestToList(filterByStatus);
   };
 
   const filterByUserId = (userId: number) => {
     const filterById: approveRequestType[] = approveRequestData.filter((a) => {
-      return a.applicantId === userId;
+      return a.applicant_id === userId;
     });
     insertApproveRequestToList(filterById);
   };

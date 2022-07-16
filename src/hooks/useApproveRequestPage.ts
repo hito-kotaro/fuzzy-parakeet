@@ -6,10 +6,12 @@ import { approveRequestType } from '../types/approveRequestType';
 import { badgeColor } from '../types/colorType';
 import { primaryListItem } from '../types/ListItem/PrimaryListItemType';
 import { SelectItem } from '../types/Select/SelectItemType';
+import useApproveRequestList from './useApproveRequestList';
 import usePrimaryList from './usePrimaryList';
 import useTemplate from './useTemplate';
 
 const useApproveRequestPage = () => {
+  const { ARList } = useApproveRequestList();
   const [approveRequest, setApproveRequest] = useState<approveRequestType>(defaultAR);
   const { list, setList, filterByApproveStatus } = usePrimaryList();
   const statusSelectHandler = useSelectForm('open');
@@ -26,7 +28,7 @@ const useApproveRequestPage = () => {
 
   // 詳細画面に渡す情報をステートにセット
   const onClickListItem = (id: number) => {
-    const data = approveRequestData.filter((a: approveRequestType) => {
+    const data = ARList.filter((a: approveRequestType) => {
       return a.id === id;
     });
     setApproveRequest(data[0]);

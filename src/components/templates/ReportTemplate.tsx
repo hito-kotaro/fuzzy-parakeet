@@ -1,5 +1,6 @@
 import React, { VFC } from 'react';
-import { reportType } from '../../types/reportType';
+import useApproveRequestApi from '../../hooks/useApproveRequestApi';
+import { createApproveRequests } from '../../types/approveRequestType';
 import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
 import DocumentationForm from '../molecules/DocumentationForm/DocumentationForm';
 import ReportHeader from '../organisms/Headers/ReportHeader';
@@ -8,31 +9,34 @@ type Props = {
   questTitle: string;
   questId: number;
   close: () => void;
-  sendReport: (r: reportType) => void;
 };
 
 const ReportTemplate: VFC<Props> = (props) => {
-  const { questId, questTitle, close, sendReport } = props;
-  const titleHandler = useInputForm();
+  const { questId, questTitle, close } = props;
   const descriptionHandler = useInputForm();
-  // const pointHandler = useInputForm();
-
+  const { createReport } = useApproveRequestApi();
   const titlePlaceholder = 'タイトルを入力してください(必須)';
   const descriptionPlaceholder = '報告内容を入力してください(必須)';
-  // const pointPlaceholder = '付与ポイントを入力してください(必須)';
 
   const clear = () => {
-    titleHandler.clear();
     descriptionHandler.clear();
   };
+
   const onClickCancel = () => {
     clear();
     close();
   };
 
-  const onClickReport = (r: reportType) => {
-    sendReport(r);
+  const onClickReport = () => {
+    const newReport: createApproveRequests = {
+      title: `${questTitle}-report`,
+      description: descriptionHandler.input,
+      quest_id: questId,
+    };
+    console.log(newReport);
+    createReport(newReport);
     clear();
+    close();
   };
 
   return (
@@ -49,14 +53,10 @@ const ReportTemplate: VFC<Props> = (props) => {
       <div className="h-2" />
 
       <DocumentationForm
-        // titleHandler={titleHandler}
         titlePlaceholder={titlePlaceholder}
         descriptionHandler={descriptionHandler}
         descriptionPlaceholder={descriptionPlaceholder}
         defaultTitle={`${questTitle}-report`}
-        // pointHandler={pointHandler}
-        // pointPlaceholder={pointPlaceholder}
-        // addPointForm
       />
     </div>
   );

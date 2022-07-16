@@ -64,8 +64,8 @@ const ApproveDetailTemplate: VFC<Props> = (props) => {
         isDropdown={data.status === 'open'}
       />
       <DetailCard
-        ownerName={data.questOwner}
-        description={data.questDescription}
+        ownerName={data.quest_owner}
+        description={data.quest_description}
         date={data.created_at}
         badgeText="owner"
         badgeColor="purple"

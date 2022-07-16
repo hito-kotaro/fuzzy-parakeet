@@ -75,12 +75,6 @@ const QuestBoardPage = () => {
     detailTemplate.open();
   };
 
-  // 報告作成用関数 後でAPI通信実装
-  const onClickReportCreate = (r: reportType) => {
-    console.log(r);
-    reportTemplate.close();
-  };
-
   // クエスト発行画面の表示
   const onClickPlus = () => {
     console.log('create');
@@ -129,7 +123,6 @@ const QuestBoardPage = () => {
         <ReportTemplate
           questTitle={quest.title}
           questId={quest.id}
-          sendReport={onClickReportCreate}
           close={reportTemplate.close}
         />
       </div>
