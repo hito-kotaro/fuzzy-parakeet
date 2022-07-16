@@ -17,8 +17,8 @@ const UserAttributeUpdateTemplate: VFC<Props> = (props) => {
   const updateAttribute = () => {
     const newUserAttribute: updateUserAttributeType = {
       id: user.id,
-      teamId: Number(teamSelectHandler.value),
-      roleId: Number(roleSelectHandler.value),
+      team_id: Number(teamSelectHandler.value),
+      role_id: Number(roleSelectHandler.value),
     };
     console.log(newUserAttribute);
     close();

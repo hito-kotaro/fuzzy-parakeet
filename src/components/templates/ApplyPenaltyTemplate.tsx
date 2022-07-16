@@ -22,7 +22,7 @@ const ApplyPenaltyTemplate: VFC<Props> = (props) => {
 
   const onClickCreate = () => {
     const applyPenaltyData: applyPenaltyType = {
-      teamId: Number(selectHandler.value),
+      team_id: Number(selectHandler.value),
       penaltyId: data.id,
       description: descriptionHandler.input,
       created_at: '2022/2/2',

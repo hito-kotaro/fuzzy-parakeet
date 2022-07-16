@@ -45,9 +45,9 @@ const useTeamsPage = () => {
   };
 
   // チームIDからユーザーを検索して、pointの合計を取得
-  const filterUserByTeamId = (teamId: number) => {
+  const filterUserByteamId = (teamId: number) => {
     const filterById: userType[] = usersData.filter((u) => {
-      return u.teamId === teamId;
+      return u.team_id === teamId;
     });
 
     const total: number = filterById.reduce((acc: number, val: userType): number => {

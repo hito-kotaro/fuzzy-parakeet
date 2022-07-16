@@ -33,7 +33,7 @@ const UserDetailTemplate: VFC<Props> = (props) => {
         closeDetail={close}
         iconSize="large"
         // data.idがcurrent_userと一致すればmyMenuを表示
-        // data.roleIdが3ならadminMenuを表示する
+        // data.role_idが3ならadminMenuを表示する
         dropDownItems={menuItem}
         isDropdown
       />

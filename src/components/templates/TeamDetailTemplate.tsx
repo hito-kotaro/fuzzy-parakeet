@@ -1,5 +1,7 @@
 import React, { useEffect, useState, VFC } from 'react';
 import usePrimaryList from '../../hooks/usePrimaryList';
+import useUserApi from '../../hooks/useUserApi';
+import useUserList from '../../hooks/useUserList';
 import { primaryListItem } from '../../types/ListItem/PrimaryListItemType';
 import { scoreItem } from '../../types/ScoreDisplayType';
 import { teamType } from '../../types/teamsType';
@@ -15,8 +17,10 @@ type Props = {
 
 const TeamDetailTemplate: VFC<Props> = (props) => {
   const { data, close } = props;
+  const { userList } = useUserList();
+  const { fetchUserAll } = useUserApi();
   const [totalUserPoint, setTotalUserPoint] = useState(0);
-  const { list, filterUserByTeamId } = usePrimaryList();
+  const { list, filterUserByteamId } = usePrimaryList();
 
   // scoreを取得する
   const scores: scoreItem[] = [
@@ -37,10 +41,13 @@ const TeamDetailTemplate: VFC<Props> = (props) => {
     },
   ];
 
+  useEffect(() => {
+    fetchUserAll();
+  },[]);
   // 同じチームIDを持つユーザーをPrimaryListに格納
   useEffect(() => {
     // ユーザの一覧を取得
-    filterUserByTeamId(data.id);
+    filterUserByteamId(data.id, userList);
   }, [data.id]);
 
   useEffect(() => {

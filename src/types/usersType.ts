@@ -1,9 +1,9 @@
 export type userType = {
   id: number;
   name: string;
-  roleId: number;
+  role_id: number;
   roleName: string;
-  teamId: number;
+  team_id: number;
   teamName: string;
   description: string;
   point: number;
@@ -27,8 +27,8 @@ export type updateUserPasswordType = {
 
 export type updateUserAttributeType = {
   id: number;
-  roleId: number;
-  teamId: number;
+  role_id: number;
+  team_id: number;
 };
 
 export type deleteUserType = {

@@ -48,7 +48,7 @@ const usePrimaryList = () => {
         id: a.id,
         name: a.name,
         title: a.name,
-        description: a.description,
+        description: a.description ?? 'no comment',
         date: a.created_at,
         badgeColor: 'green',
         badgeText: `${a.point}`,
@@ -76,14 +76,16 @@ const usePrimaryList = () => {
     insertApproveRequestToList(filterById);
   };
 
-  const filterUserByTeamId = (teamId: number) => {
-    const filterById: userType[] = usersData.filter((u) => {
-      return u.teamId === teamId;
+  const filterUserByteamId = (teamId: number, userList: userType[]) => {
+    console.log(userList);
+    const filterById: userType[] = userList.filter((u) => {
+      return u.team_id === teamId;
     });
+    console.log(filterById);
     insertUserToList(filterById);
   };
 
-  return { list, setList, filterByApproveStatus, filterByUserId, filterUserByTeamId };
+  return { list, setList, filterByApproveStatus, filterByUserId, filterUserByteamId };
 };
 
 export default usePrimaryList;

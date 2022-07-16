@@ -16,9 +16,9 @@ export const defaultPenalty: penaltyType = {
 export const defaultUser: userType = {
   id: 0,
   name: '',
-  roleId: 0,
+  role_id: 0,
   roleName: '',
-  teamId: 0,
+  team_id: 0,
   teamName: '',
   description: '',
   point: 0,
