@@ -18,7 +18,7 @@ const ApproveDetailTemplate: VFC<Props> = (props) => {
       case 'approved':
         return (
           <DetailCard
-            ownerName=""
+            ownerName="aaa"
             date={data.updated_at}
             description="承認"
             badgeText="authorizer"

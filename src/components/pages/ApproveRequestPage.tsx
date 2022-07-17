@@ -8,6 +8,7 @@ import useUserAgent from '../../hooks/useUserAgent';
 import userAgentState from '../../stores/userAgentState';
 import useApproveRequestApi from '../../hooks/useApproveRequestApi';
 import useApproveRequestList from '../../hooks/useApproveRequestList';
+import { updateApproveRequests } from '../../types/approveRequestType';
 
 const ApproveRequestPage = () => {
   const {
@@ -20,7 +21,7 @@ const ApproveRequestPage = () => {
     onClickListItem,
     filterByApproveStatus,
   } = useApproveRequestPage();
-  const { fetchApproveRequest } = useApproveRequestApi();
+  const { fetchApproveRequest, updateApproveStatus } = useApproveRequestApi();
   const { isSafari } = useUserAgent();
   const { ARList } = useApproveRequestList();
   const className = isSafari ? 'switch-components-safari' : 'switch-components';
@@ -44,7 +45,12 @@ const ApproveRequestPage = () => {
 
   const approve = () => {
     console.log('Approve!!');
-    console.log(approveRequest);
+    const newStatus: updateApproveRequests = {
+      ar_id: approveRequest.id,
+      new_status: 'approved',
+    };
+    updateApproveStatus(newStatus);
+    // console.log(approveRequest);
   };
 
   const memberMenu: dropDownItem[] = [
@@ -85,7 +91,7 @@ const ApproveRequestPage = () => {
         <ApproveDetailTemplate
           data={approveRequest}
           close={detailTemplateState.close}
-          dropDownMenu={memberMenu}
+          dropDownMenu={readerMenu}
         />
       </div>
     </>

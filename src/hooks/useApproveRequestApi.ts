@@ -1,7 +1,10 @@
 import { AxiosResponse } from 'axios';
 import React from 'react';
 import { axiosInstance, createAxiosTokenInstance } from '../lib/axiosInstance';
-import { createApproveRequests } from '../types/approveRequestType';
+import {
+  createApproveRequests,
+  updateApproveRequests,
+} from '../types/approveRequestType';
 import useApproveRequestList from './useApproveRequestList';
 import useLoading from './useLoading';
 
@@ -34,7 +37,24 @@ const useApproveRequestApi = () => {
       setIsLoading(false);
     }
   };
-  return { createReport, fetchApproveRequest };
+
+  const updateApproveStatus = async (updateRequest: updateApproveRequests) => {
+    console.log(updateRequest);
+    try {
+      setIsLoading(true);
+      const result: AxiosResponse = await authInstance.put(
+        '/approve/update',
+        updateRequest,
+      );
+      console.log(result);
+      fetchApproveRequest();
+      setIsLoading(false);
+    } catch {
+      alert('更新失敗');
+      setIsLoading(false);
+    }
+  };
+  return { createReport, fetchApproveRequest, updateApproveStatus };
 };
 
 export default useApproveRequestApi;

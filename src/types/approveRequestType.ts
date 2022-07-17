@@ -21,3 +21,8 @@ export type createApproveRequests = {
   description: string;
   quest_id: number;
 };
+
+export type updateApproveRequests = {
+  ar_id: number;
+  new_status: string;
+};

@@ -1,10 +1,7 @@
 import { useState } from 'react';
 import useSelectForm from '../components/atoms/InputForms/SelectForm/useSelectForm';
 import { defaultAR } from '../lib/defaultData';
-import { approveRequestData } from '../testData/ApproveRequestTestData';
 import { approveRequestType } from '../types/approveRequestType';
-import { badgeColor } from '../types/colorType';
-import { primaryListItem } from '../types/ListItem/PrimaryListItemType';
 import { SelectItem } from '../types/Select/SelectItemType';
 import useApproveRequestList from './useApproveRequestList';
 import usePrimaryList from './usePrimaryList';
