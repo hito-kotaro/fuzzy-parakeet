@@ -44,19 +44,36 @@ const ApproveRequestPage = () => {
   };
 
   const approve = () => {
-    console.log('Approve!!');
     const newStatus: updateApproveRequests = {
       ar_id: approveRequest.id,
       new_status: 'approved',
     };
     updateApproveStatus(newStatus);
-    // console.log(approveRequest);
+    detailTemplateState.close();
+  };
+
+  const reject = () => {
+    const newStatus: updateApproveRequests = {
+      ar_id: approveRequest.id,
+      new_status: 'rejected',
+    };
+    updateApproveStatus(newStatus);
+    detailTemplateState.close();
+  };
+
+  const cancel = () => {
+    const newStatus: updateApproveRequests = {
+      ar_id: approveRequest.id,
+      new_status: 'canceled',
+    };
+    updateApproveStatus(newStatus);
+    detailTemplateState.close();
   };
 
   const memberMenu: dropDownItem[] = [
     {
       icon: <IconCheckCircle />,
-      onClick: requestCancel,
+      onClick: cancel,
       text: '申請取り消し',
       divider: false,
     },
@@ -67,6 +84,12 @@ const ApproveRequestPage = () => {
       icon: <IconCheckCircle />,
       onClick: approve,
       text: '承認',
+      divider: false,
+    },
+    {
+      icon: <IconCheckCircle />,
+      onClick: reject,
+      text: '却下',
       divider: false,
     },
   ];
