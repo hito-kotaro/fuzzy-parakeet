@@ -72,7 +72,8 @@ const usePrimaryList = () => {
   };
 
   const filterByUserId = (userId: number) => {
-    const filterById: approveRequestType[] = approveRequestData.filter((a) => {
+    console.log(userId);
+    const filterById: approveRequestType[] = ARList.filter((a) => {
       return a.applicant_id === userId;
     });
     insertApproveRequestToList(filterById);

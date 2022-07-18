@@ -100,7 +100,7 @@ const UsersPage = () => {
           data={user}
           close={detailTemplateState.close}
           // masterならmasterMenuを、idが自分と一致したらmyIdを渡す
-          menuItem={myMenu}
+          menuItem={masterMenu}
         />
       </div>
 
