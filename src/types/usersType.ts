@@ -12,6 +12,13 @@ export type userType = {
   updated_at: string;
 };
 
+export type smallUserType = {
+  name: string;
+  team: string;
+  role: string;
+  poinrt: number;
+};
+
 export type createUserType = {
   name: string;
   email: string;

@@ -12,7 +12,7 @@ const UserCard: VFC<Props> = (props) => {
     <div className="border-1 rounded-lg p-2 light-color">
       <div className="flex">
         <MyAvatar size={48} name={userName} />
-        <div className="ml-5 leading-12 text-xl">{`${team}/${userName}`}</div>
+        <div className="ml-5 leading-12 text-xl">{`${userName}`}</div>
       </div>
       <div className="h-12" />
       {/* <div className="text-right">

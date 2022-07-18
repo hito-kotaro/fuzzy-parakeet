@@ -18,6 +18,7 @@ const UserAttributeForm: VFC<Props> = (props) => {
   const [teamSelect, setTeamSelect] = useState<SelectItem[]>([]);
   const { teamList } = useTeamListState();
   const { fetchAllTeam } = useTeamApi();
+
   // teamsを取得
   useEffect(() => {
     fetchAllTeam();
@@ -25,13 +26,16 @@ const UserAttributeForm: VFC<Props> = (props) => {
 
   useEffect(() => {
     // ItemListに入れる
-    const list = teamList.map((t) => {
+    const defaultList: SelectItem = { value: '', itemText: 'チームを選択してください' };
+
+    const dataList = teamList.map((t) => {
       const item: SelectItem = {
         value: String(t.id),
         itemText: t.name,
       };
       return item;
     });
+    const list: SelectItem[] = [defaultList, ...dataList];
     setTeamSelect(list);
   }, [teamList]);
 

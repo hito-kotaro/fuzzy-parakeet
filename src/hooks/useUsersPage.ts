@@ -34,6 +34,7 @@ const useUsersPage = () => {
 
   const filterList = () => {
     const primaryList: primaryListItem[] = userList.map((u) => {
+      console.log(u.point);
       const item: primaryListItem = {
         // descriptioinとpointはレスポンスを用意していなかったので一旦固定値
         id: u.id,

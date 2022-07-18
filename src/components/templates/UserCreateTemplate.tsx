@@ -34,18 +34,23 @@ const UserCreateTemplate: VFC<Props> = (props) => {
   };
 
   const create = () => {
-    const newUser: createUserType = {
-      name: `${lastNameInputHandler.input}_${firstNameInputHandler.input}`,
-      email: emailInputHandler.input,
-      role_id: Number(roleSelectHandler.value),
-      team_id: Number(teamSelectHandler.value),
-      password: 'password',
-    };
+    if (roleSelectHandler.value === '0') {
+      alert('ロールを選択してください');
+    } else if (teamSelectHandler.value === '0') {
+      alert('チームを選択してください');
+    } else {
+      const newUser: createUserType = {
+        name: `${lastNameInputHandler.input}_${firstNameInputHandler.input}`,
+        email: emailInputHandler.input,
+        role_id: Number(roleSelectHandler.value),
+        team_id: Number(teamSelectHandler.value),
+        password: 'password',
+      };
 
-    createUser(newUser);
-
-    clear();
-    close();
+      createUser(newUser);
+      clear();
+      close();
+    }
   };
 
   return (
