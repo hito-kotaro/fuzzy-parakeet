@@ -43,8 +43,9 @@ const TeamDetailTemplate: VFC<Props> = (props) => {
 
   useEffect(() => {
     fetchUserAll();
-  },[]);
+  }, []);
   // 同じチームIDを持つユーザーをPrimaryListに格納
+
   useEffect(() => {
     // ユーザの一覧を取得
     filterUserByteamId(data.id, userList);

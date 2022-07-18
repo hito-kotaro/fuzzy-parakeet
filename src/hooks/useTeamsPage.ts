@@ -8,6 +8,7 @@ import usePrimaryList from './usePrimaryList';
 import useTeamApi from './useTeamApi';
 import useTeamListState from './useTeamListState';
 import useTemplate from './useTemplate';
+import useUserList from './useUserList';
 
 const useTeamsPage = () => {
   const { list, setList } = usePrimaryList();
@@ -15,6 +16,7 @@ const useTeamsPage = () => {
   const createTemplateState = useTemplate(false);
   const detailTemplateState = useTemplate(false);
   const { fetchTeamById } = useTeamApi();
+  const { userList } = useUserList();
 
   // チームの詳細画面を作成したら使用する
   const [team, setTeam] = useState<teamType>(defaultTeam);
@@ -45,7 +47,7 @@ const useTeamsPage = () => {
 
   // チームIDからユーザーを検索して、pointの合計を取得
   const filterUserByteamId = (teamId: number) => {
-    const filterById: userType[] = usersData.filter((u) => {
+    const filterById: userType[] = userList.filter((u) => {
       return u.team_id === teamId;
     });
 
@@ -59,14 +61,14 @@ const useTeamsPage = () => {
     console.log(data);
     const primaryList: primaryListItem[] = data.map((t) => {
       const date = t.created_at.replace(/-/g, '/').substring(0, 10);
-
+      const point = filterUserByteamId(t.id);
       const item: primaryListItem = {
         id: t.id,
         name: t.name,
         title: t.name,
         description: t.description,
         date,
-        badgeText: `${t.point} point`,
+        badgeText: `${point} point`,
         badgeColor: badgeConfig(t.point - t.penalty),
         isTeam: true,
       };

@@ -43,7 +43,7 @@ const useUsersPage = () => {
         description: '',
         date: u.created_at,
         badgeColor: 'green',
-        badgeText: '1',
+        badgeText: `${String(u.point)} point`,
 
         // badgeText: String(u.point),
       };
