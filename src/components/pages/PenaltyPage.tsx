@@ -8,6 +8,8 @@ import CreatePenaltyTemplate from '../templates/CreatePenaltyTemplate';
 import { dropDownItem } from '../../types/dropdownType';
 import ApplyPenaltyTemplate from '../templates/ApplyPenaltyTemplate';
 import useUserAgent from '../../hooks/useUserAgent';
+import usePenaltyApi from '../../hooks/usePenaltyApi';
+import usePenaltyList from '../../hooks/usePenaltyList';
 
 const PenaltyPage = () => {
   const {
@@ -23,15 +25,21 @@ const PenaltyPage = () => {
     onClickPlus,
     collectTeam,
   } = usePenaltyPage();
+  const { fetchPenaltyList } = usePenaltyApi();
+  const { penaltyList } = usePenaltyList();
   const { isSafari } = useUserAgent();
   const className = isSafari ? 'switch-components-safari' : 'switch-components';
   const display = 'translate-x-0 opacity-100';
   const hidden = '-translate-x-full opacity-0';
 
   useEffect(() => {
-    filterList();
+    fetchPenaltyList();
     collectTeam();
   }, []);
+
+  useEffect(() => {
+    filterList();
+  }, [penaltyList]);
 
   const masterMenu: dropDownItem[] = [
     {

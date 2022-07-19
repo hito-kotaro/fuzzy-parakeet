@@ -10,8 +10,6 @@ export const defaultPenalty: penaltyType = {
   ownerId: 0,
   description: '',
   penalty: 0,
-  created_at: '',
-  updated_at: '',
 };
 export const defaultUser: userType = {
   id: 0,

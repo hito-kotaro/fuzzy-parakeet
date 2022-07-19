@@ -21,14 +21,14 @@ const PenaltyDetailTemplate: VFC<Props> = (props) => {
         dropDownItems={dropDownMenu}
         name={data.owner}
         title={data.title}
-        date={data.created_at}
+        date=""
         // isDropdown={data.status === 'open'}
       />
 
       <DetailCard
         ownerName={data.owner}
         description={data.description}
-        date={data.created_at}
+        date=""
         badgeText="owner"
         badgeColor="purple"
       />

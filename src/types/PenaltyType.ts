@@ -5,8 +5,6 @@ export type penaltyType = {
   ownerId: number;
   description: string;
   penalty: number;
-  created_at: string;
-  updated_at: string;
 };
 
 export type applyPenaltyType = {
@@ -16,4 +14,9 @@ export type applyPenaltyType = {
   created_at: string;
   updated_at: string;
 };
-export type createPenaltyType = Omit<penaltyType, 'id'>;
+
+export type createPenaltyType = {
+  title: string;
+  description: string;
+  penalty: number;
+};

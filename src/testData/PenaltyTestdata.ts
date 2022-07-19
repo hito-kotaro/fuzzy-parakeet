@@ -8,8 +8,6 @@ export const penaltyData: penaltyType[] = [
     ownerId: 1,
     description: '平日の飲み会でお酒を飲んで翌日体調不良による遅刻欠勤があった場合',
     penalty: 30,
-    created_at: '2022/7/7',
-    updated_at: '',
   },
   {
     id: 2,
@@ -18,8 +16,6 @@ export const penaltyData: penaltyType[] = [
     ownerId: 1,
     description: '期限日の23:59:59までに提出できなかったらアウト',
     penalty: 10,
-    created_at: '2022/7/7',
-    updated_at: '',
   },
   {
     id: 3,
@@ -28,7 +24,5 @@ export const penaltyData: penaltyType[] = [
     ownerId: 1,
     description: '勤怠連絡なしの遅刻欠勤',
     penalty: 10,
-    created_at: '2022/7/7',
-    updated_at: '',
   },
 ];

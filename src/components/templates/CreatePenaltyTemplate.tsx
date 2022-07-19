@@ -1,4 +1,5 @@
 import React, { VFC } from 'react';
+import usePenaltyApi from '../../hooks/usePenaltyApi';
 import { createPenaltyType } from '../../types/PenaltyType';
 import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
 import DocumentationForm from '../molecules/DocumentationForm/DocumentationForm';
@@ -12,7 +13,7 @@ const createPenaltyTemplate: VFC<Props> = (props) => {
   const titleHandler = useInputForm();
   const pointHandler = useInputForm();
   const descriptionHandler = useInputForm();
-
+  const { createPenalty } = usePenaltyApi();
   const titlePlaceholder = 'タイトルを入力してください(必須)';
   const descriptionPlaceholder = 'ペナルティ内容を入力してください(任意)';
   const pointPlaceholder = 'ペナルティポイントを入力してください(必須)';
@@ -23,16 +24,14 @@ const createPenaltyTemplate: VFC<Props> = (props) => {
   };
 
   const onClickCreate = () => {
-    const newQuest: createPenaltyType = {
-      ownerId: 0,
-      owner: 'kotaro',
+    const newPenalty: createPenaltyType = {
       title: titleHandler.input,
       description: descriptionHandler.input,
-      created_at: '2022/12/21',
-      updated_at: '',
       penalty: Number(pointHandler.input),
     };
-    console.log(newQuest);
+
+    console.log(newPenalty);
+    createPenalty(newPenalty);
     clear();
     close();
   };
