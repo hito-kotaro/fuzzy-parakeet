@@ -7,17 +7,27 @@ import useLogin from '../../hooks/useLogin';
 import { dropDownItem } from '../../types/dropdownType';
 import useUserApi from '../../hooks/useUserApi';
 import useUserInfo from '../../hooks/useUserInfo';
+import useTemplate from '../../hooks/useTemplate';
+import useUserAgent from '../../hooks/useUserAgent';
+import UserInfoUpdateTemplate from './UserInfoUpdateTemplate';
 
 type Props = {
   title: string;
 };
 
 const HomeTemplates: VFC<Props> = (props) => {
+  const { isSafari } = useUserAgent();
+  const className = isSafari ? 'switch-components-safari' : 'switch-components';
+  const userConfig = useTemplate(false);
   const { logout } = useLogin();
   const { userInfo } = useUserInfo();
+  const display = 'translate-x-0 opacity-100';
+  const hidden = '-translate-x-full opacity-0';
+
   const onClick = () => {
-    console.log('click');
+    userConfig.open();
   };
+
   const { fetchUserInfo } = useUserApi();
   const itemList: dropDownItem[] = [
     { icon: <IconSettings />, onClick, text: 'ユーザー設定', divider: false },
@@ -34,7 +44,11 @@ const HomeTemplates: VFC<Props> = (props) => {
     fetchUserInfo();
   }, []);
   return (
-    <div>
+    <>
+      <div className={` ${className} z-50 ${userConfig.isOpen ? display : hidden}`}>
+        <UserInfoUpdateTemplate close={userConfig.close} name={userInfo.name} />
+      </div>
+
       <HomeHeader title="ホーム" dropDownItems={itemList} />
 
       <div className="h-6" />
@@ -48,7 +62,7 @@ const HomeTemplates: VFC<Props> = (props) => {
       <div className="px-3">
         <MyWorkList />
       </div>
-    </div>
+    </>
   );
 };
 export default HomeTemplates;
