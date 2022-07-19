@@ -10,6 +10,7 @@ import ApplyPenaltyTemplate from '../templates/ApplyPenaltyTemplate';
 import useUserAgent from '../../hooks/useUserAgent';
 import usePenaltyApi from '../../hooks/usePenaltyApi';
 import usePenaltyList from '../../hooks/usePenaltyList';
+import useTeamApi from '../../hooks/useTeamApi';
 
 const PenaltyPage = () => {
   const {
@@ -26,6 +27,7 @@ const PenaltyPage = () => {
     collectTeam,
   } = usePenaltyPage();
   const { fetchPenaltyList } = usePenaltyApi();
+  const { fetchAllTeam } = useTeamApi();
   const { penaltyList } = usePenaltyList();
   const { isSafari } = useUserAgent();
   const className = isSafari ? 'switch-components-safari' : 'switch-components';
@@ -34,6 +36,7 @@ const PenaltyPage = () => {
 
   useEffect(() => {
     fetchPenaltyList();
+    fetchAllTeam();
     collectTeam();
   }, []);
 

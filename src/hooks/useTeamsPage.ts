@@ -54,6 +54,8 @@ const useTeamsPage = () => {
     const total: number = filterById.reduce((acc: number, val: userType): number => {
       return acc + val.point;
     }, 0);
+    console.log('kokokoko');
+    console.log(total);
     return total;
   };
 
@@ -61,7 +63,7 @@ const useTeamsPage = () => {
     console.log(data);
     const primaryList: primaryListItem[] = data.map((t) => {
       const date = t.created_at.replace(/-/g, '/').substring(0, 10);
-      const point = filterUserByteamId(t.id);
+      const point = filterUserByteamId(t.id) - t.penalty;
       const item: primaryListItem = {
         id: t.id,
         name: t.name,
@@ -69,7 +71,7 @@ const useTeamsPage = () => {
         description: t.description,
         date,
         badgeText: `${point} point`,
-        badgeColor: badgeConfig(t.point - t.penalty),
+        badgeColor: badgeConfig(point),
         isTeam: true,
       };
       return item;

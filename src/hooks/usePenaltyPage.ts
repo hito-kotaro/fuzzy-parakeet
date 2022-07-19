@@ -7,6 +7,7 @@ import { penaltyType } from '../types/PenaltyType';
 import { SelectItem } from '../types/Select/SelectItemType';
 import usePenaltyList from './usePenaltyList';
 import usePrimaryList from './usePrimaryList';
+import useTeamListState from './useTeamListState';
 import useTemplate from './useTemplate';
 
 const usePenaltyPage = () => {
@@ -18,16 +19,20 @@ const usePenaltyPage = () => {
   const [teamSelectList, setTeamSelectList] = useState<SelectItem[]>([]);
   const [penalty, setPenalty] = useState<penaltyType>(defaultPenalty);
   const { penaltyList } = usePenaltyList();
+  const { teamList } = useTeamListState();
 
   const collectTeam = () => {
     // ItemListに入れる
-    const selectList = teamsData.map((t) => {
+
+    const defaultList: SelectItem = { value: '', itemText: 'チームを選択してください' };
+    const tmp = teamList.map((t) => {
       const item: SelectItem = {
         value: String(t.id),
         itemText: t.name,
       };
       return item;
     });
+    const selectList: SelectItem[] = [defaultList, ...tmp];
     setTeamSelectList(selectList);
   };
 

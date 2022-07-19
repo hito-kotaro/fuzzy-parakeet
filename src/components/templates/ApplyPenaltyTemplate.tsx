@@ -1,5 +1,6 @@
 import React, { useState, VFC } from 'react';
-import { applyPenaltyType, penaltyType } from '../../types/PenaltyType';
+import usePenaltyApi from '../../hooks/usePenaltyApi';
+import { issuePenaltyType, penaltyType } from '../../types/PenaltyType';
 import { SelectItem } from '../../types/Select/SelectItemType';
 import MyAvatar from '../atoms/Avatar/MyAvatar';
 import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
@@ -17,18 +18,19 @@ type Props = {
 const ApplyPenaltyTemplate: VFC<Props> = (props) => {
   const { data, teamSelect, close } = props;
   const selectHandler = useSelectForm('');
+  const { issuePenalty } = usePenaltyApi();
   const descriptionHandler = useInputForm();
   const placeholder = 'ペナルティーの詳細を入力(任意)';
 
   const onClickCreate = () => {
-    const applyPenaltyData: applyPenaltyType = {
+    const issuePenaltyData: issuePenaltyType = {
       team_id: Number(selectHandler.value),
-      penaltyId: data.id,
-      description: descriptionHandler.input,
-      created_at: '2022/2/2',
-      updated_at: '',
+      penalty_id: data.id,
+      // description: descriptionHandler.input,
     };
-    console.log(applyPenaltyData);
+    issuePenalty(issuePenaltyData);
+    console.log(issuePenaltyData);
+
     close();
   };
 
