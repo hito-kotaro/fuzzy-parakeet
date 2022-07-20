@@ -101,6 +101,7 @@ const ApproveRequestPage = () => {
       >
         <ListTemplate
           title="ApproveRequest"
+          blankText="検索結果なし"
           listData={list}
           onClick={onClickListItem}
           selectHandler={statusSelectHandler}

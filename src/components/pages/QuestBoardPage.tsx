@@ -100,6 +100,7 @@ const QuestBoardPage = () => {
       <div className={`${className} z-30 ${listTemplate.isOpen ? display : hidden}`}>
         <ListTemplate
           title="QuestBoard"
+          blankText="クエストがありません"
           listData={list}
           onClick={onClickListItem}
           onClickPlus={onClickPlus}

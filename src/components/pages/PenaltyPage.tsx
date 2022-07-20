@@ -60,6 +60,7 @@ const PenaltyPage = () => {
       >
         <ListTemplate
           title="Penalty"
+          blankText="ペナルティーがありません"
           listData={list}
           onClick={onClickListItem}
           onClickPlus={onClickPlus}

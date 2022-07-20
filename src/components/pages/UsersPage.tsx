@@ -86,6 +86,7 @@ const UsersPage = () => {
         ) : (
           <ListTemplate
             title="Users"
+            blankText="ユーザーがいません"
             listData={list}
             onClick={onClickListItem}
             onClickPlus={createTemplateState.open}

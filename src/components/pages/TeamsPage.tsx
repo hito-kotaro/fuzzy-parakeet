@@ -51,6 +51,7 @@ const TeamsPage = () => {
         ) : (
           <ListTemplate
             title="Teams"
+            blankText="チームがありません"
             listData={list}
             onClick={onClickListItem}
             onClickPlus={onClickPlus}
