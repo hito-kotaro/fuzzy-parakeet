@@ -13,7 +13,7 @@ const MyWorkList = () => {
       <div className={`h-${space}`} />
 
       <IconLabelButton
-        text="QuestBoard"
+        text="クエストボード"
         icon={<BsFillInboxFill color="#ffffff" />}
         iconColor="bg-green-500"
         path="/questboard"
@@ -22,7 +22,7 @@ const MyWorkList = () => {
       <div className={`h-${space}`} />
 
       <IconLabelButton
-        text="ApproveRequest"
+        text="承認依頼"
         icon={<GiStamper color="#ffffff" />}
         iconColor="bg-blue-500"
         path="/approverequest"
@@ -31,7 +31,7 @@ const MyWorkList = () => {
       <div className={`h-${space}`} />
 
       <IconLabelButton
-        text="Teams"
+        text="チーム"
         icon={<RiTeamLine color="#ffffff" />}
         iconColor="bg-purple-500"
         path="/teams"
@@ -40,7 +40,7 @@ const MyWorkList = () => {
       <div className={`h-${space}`} />
 
       <IconLabelButton
-        text="Users"
+        text="ユーザー"
         icon={<AiOutlineUser color="#ffffff" />}
         iconColor="bg-orange-500"
         path="/users"
@@ -49,7 +49,7 @@ const MyWorkList = () => {
       <div className={`h-${space}`} />
 
       <IconLabelButton
-        text="Penalty"
+        text="ペナルティー発行"
         icon={<AiOutlineWarning color="#ffffff" />}
         iconColor="bg-rose-500"
         path="/penalty"

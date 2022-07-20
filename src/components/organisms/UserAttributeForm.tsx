@@ -1,11 +1,12 @@
 import React, { useEffect, useState, VFC } from 'react';
+import { useNavigate } from 'react-router-dom';
 import useTeamApi from '../../hooks/useTeamApi';
 import useTeamListState from '../../hooks/useTeamListState';
 import { roleSelectItem } from '../../lib/SelectItems';
-import { teamsData } from '../../testData/TeamsTestData';
 import { selectHandlerType } from '../../types/Handler/HandlerTypes';
 import { SelectItem } from '../../types/Select/SelectItemType';
 import SelectForm from '../atoms/InputForms/SelectForm/SelectForm';
+import LinkButton from '../atoms/LinkButton';
 
 type Props = {
   teamSelectHandler: selectHandlerType;
@@ -18,7 +19,7 @@ const UserAttributeForm: VFC<Props> = (props) => {
   const [teamSelect, setTeamSelect] = useState<SelectItem[]>([]);
   const { teamList } = useTeamListState();
   const { fetchAllTeam } = useTeamApi();
-
+  const navigate = useNavigate();
   // teamsを取得
   useEffect(() => {
     fetchAllTeam();
@@ -39,12 +40,16 @@ const UserAttributeForm: VFC<Props> = (props) => {
     setTeamSelect(list);
   }, [teamList]);
 
+  const dummy = () => {
+    navigate('/teams');
+  };
   return (
     <div>
       <fieldset>
         <legend className="text-gray-400">Team</legend>
         <SelectForm selectHandler={teamSelectHandler} selectItemList={teamSelect} />
       </fieldset>
+      <LinkButton onClick={dummy}>新しいチームを作成する</LinkButton>
       <div className="h-2" />
       <fieldset>
         <legend className="text-gray-400">Role</legend>
