@@ -11,6 +11,9 @@ import useUserAgent from '../../hooks/useUserAgent';
 import usePenaltyApi from '../../hooks/usePenaltyApi';
 import usePenaltyList from '../../hooks/usePenaltyList';
 import useTeamApi from '../../hooks/useTeamApi';
+import Loading from '../atoms/Loading';
+import useLogin from '../../hooks/useLogin';
+import useLoading from '../../hooks/useLoading';
 
 const PenaltyPage = () => {
   const {
@@ -27,6 +30,7 @@ const PenaltyPage = () => {
     collectTeam,
   } = usePenaltyPage();
   const { fetchPenaltyList } = usePenaltyApi();
+  const { isLoading } = useLoading();
   const { fetchAllTeam } = useTeamApi();
   const { penaltyList } = usePenaltyList();
   const { isSafari } = useUserAgent();
@@ -58,13 +62,20 @@ const PenaltyPage = () => {
       <div
         className={` ${className} z-30 ${listTemplateState.isOpen ? display : hidden}`}
       >
-        <ListTemplate
-          title="Penalty"
-          blankText="ペナルティーがありません"
-          listData={list}
-          onClick={onClickListItem}
-          onClickPlus={onClickPlus}
-        />
+        {isLoading ? (
+          <div>
+            <div className="h-10" />
+            <Loading size={64} />
+          </div>
+        ) : (
+          <ListTemplate
+            title="ペナルティー"
+            blankText="ペナルティーがありません"
+            listData={list}
+            onClick={onClickListItem}
+            onClickPlus={onClickPlus}
+          />
+        )}
       </div>
 
       <div

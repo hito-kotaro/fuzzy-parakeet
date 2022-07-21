@@ -16,6 +16,7 @@ import CreateQuestTemplate from '../templates/CreateQuestTemplate';
 import DetailTemplate from '../templates/DetailTemplate';
 import ListTemplate from '../templates/ListTemplate';
 import ReportTemplate from '../templates/ReportTemplate';
+import Loading from '../atoms/Loading';
 
 const QuestBoardPage = () => {
   const { isLoading } = useLoading();
@@ -98,13 +99,20 @@ const QuestBoardPage = () => {
   return (
     <>
       <div className={`${className} z-30 ${listTemplate.isOpen ? display : hidden}`}>
-        <ListTemplate
-          title="QuestBoard"
-          blankText="クエストがありません"
-          listData={list}
-          onClick={onClickListItem}
-          onClickPlus={onClickPlus}
-        />
+        {isLoading ? (
+          <div>
+            <div className="h-10" />
+            <Loading size={64} />
+          </div>
+        ) : (
+          <ListTemplate
+            title="クエストボード"
+            blankText="クエストがありません"
+            listData={list}
+            onClick={onClickListItem}
+            onClickPlus={onClickPlus}
+          />
+        )}
       </div>
 
       <div className={`${className} z-40 ${detailTemplate.isOpen ? display : hidden}`}>

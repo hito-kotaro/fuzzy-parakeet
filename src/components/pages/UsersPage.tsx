@@ -82,10 +82,13 @@ const UsersPage = () => {
         className={` ${className} z-30 ${listTemplateState.isOpen ? display : hidden}`}
       >
         {isLoading ? (
-          <Loading />
+          <div>
+            <div className="h-10" />
+            <Loading size={64} />
+          </div>
         ) : (
           <ListTemplate
-            title="Users"
+            title="ユーザー"
             blankText="ユーザーがいません"
             listData={list}
             onClick={onClickListItem}

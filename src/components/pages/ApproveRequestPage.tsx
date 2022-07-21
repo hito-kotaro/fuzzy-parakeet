@@ -9,6 +9,8 @@ import userAgentState from '../../stores/userAgentState';
 import useApproveRequestApi from '../../hooks/useApproveRequestApi';
 import useApproveRequestList from '../../hooks/useApproveRequestList';
 import { updateApproveRequests } from '../../types/approveRequestType';
+import useLoading from '../../hooks/useLoading';
+import Loading from '../atoms/Loading';
 
 const ApproveRequestPage = () => {
   const {
@@ -22,6 +24,7 @@ const ApproveRequestPage = () => {
     filterByApproveStatus,
   } = useApproveRequestPage();
   const { fetchApproveRequest, updateApproveStatus } = useApproveRequestApi();
+  const { isLoading } = useLoading();
   const { isSafari } = useUserAgent();
   const { ARList } = useApproveRequestList();
   const className = isSafari ? 'switch-components-safari' : 'switch-components';
@@ -99,14 +102,21 @@ const ApproveRequestPage = () => {
       <div
         className={` ${className} z-30 ${listTemplateState.isOpen ? display : hidden}`}
       >
-        <ListTemplate
-          title="ApproveRequest"
-          blankText="検索結果なし"
-          listData={list}
-          onClick={onClickListItem}
-          selectHandler={statusSelectHandler}
-          selectItemList={statusFilter}
-        />
+        {isLoading ? (
+          <div>
+            <div className="h-10" />
+            <Loading size={64} />
+          </div>
+        ) : (
+          <ListTemplate
+            title="承認依頼"
+            blankText="検索結果なし"
+            listData={list}
+            onClick={onClickListItem}
+            selectHandler={statusSelectHandler}
+            selectItemList={statusFilter}
+          />
+        )}
       </div>
 
       <div

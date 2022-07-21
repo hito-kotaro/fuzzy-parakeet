@@ -47,10 +47,13 @@ const TeamsPage = () => {
         className={` ${className} z-30 ${listTemplateState.isOpen ? display : hidden}`}
       >
         {isLoading ? (
-          <Loading />
+          <div>
+            <div className="h-10" />
+            <Loading size={64} />
+          </div>
         ) : (
           <ListTemplate
-            title="Teams"
+            title="チーム"
             blankText="チームがありません"
             listData={list}
             onClick={onClickListItem}
