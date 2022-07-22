@@ -78,7 +78,7 @@ const TeamDetailTemplate: VFC<Props> = (props) => {
       <div className="h-10" />
 
       <div className="px-3">
-        <ScoreDisplay items={scores} />
+        <ScoreDisplay items={scores} displayTitle="チームスコア" />
       </div>
 
       <div className="h-10" />

@@ -7,10 +7,12 @@ import HomeTemplates from '../../templates/Home/HomeTemplates';
 import useHomePage from '../../../hooks/Home/useHomePage';
 import { display, hidden } from '../../../lib/display';
 import UserInfoUpdateTemplate from '../../templates/UserInfoUpdateTemplate';
+import useAccountApi from '../../../hooks/useAccountApi';
 
 const HomePage = () => {
   const { isSafari, userConfigTemplate, logout, userInfo } = useHomePage();
   const className = isSafari ? 'switch-components-safari' : 'switch-components';
+  const { fetchScore, score } = useAccountApi();
   const { fetchUserInfo } = useUserApi();
 
   const configUser = () => {
@@ -29,6 +31,7 @@ const HomePage = () => {
 
   useEffect(() => {
     fetchUserInfo();
+    fetchScore();
   }, []);
   return (
     <>
@@ -39,6 +42,7 @@ const HomePage = () => {
       </div>
 
       <HomeTemplates
+        score={score}
         isSafari={isSafari}
         userInfo={userInfo}
         dropdownItem={dropdownItem}

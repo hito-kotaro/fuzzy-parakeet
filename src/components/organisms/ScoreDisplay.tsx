@@ -4,12 +4,13 @@ import ScoreDisplayItem from '../atoms/ScoreDisplayItem';
 
 type Props = {
   items: scoreItem[];
+  displayTitle: string;
 };
 const ScoreDisplay: VFC<Props> = (props) => {
-  const { items } = props;
+  const { items, displayTitle } = props;
   return (
     <fieldset>
-      <legend className="text-gray-400">チームスコア</legend>
+      <legend className="text-gray-400">{displayTitle}</legend>
       <div className="flex justify-around">
         {items.map((item: scoreItem) => (
           <ScoreDisplayItem
