@@ -3,15 +3,12 @@ import React, { useEffect, useState } from 'react';
 import useLoading from '../../hooks/useLoading';
 import usePrimaryList from '../../hooks/usePrimaryList';
 import useQuestApi from '../../hooks/useQuestApi';
-import useQuestBordPage from '../../hooks/useQuestBordPage';
 import useQuestList from '../../hooks/useQuestList';
 import useTemplate from '../../hooks/useTemplate';
 import useUserAgent from '../../hooks/useUserAgent';
-import { questData } from '../../testData/QuestTestData';
 import { dropDownItem } from '../../types/dropdownType';
 import { primaryListItem } from '../../types/ListItem/PrimaryListItemType';
-import { createQuestType, questType } from '../../types/Quest/QuestType';
-import { reportType } from '../../types/reportType';
+import { questType } from '../../types/Quest/QuestType';
 import CreateQuestTemplate from '../templates/CreateQuestTemplate';
 import DetailTemplate from '../templates/DetailTemplate';
 import ListTemplate from '../templates/ListTemplate';
@@ -24,12 +21,12 @@ const QuestBoardPage = () => {
   const display = 'translate-x-0 opacity-100';
   const hidden = '-translate-x-full opacity-0';
   const defaultQuest: questType = {
-    id: -999,
-    owner: 'けつばん',
-    title: 'けつばん',
-    description: 'けつばん',
-    date: '20xx/xx/xx',
-    reward: -999,
+    id: 0,
+    owner: '',
+    title: '',
+    description: '',
+    date: '',
+    reward: 0,
     status: false,
   };
 
@@ -78,13 +75,7 @@ const QuestBoardPage = () => {
 
   // クエスト発行画面の表示
   const onClickPlus = () => {
-    console.log('create');
     createTemplate.open();
-  };
-
-  const issueQuest = (q: createQuestType) => {
-    console.log(q);
-    createTemplate.close();
   };
 
   const memberMenu: dropDownItem[] = [

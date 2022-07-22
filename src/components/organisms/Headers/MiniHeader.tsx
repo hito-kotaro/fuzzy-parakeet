@@ -1,6 +1,5 @@
 import React, { VFC } from 'react';
 import { Link } from 'react-router-dom';
-import { createQuestType } from '../../../types/Quest/QuestType';
 
 type Props = {
   title: string;

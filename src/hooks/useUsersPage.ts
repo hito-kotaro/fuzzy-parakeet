@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { defaultUser } from '../lib/defaultData';
-import { usersData } from '../testData/UsersTestData';
 import { primaryListItem } from '../types/ListItem/PrimaryListItemType';
-import { deleteUserType, userType } from '../types/usersType';
+import { userType } from '../types/usersType';
 import useModal from './useModal';
 import usePrimaryList from './usePrimaryList';
 import useTemplate from './useTemplate';
@@ -28,13 +27,8 @@ const useUsersPage = () => {
     detailTemplateState.open();
   };
 
-  const onClickPlus = () => {
-    createTemplateState.open();
-  };
-
   const filterList = () => {
     const primaryList: primaryListItem[] = userList.map((u) => {
-      console.log(u.point);
       const item: primaryListItem = {
         // descriptioinとpointはレスポンスを用意していなかったので一旦固定値
         id: u.id,
@@ -44,8 +38,6 @@ const useUsersPage = () => {
         date: u.created_at,
         badgeColor: 'green',
         badgeText: `${String(u.point)} point`,
-
-        // badgeText: String(u.point),
       };
       return item;
     });
@@ -53,10 +45,6 @@ const useUsersPage = () => {
   };
 
   const deleteExec = () => {
-    const deleteUser: deleteUserType = {
-      id: user.id,
-    };
-    console.log(deleteUser);
     modal.toggle();
   };
 

@@ -1,5 +1,5 @@
+import { toast } from 'react-hot-toast';
 import { AxiosResponse } from 'axios';
-import React from 'react';
 import { createAxiosTokenInstance } from '../lib/axiosInstance';
 import { createQuestType } from '../types/Quest/QuestType';
 import useLoading from './useLoading';
@@ -14,11 +14,11 @@ const useQuestApi = () => {
     try {
       setIsLoading(true);
       const result: AxiosResponse = await authInstance.get('/quest');
-      console.log(result.data.quests);
+
       setQuestList(result.data.quests);
       setIsLoading(false);
     } catch {
-      alert('取得失敗');
+      toast.error('取得失敗');
       setIsLoading(false);
     }
   };
@@ -26,12 +26,12 @@ const useQuestApi = () => {
   const createQuest = async (newQuest: createQuestType) => {
     try {
       setIsLoading(true);
-      const result: AxiosResponse = await authInstance.post('/quest/create', newQuest);
-      console.log(result.data);
+      await authInstance.post('/quest/create', newQuest);
+
       fetchQuestAll();
       setIsLoading(false);
     } catch {
-      alert('取得失敗');
+      toast.error('取得失敗');
       setIsLoading(false);
     }
   };

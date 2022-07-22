@@ -1,4 +1,4 @@
-import React, { VFC, useEffect, ChangeEvent } from 'react';
+import React, { VFC, useEffect } from 'react';
 import { selectHandlerType } from '../../types/Handler/HandlerTypes';
 import { primaryListItem } from '../../types/ListItem/PrimaryListItemType';
 import { SelectItem } from '../../types/Select/SelectItemType';
@@ -30,7 +30,6 @@ const ListTemplate: VFC<Props> = (props) => {
   } = props;
   const { result, search } = useSearchForm();
   const { input, onChange } = useInputForm();
-  const onClickCreateButton = () => {};
 
   useEffect(() => {
     search(input, listData);
@@ -42,7 +41,6 @@ const ListTemplate: VFC<Props> = (props) => {
         title={title}
         input={input}
         onChange={onChange}
-        onClick={onClickCreateButton}
         onClickPlus={onClickPlus}
         selectItemList={selectItemList}
         selectHandler={selectHandler}

@@ -24,7 +24,7 @@ const TeamsPage = () => {
 
   const { fetchAllTeam } = useTeamApi();
   const { isSafari } = useUserAgent();
-  const { teamList, setTeamList } = useTeamListState();
+  const { teamList } = useTeamListState();
   const className = isSafari ? 'switch-components-safari' : 'switch-components';
   const { isLoading } = useLoading();
   const display = 'translate-x-0 opacity-100';
@@ -33,7 +33,6 @@ const TeamsPage = () => {
   // レンダリング時にバックエンドからチーム一覧を取得
   useEffect(() => {
     fetchAllTeam();
-    console.log(teamList);
   }, []);
 
   // teamを作成、削除したときにBEから一覧を再取得

@@ -1,4 +1,3 @@
-import React from 'react';
 import useLogin from '../useLogin';
 import useTemplate from '../useTemplate';
 import useUserAgent from '../useUserAgent';

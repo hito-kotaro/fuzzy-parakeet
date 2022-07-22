@@ -16,10 +16,6 @@ const LoginForm: VFC<Props> = (props) => {
   const passwordInputHandler = useInputForm();
   const { login } = useLogin();
 
-  const onClick = () => {
-    console.log('test');
-  };
-
   return (
     <>
       <div className="h-12">

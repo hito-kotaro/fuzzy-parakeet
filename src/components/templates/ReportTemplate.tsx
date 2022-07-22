@@ -33,7 +33,7 @@ const ReportTemplate: VFC<Props> = (props) => {
       description: descriptionHandler.input,
       quest_id: questId,
     };
-    console.log(newReport);
+
     createReport(newReport);
     clear();
     close();

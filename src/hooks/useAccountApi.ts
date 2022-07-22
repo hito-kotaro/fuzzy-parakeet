@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { AxiosInstance, AxiosResponse } from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { AxiosResponse } from 'axios';
 import useLogin from './useLogin';
 import { axiosInstance, createAxiosTokenInstance } from '../lib/axiosInstance';
 import type { scoreType } from '../types/scoreType';
@@ -24,17 +24,16 @@ const useAccountApi = () => {
         '/account/create',
         accountParams,
       );
-      console.log(result.data);
       login(result.data.id, email, password);
     } catch (error) {
-      alert('作成失敗');
+      // 後でAPIからのレスポンスを表示する
+      toast.error('作成失敗');
     }
   };
 
   const fetchScore = async () => {
     try {
       const result: AxiosResponse = await authInstance.get('/account/score');
-      console.log(result.data);
       const newScore: scoreType = {
         user_score: result.data.user_score,
         team_score: result.data.team_score,
@@ -43,7 +42,7 @@ const useAccountApi = () => {
 
       setScore(newScore);
     } catch (error) {
-      alert('取得失敗');
+      toast.error('取得失敗');
     }
   };
   return { registerAccount, fetchScore, score };

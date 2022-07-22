@@ -5,7 +5,6 @@ import { dropDownItem } from '../../types/dropdownType';
 import ApproveDetailTemplate from '../templates/ApproveDetailTemplate';
 import useApproveRequestPage from '../../hooks/useApproveRequestPage';
 import useUserAgent from '../../hooks/useUserAgent';
-import userAgentState from '../../stores/userAgentState';
 import useApproveRequestApi from '../../hooks/useApproveRequestApi';
 import useApproveRequestList from '../../hooks/useApproveRequestList';
 import { updateApproveRequests } from '../../types/approveRequestType';
@@ -41,11 +40,6 @@ const ApproveRequestPage = () => {
     filterByApproveStatus(statusSelectHandler.value);
   }, [ARList, statusSelectHandler.value]);
 
-  const requestCancel = () => {
-    console.log('Cancel Request!!!');
-    console.log(approveRequest);
-  };
-
   const approve = () => {
     const newStatus: updateApproveRequests = {
       ar_id: approveRequest.id,
@@ -64,23 +58,23 @@ const ApproveRequestPage = () => {
     detailTemplateState.close();
   };
 
-  const cancel = () => {
-    const newStatus: updateApproveRequests = {
-      ar_id: approveRequest.id,
-      new_status: 'canceled',
-    };
-    updateApproveStatus(newStatus);
-    detailTemplateState.close();
-  };
+  // const cancel = () => {
+  //   const newStatus: updateApproveRequests = {
+  //     ar_id: approveRequest.id,
+  //     new_status: 'canceled',
+  //   };
+  //   updateApproveStatus(newStatus);
+  //   detailTemplateState.close();
+  // };
 
-  const memberMenu: dropDownItem[] = [
-    {
-      icon: <IconCheckCircle />,
-      onClick: cancel,
-      text: '申請取り消し',
-      divider: false,
-    },
-  ];
+  // const memberMenu: dropDownItem[] = [
+  //   {
+  //     icon: <IconCheckCircle />,
+  //     onClick: cancel,
+  //     text: '申請取り消し',
+  //     divider: false,
+  //   },
+  // ];
 
   const readerMenu: dropDownItem[] = [
     {

@@ -1,6 +1,6 @@
+import { toast } from 'react-hot-toast';
 import { AxiosResponse } from 'axios';
-import React from 'react';
-import { axiosInstance, createAxiosTokenInstance } from '../lib/axiosInstance';
+import { createAxiosTokenInstance } from '../lib/axiosInstance';
 import {
   createApproveRequests,
   updateApproveRequests,
@@ -17,11 +17,11 @@ const useApproveRequestApi = () => {
     try {
       setIsLoading(true);
       const result: AxiosResponse = await authInstance.get('/approve');
-      console.log(result.data.approve_requests);
+
       setARList(result.data.approve_requests);
       setIsLoading(false);
     } catch {
-      alert('取得失敗');
+      toast.error('取得失敗');
       setIsLoading(false);
     }
   };
@@ -29,28 +29,23 @@ const useApproveRequestApi = () => {
   const createReport = async (newReport: createApproveRequests) => {
     try {
       setIsLoading(true);
-      const result: AxiosResponse = await authInstance.post('/approve/create', newReport);
-      console.log(result.data);
+      await authInstance.post('/approve/create', newReport);
+
       setIsLoading(false);
     } catch {
-      alert('作成失敗');
+      toast.error('作成失敗');
       setIsLoading(false);
     }
   };
 
   const updateApproveStatus = async (updateRequest: updateApproveRequests) => {
-    console.log(updateRequest);
     try {
       setIsLoading(true);
-      const result: AxiosResponse = await authInstance.put(
-        '/approve/update',
-        updateRequest,
-      );
-      console.log(result);
+      await authInstance.put('/approve/update', updateRequest);
       fetchApproveRequest();
       setIsLoading(false);
     } catch {
-      alert('更新失敗');
+      toast.error('更新失敗');
       setIsLoading(false);
     }
   };

@@ -37,7 +37,7 @@ const CreateQuestTemplate: VFC<Props> = (props) => {
       reward: Number(pointHandler.input),
     };
     createQuest(newQuest);
-    console.log(newQuest);
+
     clear();
     close();
   };

@@ -1,5 +1,5 @@
 import React, { VFC } from 'react';
-import { updateUserAttributeType, userType } from '../../types/usersType';
+import { userType } from '../../types/usersType';
 import MyAvatar from '../atoms/Avatar/MyAvatar';
 import useSelectForm from '../atoms/InputForms/SelectForm/useSelectForm';
 import MiniHeader from '../organisms/Headers/MiniHeader';
@@ -15,12 +15,13 @@ const UserAttributeUpdateTemplate: VFC<Props> = (props) => {
   const roleSelectHandler = useSelectForm('');
 
   const updateAttribute = () => {
-    const newUserAttribute: updateUserAttributeType = {
-      id: user.id,
-      team_id: Number(teamSelectHandler.value),
-      role_id: Number(roleSelectHandler.value),
-    };
-    console.log(newUserAttribute);
+    // 後で更新用APIにアクセスする
+    // const newUserAttribute: updateUserAttributeType = {
+    //   id: user.id,
+    //   team_id: Number(teamSelectHandler.value),
+    //   role_id: Number(roleSelectHandler.value),
+    // };
+
     close();
   };
   return (

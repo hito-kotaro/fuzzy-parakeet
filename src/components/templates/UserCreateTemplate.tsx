@@ -1,4 +1,5 @@
 import React, { VFC } from 'react';
+import { toast } from 'react-hot-toast';
 import { createUserType } from '../../types/usersType';
 import MyAvatar from '../atoms/Avatar/MyAvatar';
 import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
@@ -35,9 +36,9 @@ const UserCreateTemplate: VFC<Props> = (props) => {
 
   const create = () => {
     if (roleSelectHandler.value === '0') {
-      alert('ロールを選択してください');
+      toast.error('ロールを選択してください');
     } else if (teamSelectHandler.value === '0') {
-      alert('チームを選択してください');
+      toast.error('チームを選択してください');
     } else {
       const newUser: createUserType = {
         name: `${lastNameInputHandler.input}_${firstNameInputHandler.input}`,

@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { defaultTeam } from '../lib/defaultData';
-import { usersData } from '../testData/UsersTestData';
 import { primaryListItem } from '../types/ListItem/PrimaryListItemType';
 import { teamType } from '../types/teamsType';
 import { userType } from '../types/usersType';
 import usePrimaryList from './usePrimaryList';
-import useTeamApi from './useTeamApi';
 import useTeamListState from './useTeamListState';
 import useTemplate from './useTemplate';
 import useUserList from './useUserList';
@@ -15,7 +13,6 @@ const useTeamsPage = () => {
   const listTemplateState = useTemplate(true);
   const createTemplateState = useTemplate(false);
   const detailTemplateState = useTemplate(false);
-  const { fetchTeamById } = useTeamApi();
   const { userList } = useUserList();
 
   // チームの詳細画面を作成したら使用する
@@ -24,12 +21,9 @@ const useTeamsPage = () => {
 
   // 詳細画面に渡す情報をステートにセット
   const onClickListItem = (id: number) => {
-    console.log(`id=${id}`);
-    console.log(teamList);
     const data = teamList.filter((t: teamType) => {
       return t.id === id;
     });
-    console.log(data);
     setTeam(data[0]);
     detailTemplateState.open();
   };
@@ -54,13 +48,10 @@ const useTeamsPage = () => {
     const total: number = filterById.reduce((acc: number, val: userType): number => {
       return acc + val.point;
     }, 0);
-    console.log('kokokoko');
-    console.log(total);
     return total;
   };
 
   const filterList = (data: teamType[]) => {
-    console.log(data);
     const primaryList: primaryListItem[] = data.map((t) => {
       const date = t.created_at.replace(/-/g, '/').substring(0, 10);
       const point = filterUserByteamId(t.id) - t.penalty;

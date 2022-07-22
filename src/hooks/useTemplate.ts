@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const useTemplate = (defaultState: boolean) => {
   const [isOpen, setIsOpen] = useState(defaultState);

@@ -1,7 +1,6 @@
 import { Badge } from '@supabase/ui';
 import React, { VFC } from 'react';
 import IconLabel from '../../../atoms/Labels/IconLabel';
-import IconLabelMedium from '../../../atoms/Labels/IconLabelMedium';
 
 type Props = {
   ownerName: string;

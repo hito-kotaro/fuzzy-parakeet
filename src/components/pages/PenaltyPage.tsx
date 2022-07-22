@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { IconCheckCircle } from '@supabase/ui';
 import usePenaltyPage from '../../hooks/usePenaltyPage';
-import DetailTemplate from '../templates/DetailTemplate';
 import ListTemplate from '../templates/ListTemplate';
 import PenaltyDetailTemplate from '../templates/PenaltyDetailTemplate';
 import CreatePenaltyTemplate from '../templates/CreatePenaltyTemplate';
@@ -12,7 +11,6 @@ import usePenaltyApi from '../../hooks/usePenaltyApi';
 import usePenaltyList from '../../hooks/usePenaltyList';
 import useTeamApi from '../../hooks/useTeamApi';
 import Loading from '../atoms/Loading';
-import useLogin from '../../hooks/useLogin';
 import useLoading from '../../hooks/useLoading';
 
 const PenaltyPage = () => {

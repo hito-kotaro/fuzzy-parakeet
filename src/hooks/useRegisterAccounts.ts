@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-import useLogin from './useLogin';
+import { useState } from 'react';
 
 const useRegisterAccounts = () => {
-  const { login } = useLogin();
   const [emailConfirm, setEmailConfirm] = useState(false);
   const [passwordConfirm, setPasswordConfirm] = useState(false);
   const [isReady, setIsReady] = useState(false);

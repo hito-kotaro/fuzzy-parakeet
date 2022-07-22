@@ -9,15 +9,13 @@ type Props = {
   title: string;
   input: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  onClick: () => void;
   onClickPlus?: () => void;
   selectItemList?: { value: string; itemText: string }[];
   selectHandler?: selectHandlerType;
 };
 
 const ListHeader: VFC<Props> = (props) => {
-  const { title, input, selectHandler, selectItemList, onClick, onChange, onClickPlus } =
-    props;
+  const { title, input, selectHandler, selectItemList, onChange, onClickPlus } = props;
   return (
     <div className="sticky top-0">
       <div className=" bg-base drop-shadow-md p-2 w-full">

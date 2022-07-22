@@ -26,13 +26,7 @@ const RegisterAccountForm: VFC<Props> = (props) => {
     passwordCheck,
   } = useRegisterAccounts();
 
-  const dummy = () => {
-    console.log('test');
-  };
-
-  const register = () => {
-    registerAccount(emailInputHandler.input, passwordInputHandler.input);
-  };
+  const dummy = () => {};
 
   useEffect(() => {
     emailCheck(emailInputHandler.input, emailConfirmInputHandler.input);

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Axios, AxiosResponse } from 'axios';
+import { toast } from 'react-hot-toast';
+import { AxiosResponse } from 'axios';
 import { createAxiosTokenInstance } from '../lib/axiosInstance';
 import { teamType } from '../types/teamsType';
 import useTeamListState from './useTeamListState';
@@ -8,8 +8,7 @@ import useLoading from './useLoading';
 const useTeamApi = () => {
   const authInstance = createAxiosTokenInstance();
   const { setIsLoading } = useLoading();
-  const [teamListRaw, setTeamListRaw] = useState<teamType[]>([]);
-  const { teamList, setTeamList } = useTeamListState();
+  const { setTeamList } = useTeamListState();
 
   const fetchAllTeam = async () => {
     try {
@@ -29,13 +28,13 @@ const useTeamApi = () => {
         };
         return teamData;
       });
-      console.log(data);
+
       setTeamList(data);
-      console.log(teamList);
+
       setIsLoading(false);
       // setTeamListRaw(data);
     } catch (error) {
-      alert('取得失敗');
+      toast.error('取得失敗');
     }
   };
 
@@ -46,23 +45,17 @@ const useTeamApi = () => {
     };
     try {
       setIsLoading(true);
-      const result: AxiosResponse = await authInstance.post(
-        '/team/create/',
-        newTeamParams,
-      );
+      await authInstance.post('/team/create/', newTeamParams);
       fetchAllTeam();
       // setTimeout(fetchAllTeam, 100);
 
       setIsLoading(false);
     } catch (error) {
-      alert('作成失敗');
+      toast.error('作成失敗');
     }
   };
-  const fetchTeamById = async (id: number) => {
-    console.log(id);
-  };
 
-  return { fetchAllTeam, fetchTeamById, createTeam };
+  return { fetchAllTeam, createTeam };
 };
 
 export default useTeamApi;

@@ -12,7 +12,6 @@ import ScoreDisplay from '../organisms/ScoreDisplay';
 type Props = {
   data: teamType;
   close: () => void;
-  //   menuItem: dropDownItem[];
 };
 
 const TeamDetailTemplate: VFC<Props> = (props) => {
@@ -59,10 +58,8 @@ const TeamDetailTemplate: VFC<Props> = (props) => {
     setTotalUserPoint(total);
   }, [list]);
 
-  const dummy = () => {
-    console.log('test');
-  };
-  //   console.log(data);
+  const dummy = () => {};
+
   return (
     <div className="bg-base h-full">
       <DetailHeader

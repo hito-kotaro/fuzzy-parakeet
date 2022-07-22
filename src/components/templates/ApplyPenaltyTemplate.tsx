@@ -1,8 +1,7 @@
-import React, { useState, VFC } from 'react';
+import React, { VFC } from 'react';
 import usePenaltyApi from '../../hooks/usePenaltyApi';
 import { issuePenaltyType, penaltyType } from '../../types/PenaltyType';
 import { SelectItem } from '../../types/Select/SelectItemType';
-import MyAvatar from '../atoms/Avatar/MyAvatar';
 import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
 import SelectForm from '../atoms/InputForms/SelectForm/SelectForm';
 import useSelectForm from '../atoms/InputForms/SelectForm/useSelectForm';
@@ -29,7 +28,6 @@ const ApplyPenaltyTemplate: VFC<Props> = (props) => {
       // description: descriptionHandler.input,
     };
     issuePenalty(issuePenaltyData);
-    console.log(issuePenaltyData);
 
     close();
   };

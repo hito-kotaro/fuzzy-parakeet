@@ -1,5 +1,5 @@
+import { toast } from 'react-hot-toast';
 import { AxiosResponse } from 'axios';
-import React from 'react';
 import { createAxiosTokenInstance } from '../lib/axiosInstance';
 import { createPenaltyType, issuePenaltyType } from '../types/PenaltyType';
 import useLoading from './useLoading';
@@ -13,11 +13,10 @@ const usePenaltyApi = () => {
   const issuePenalty = async (issueInfo: issuePenaltyType) => {
     try {
       setIsLoading(true);
-      const result: AxiosResponse = await authInstance.post('/penalty/issue', issueInfo);
-      console.log(result);
+      await authInstance.post('/penalty/issue', issueInfo);
       setIsLoading(false);
     } catch {
-      alert('発行失敗');
+      toast.error('取得失敗');
       setIsLoading(false);
     }
   };
@@ -26,10 +25,10 @@ const usePenaltyApi = () => {
       setIsLoading(true);
       const result: AxiosResponse = await authInstance.get('/penalty');
       setIsLoading(false);
-      console.log(result.data.penalties);
+
       setPenaltyList(result.data.penalties);
     } catch {
-      alert('作成失敗');
+      toast.error('作成失敗');
       setIsLoading(false);
     }
   };
@@ -37,14 +36,11 @@ const usePenaltyApi = () => {
   const createPenalty = async (newPenalty: createPenaltyType) => {
     try {
       setIsLoading(true);
-      const result: AxiosResponse = await authInstance.post(
-        '/penalty/create',
-        newPenalty,
-      );
+      await authInstance.post('/penalty/create', newPenalty);
       fetchPenaltyList();
       setIsLoading(false);
     } catch {
-      alert('作成失敗');
+      toast.error('作成失敗');
       setIsLoading(false);
     }
   };

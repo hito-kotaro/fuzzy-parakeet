@@ -10,7 +10,7 @@ import useTemplate from './useTemplate';
 const useApproveRequestPage = () => {
   const { ARList } = useApproveRequestList();
   const [approveRequest, setApproveRequest] = useState<approveRequestType>(defaultAR);
-  const { list, setList, filterByApproveStatus } = usePrimaryList();
+  const { list, filterByApproveStatus } = usePrimaryList();
   const statusSelectHandler = useSelectForm('open');
   const listTemplateState = useTemplate(true);
   const detailTemplateState = useTemplate(false);

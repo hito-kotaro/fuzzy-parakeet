@@ -30,7 +30,6 @@ const createPenaltyTemplate: VFC<Props> = (props) => {
       penalty: Number(pointHandler.input),
     };
 
-    console.log(newPenalty);
     createPenalty(newPenalty);
     clear();
     close();

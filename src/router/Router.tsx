@@ -4,7 +4,6 @@ import { Route, useLocation } from 'react-router-dom';
 import SlideRoutes from 'react-slide-routes';
 import ApproveRequestPage from '../components/pages/ApproveRequestPage';
 import HomePage from '../components/pages/Home/HomePage';
-
 import PenaltyPage from '../components/pages/PenaltyPage';
 import QuestBoardPage from '../components/pages/QuestBoardPage';
 import TeamsPage from '../components/pages/TeamsPage';
@@ -18,10 +17,7 @@ const Router = () => {
   const location = useLocation();
   return (
     <SlideRoutes location={location} duration={500}>
-      <Route
-        path="/"
-        element={<LoginTemplate title="login page" thema="light-color" />}
-      />
+      <Route path="/" element={<LoginTemplate />} />
       <Route path="/home" element={<HomePage />} />
       <Route path="/questboard" element={<QuestBoardPage />} />
       <Route path="/approverequest" element={<ApproveRequestPage />} />

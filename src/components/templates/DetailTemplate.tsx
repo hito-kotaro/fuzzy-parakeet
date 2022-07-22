@@ -11,19 +11,6 @@ type Props = {
 };
 const DetailTemplate: VFC<Props> = (props) => {
   const { data, close, dropDownMenu } = props;
-  const role = 1;
-
-  const questReport = () => {
-    console.log('report');
-  };
-
-  const questEdit = () => {
-    console.log('edit');
-  };
-
-  const questClose = () => {
-    console.log('close');
-  };
 
   return (
     <div className="bg-base h-full">

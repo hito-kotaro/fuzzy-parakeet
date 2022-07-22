@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { defaultPenalty } from '../lib/defaultData';
-import { penaltyData } from '../testData/PenaltyTestdata';
-import { teamsData } from '../testData/TeamsTestData';
 import { primaryListItem } from '../types/ListItem/PrimaryListItemType';
 import { penaltyType } from '../types/PenaltyType';
 import { SelectItem } from '../types/Select/SelectItemType';

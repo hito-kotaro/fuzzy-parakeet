@@ -1,24 +1,19 @@
 import React, { useEffect, VFC } from 'react';
-import { IconLogOut, IconSettings } from '@supabase/ui';
 import UserCard from '../../organisms/Cards/UserCard';
 import HomeHeader from '../../organisms/Headers/HomeHeader';
 import MyWorkList from '../../organisms/Lists/MyWorkList';
 import { dropDownItem } from '../../../types/dropdownType';
 import useUserApi from '../../../hooks/useUserApi';
-import { templateType } from '../../../types/templateType';
-import { smallUserType } from '../../../types/usersType';
 import type { scoreType } from '../../../types/scoreType';
 
 type Props = {
   score: scoreType;
   isSafari: boolean;
-  userInfo: smallUserType;
   dropdownItem: dropDownItem[];
 };
 
 const HomeTemplates: VFC<Props> = (props) => {
-  const { score, isSafari, userInfo, dropdownItem } = props;
-  const className = isSafari ? 'switch-components-safari' : 'switch-components';
+  const { score, dropdownItem } = props;
 
   const { fetchUserInfo } = useUserApi();
 
@@ -33,7 +28,7 @@ const HomeTemplates: VFC<Props> = (props) => {
       <div className="h-6" />
 
       <div className="px-3">
-        <UserCard score={score} team={userInfo.team} userName={userInfo.name} />
+        <UserCard score={score} />
       </div>
 
       <div className="h-6" />

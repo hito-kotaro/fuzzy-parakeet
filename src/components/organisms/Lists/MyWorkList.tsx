@@ -1,9 +1,8 @@
 import React from 'react';
 import { BsFillInboxFill } from 'react-icons/bs';
 import { GiStamper } from 'react-icons/gi';
-import { AiOutlineHistory, AiOutlineUser, AiOutlineWarning } from 'react-icons/ai';
+import { AiOutlineUser, AiOutlineWarning } from 'react-icons/ai';
 import { RiTeamLine } from 'react-icons/ri';
-import { TbTie } from 'react-icons/tb';
 import IconLabelButton from '../../atoms/Buttons/IconLabelButton';
 
 const MyWorkList = () => {

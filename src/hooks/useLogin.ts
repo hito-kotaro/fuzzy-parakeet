@@ -1,5 +1,4 @@
 import { AxiosResponse } from 'axios';
-import React from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { axiosInstance } from '../lib/axiosInstance';

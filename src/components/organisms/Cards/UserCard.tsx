@@ -1,17 +1,14 @@
 import React, { VFC } from 'react';
 import { scoreItem } from '../../../types/ScoreDisplayType';
 import { scoreType } from '../../../types/scoreType';
-import MyAvatar from '../../atoms/Avatar/MyAvatar';
 import ScoreDisplay from '../ScoreDisplay';
 
 type Props = {
   score: scoreType;
-  team: string;
-  userName: string;
 };
 
 const UserCard: VFC<Props> = (props) => {
-  const { team, userName, score } = props;
+  const { score } = props;
   const scores: scoreItem[] = [
     {
       score: score.user_score,

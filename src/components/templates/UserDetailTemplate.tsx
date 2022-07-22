@@ -17,16 +17,12 @@ const UserDetailTemplate: VFC<Props> = (props) => {
   const { data, close, menuItem } = props;
   const { fetchApproveRequest } = useApproveRequestApi();
 
-  const dummy = () => {
-    console.log(data.id);
-  };
+  const dummy = () => {};
 
   // UserIDでアクティビティをフィルター
   useEffect(() => {
     fetchApproveRequest();
     filterByUserId(data.id);
-    console.log('FIlterByUserID!!');
-    console.log(data);
   }, [data]);
 
   return (

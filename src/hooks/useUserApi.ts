@@ -1,5 +1,5 @@
-import React from 'react';
 import { AxiosResponse } from 'axios';
+import { toast } from 'react-hot-toast';
 import { createAxiosTokenInstance } from '../lib/axiosInstance';
 import useLoading from './useLoading';
 import useUserList from './useUserList';
@@ -19,11 +19,10 @@ const useUserApi = () => {
       setIsLoading(true);
       const userId = localStorage.getItem('id');
       const result: AxiosResponse = await authInstance.get(`/user/${userId}`);
-      console.log(result.data);
       setIsLoading(false);
       setUserInfo(result.data);
     } catch {
-      alert('取得失敗');
+      toast.error('取得失敗');
       setIsLoading(false);
     }
   };
@@ -32,11 +31,10 @@ const useUserApi = () => {
     try {
       setIsLoading(true);
       const result: AxiosResponse = await authInstance.get('/user');
-      console.log(result.data.users);
       setUserList(result.data.users);
       setIsLoading(false);
     } catch (error) {
-      alert('取得失敗');
+      toast.error('取得失敗');
       setIsLoading(false);
     }
   };
@@ -44,13 +42,11 @@ const useUserApi = () => {
   const createUser = async (newUser: createUserType) => {
     try {
       setIsLoading(true);
-      console.log(newUser);
-      const result: AxiosResponse = await authInstance.post('/user/create/', newUser);
-      console.log(result.data);
+      await authInstance.post('/user/create/', newUser);
       fetchUserAll();
       setIsLoading(false);
     } catch {
-      alert('取得失敗');
+      toast.error('作成失敗');
       setIsLoading(false);
     }
   };

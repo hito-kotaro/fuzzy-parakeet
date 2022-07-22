@@ -1,6 +1,5 @@
 import Avatar from 'boring-avatars';
 import React, { useEffect, useState, VFC } from 'react';
-import MyAvatar from '../Avatar/MyAvatar';
 
 type Props = {
   size?: 'large' | 'medium' | 'small';

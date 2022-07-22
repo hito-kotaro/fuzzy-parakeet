@@ -1,19 +1,10 @@
-import React, { useState, VFC } from 'react';
+import React, { useState } from 'react';
 import MyAvatar from '../atoms/Avatar/MyAvatar';
 import LoginForm from '../organisms/LoginForm/LoginForm';
 import RegisterAccountForm from '../organisms/RegisterAccountForm';
 
-type Props = {
-  title: string;
-  thema: string;
-};
-const LoginTemplate: VFC<Props> = (props) => {
+const LoginTemplate = () => {
   const [isRegister, setIsRegister] = useState(false);
-  const { title, thema } = props;
-
-  const dummy = () => {
-    console.log('test');
-  };
 
   const toggleForm = () => {
     setIsRegister(!isRegister);

@@ -1,8 +1,6 @@
 import React, { VFC } from 'react';
-import { IoIosArrowBack } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import { reportType } from '../../../types/reportType';
-import HeaderLink from '../../atoms/Links/HeaderLink';
 
 type Props = {
   title: string;
@@ -14,7 +12,8 @@ type Props = {
 };
 
 const ReportHeader: VFC<Props> = (props) => {
-  const { title, id, reportTitle, reportDescription, onClickCancel, onClickReport } = props;
+  const { title, id, reportTitle, reportDescription, onClickCancel, onClickReport } =
+    props;
 
   const report: reportType = {
     questId: id,

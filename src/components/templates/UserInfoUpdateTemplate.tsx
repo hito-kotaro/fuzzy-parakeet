@@ -1,5 +1,5 @@
 import React, { VFC } from 'react';
-import { updateUserPasswordType } from '../../types/usersType';
+// import { updateUserPasswordType } from '../../types/usersType';
 import MyAvatar from '../atoms/Avatar/MyAvatar';
 import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
 import ConfirnInputForm from '../organisms/ConfirmInputForm';
@@ -15,11 +15,11 @@ const UserUpdateTemplate: VFC<Props> = (props) => {
   const confirmInputHandler = useInputForm();
 
   const update = () => {
-    const updateUser: updateUserPasswordType = {
-      id: 1,
-      password: passwordInputHandler.input,
-    };
-    console.log(updateUser);
+    // const updateUser: updateUserPasswordType = {
+    //   id: 1,
+    //   password: passwordInputHandler.input,
+    // };
+
     passwordInputHandler.clear();
     confirmInputHandler.clear();
     close();

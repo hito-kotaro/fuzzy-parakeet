@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import useUserApi from '../../../hooks/useUserApi';
 import { dropDownItem } from '../../../types/dropdownType';
 import HomeTemplates from '../../templates/Home/HomeTemplates';
-
 import useHomePage from '../../../hooks/Home/useHomePage';
 import { display, hidden } from '../../../lib/display';
 import UserInfoUpdateTemplate from '../../templates/UserInfoUpdateTemplate';
@@ -41,12 +40,7 @@ const HomePage = () => {
         <UserInfoUpdateTemplate close={userConfigTemplate.close} name={userInfo.name} />
       </div>
 
-      <HomeTemplates
-        score={score}
-        isSafari={isSafari}
-        userInfo={userInfo}
-        dropdownItem={dropdownItem}
-      />
+      <HomeTemplates score={score} isSafari={isSafari} dropdownItem={dropdownItem} />
     </>
   );
 };

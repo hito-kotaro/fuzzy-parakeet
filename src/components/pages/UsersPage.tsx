@@ -43,16 +43,16 @@ const UsersPage = () => {
 
   useEffect(() => {
     filterList();
-    console.log(userList);
   }, [userList]);
-  const myMenu: dropDownItem[] = [
-    {
-      icon: <IconCheckCircle />,
-      onClick: updateUserInfoTemplateState.open,
-      text: 'ユーザー情報更新',
-      divider: false,
-    },
-  ];
+
+  // const myMenu: dropDownItem[] = [
+  //   {
+  //     icon: <IconCheckCircle />,
+  //     onClick: updateUserInfoTemplateState.open,
+  //     text: 'ユーザー情報更新',
+  //     divider: false,
+  //   },
+  // ];
 
   const masterMenu: dropDownItem[] = [
     {

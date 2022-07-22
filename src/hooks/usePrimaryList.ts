@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-import { approveRequestData } from '../testData/ApproveRequestTestData';
-import { usersData } from '../testData/UsersTestData';
+import { useState } from 'react';
 import { approveRequestType } from '../types/approveRequestType';
 import { badgeColor } from '../types/colorType';
 import { primaryListItem } from '../types/ListItem/PrimaryListItemType';
@@ -66,13 +64,11 @@ const usePrimaryList = () => {
       }
       return a.status === filterStatus;
     });
-    console.log(filterByStatus);
 
     insertApproveRequestToList(filterByStatus);
   };
 
   const filterByUserId = (userId: number) => {
-    console.log(userId);
     const filterById: approveRequestType[] = ARList.filter((a) => {
       return a.applicant_id === userId;
     });
@@ -80,11 +76,10 @@ const usePrimaryList = () => {
   };
 
   const filterUserByteamId = (teamId: number, userList: userType[]) => {
-    console.log(userList);
     const filterById: userType[] = userList.filter((u) => {
       return u.team_id === teamId;
     });
-    console.log(filterById);
+
     insertUserToList(filterById);
   };
 
