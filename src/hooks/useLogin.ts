@@ -1,5 +1,6 @@
 import { AxiosResponse } from 'axios';
 import React from 'react';
+import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { axiosInstance } from '../lib/axiosInstance';
 
@@ -17,9 +18,10 @@ const useLogin = () => {
       const result: AxiosResponse = await axiosInstance.post('/auth/', authParams);
       localStorage.setItem('token', result.data.access_token);
       localStorage.setItem('id', result.data.user_id);
+      toast.success('Welcome');
       navigate('/home');
     } catch (error) {
-      alert('ログイン失敗');
+      toast.error('ログイン失敗');
     }
   };
 
