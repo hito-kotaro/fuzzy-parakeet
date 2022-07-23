@@ -1,10 +1,8 @@
-import { IconCheckCircle } from '@supabase/ui';
 import React, { useEffect } from 'react';
 import useLoading from '../../hooks/useLoading';
 import useUserAgent from '../../hooks/useUserAgent';
 import useUserApi from '../../hooks/useUserApi';
 import useUsersPage from '../../hooks/useUsersPage';
-import { dropDownItem } from '../../types/dropdownType';
 import PrimaryModal from '../molecules/PrimaryModal';
 import ListTemplate from '../templates/ListTemplate';
 import UserAttributeUpdateTemplate from '../templates/UserAttributeUpdateTemplate';

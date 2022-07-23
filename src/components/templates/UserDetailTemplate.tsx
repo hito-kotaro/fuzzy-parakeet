@@ -1,4 +1,4 @@
-import React, { useEffect, VFC } from 'react';
+import React, { useEffect, useState, VFC } from 'react';
 import { IconCheckCircle } from '@supabase/ui';
 import usePrimaryList from '../../hooks/usePrimaryList';
 import { dropDownItem } from '../../types/dropdownType';
@@ -18,6 +18,8 @@ type Props = {
 };
 
 const UserDetailTemplate: VFC<Props> = (props) => {
+  const [menu, setMenu] = useState<dropDownItem[]>([]);
+  const [isDropdown, setIsDropdown] = useState<boolean>(false);
   const { userInfo } = useUserInfo();
   const { list, filterByUserId } = usePrimaryList();
   const {
@@ -32,7 +34,7 @@ const UserDetailTemplate: VFC<Props> = (props) => {
   const dummy = () => {};
   // ログイン中のユーザーと開いた詳細のユーザーによって表示するメニューを作成する。
   const makeMenu = () => {
-    const menu: dropDownItem[] = [];
+    const newMenu: dropDownItem[] = [];
 
     const updatePasswordbuteMenu: dropDownItem = {
       icon: <IconCheckCircle />,
@@ -56,23 +58,35 @@ const UserDetailTemplate: VFC<Props> = (props) => {
     };
 
     if (data.id === userInfo.id) {
-      menu.push(updatePasswordbuteMenu);
+      newMenu.push(updatePasswordbuteMenu);
     }
 
     if (userInfo.role === 'root' || userInfo.role === 'master') {
-      menu.push(updateAttributeMenu);
-      menu.push(deleteUserMenu);
+      newMenu.push(updateAttributeMenu);
+      newMenu.push(deleteUserMenu);
     }
 
-    return menu;
+    setMenu(newMenu);
   };
 
+  const checkMenuDisplay = () => {
+    if (menu.length > 0) {
+      setIsDropdown(true);
+    } else {
+      setIsDropdown(false);
+    }
+  };
   // UserIDでアクティビティをフィルター
   useEffect(() => {
     fetchApproveRequest();
     filterByUserId(data.id);
+    makeMenu();
   }, [data]);
 
+  // Dropdownを表示するかどうかの判定
+  useEffect(() => {
+    checkMenuDisplay();
+  }, [menu]);
   return (
     <div className="bg-base h-full">
       <DetailHeader
@@ -81,10 +95,8 @@ const UserDetailTemplate: VFC<Props> = (props) => {
         title="最近のアクティビティ"
         closeDetail={close}
         iconSize="large"
-        // data.idがcurrent_userと一致すればmyMenuを表示
-        // data.role_idが3ならadminMenuを表示する
-        dropDownItems={makeMenu()}
-        isDropdown
+        dropDownItems={menu}
+        isDropdown={isDropdown}
       />
       <div className="">
         <PrimaryList list={list} onClick={dummy} />
