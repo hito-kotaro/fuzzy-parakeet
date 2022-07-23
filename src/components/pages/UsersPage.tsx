@@ -13,9 +13,11 @@ import UserDetailTemplate from '../templates/UserDetailTemplate';
 import UserInfoUpdateTemplate from '../templates/UserInfoUpdateTemplate';
 import Loading from '../atoms/Loading';
 import useUserList from '../../hooks/useUserList';
+import useUserInfo from '../../hooks/useUserInfo';
 
 const UsersPage = () => {
   const { isLoading } = useLoading();
+  const { userInfo } = useUserInfo();
   const {
     list,
     user,
@@ -44,30 +46,6 @@ const UsersPage = () => {
   useEffect(() => {
     filterList();
   }, [userList]);
-
-  // const myMenu: dropDownItem[] = [
-  //   {
-  //     icon: <IconCheckCircle />,
-  //     onClick: updateUserInfoTemplateState.open,
-  //     text: 'ユーザー情報更新',
-  //     divider: false,
-  //   },
-  // ];
-
-  const masterMenu: dropDownItem[] = [
-    {
-      icon: <IconCheckCircle />,
-      onClick: updateUserAttributeTemplateState.open,
-      text: 'ユーザー属性変更',
-      divider: false,
-    },
-    {
-      icon: <IconCheckCircle stroke="red" />,
-      onClick: modal.toggle,
-      text: 'ユーザー削除',
-      divider: true,
-    },
-  ];
 
   return (
     <>
@@ -101,10 +79,11 @@ const UsersPage = () => {
         className={` ${className} z-30 ${detailTemplateState.isOpen ? display : hidden}`}
       >
         <UserDetailTemplate
+          toggleModal={modal.toggle}
           data={user}
           close={detailTemplateState.close}
-          // masterならmasterMenuを、idが自分と一致したらmyIdを渡す
-          menuItem={masterMenu}
+          updateUserInfoTemplateState={updateUserInfoTemplateState}
+          updateUserAttributeTemplateState={updateUserAttributeTemplateState}
         />
       </div>
 

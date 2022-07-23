@@ -13,6 +13,7 @@ export type userType = {
 };
 
 export type smallUserType = {
+  id: number;
   name: string;
   team: string;
   role: string;

@@ -1,4 +1,5 @@
 import React, { VFC } from 'react';
+import useUserApi from '../../hooks/useUserApi';
 // import { updateUserPasswordType } from '../../types/usersType';
 import MyAvatar from '../atoms/Avatar/MyAvatar';
 import useInputForm from '../atoms/InputForms/InputForm/useInputForm';
@@ -11,10 +12,12 @@ type Props = {
 };
 const UserUpdateTemplate: VFC<Props> = (props) => {
   const { name, close } = props;
+  const { updateUserPassword } = useUserApi();
   const passwordInputHandler = useInputForm();
   const confirmInputHandler = useInputForm();
 
   const update = () => {
+    updateUserPassword(passwordInputHandler.input);
     // const updateUser: updateUserPasswordType = {
     //   id: 1,
     //   password: passwordInputHandler.input,

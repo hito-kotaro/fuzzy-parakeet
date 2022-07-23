@@ -51,7 +51,10 @@ const useUserApi = () => {
     }
   };
 
-  return { fetchUserInfo, fetchUserAll, createUser };
+  const updateUserPassword = (newPassword: string) => {
+    console.log(newPassword);
+  };
+  return { fetchUserInfo, fetchUserAll, createUser, updateUserPassword };
 };
 
 export default useUserApi;
