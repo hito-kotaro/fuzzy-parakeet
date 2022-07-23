@@ -14,9 +14,12 @@ import DetailTemplate from '../templates/DetailTemplate';
 import ListTemplate from '../templates/ListTemplate';
 import ReportTemplate from '../templates/ReportTemplate';
 import Loading from '../atoms/Loading';
+import useUserInfo from '../../hooks/useUserInfo';
 
 const QuestBoardPage = () => {
+  const { userInfo } = useUserInfo();
   const { isLoading } = useLoading();
+  const [menu, setMenu] = useState<dropDownItem[]>([]);
   const { fetchQuestAll } = useQuestApi();
   const display = 'translate-x-0 opacity-100';
   const hidden = '-translate-x-full opacity-0';
@@ -41,9 +44,50 @@ const QuestBoardPage = () => {
   const createTemplate = useTemplate(false);
   const { questList } = useQuestList();
 
+  const dummy = () => {
+    console.log('dummy');
+  };
+
+  const makeMenu = () => {
+    const newMenu: dropDownItem[] = [];
+
+    const createReport: dropDownItem = {
+      icon: <IconCheckCircle />,
+      onClick: reportTemplate.open,
+      text: '完了報告',
+      divider: false,
+    };
+
+    const deleteQuest: dropDownItem = {
+      icon: <IconCheckCircle />,
+      onClick: dummy,
+      text: 'クエスト削除',
+      divider: true,
+    };
+
+    const updateQuest: dropDownItem = {
+      icon: <IconCheckCircle />,
+      onClick: dummy,
+      text: 'クエスト更新',
+      divider: false,
+    };
+    console.log(userInfo.role);
+    if (userInfo.role === 'reader' || userInfo.role === 'member') {
+      newMenu.push(createReport);
+    } else {
+      newMenu.push(updateQuest);
+      newMenu.push(deleteQuest);
+    }
+
+    setMenu(newMenu);
+  };
+
   useEffect(() => {
     // クエストを取得
     fetchQuestAll();
+
+    // menuを作成
+    makeMenu();
   }, []);
 
   // クエスト情報をprimaryListItemに投入
@@ -115,7 +159,7 @@ const QuestBoardPage = () => {
             date: quest.date,
           }}
           close={detailTemplate.close}
-          dropDownMenu={memberMenu}
+          dropDownMenu={menu}
         />
       </div>
 
