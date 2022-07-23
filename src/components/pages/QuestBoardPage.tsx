@@ -122,15 +122,6 @@ const QuestBoardPage = () => {
     createTemplate.open();
   };
 
-  const memberMenu: dropDownItem[] = [
-    {
-      icon: <IconCheckCircle />,
-      onClick: reportTemplate.open,
-      text: '完了報告',
-      divider: false,
-    },
-  ];
-
   return (
     <>
       <div className={`${className} z-30 ${listTemplate.isOpen ? display : hidden}`}>
@@ -145,7 +136,11 @@ const QuestBoardPage = () => {
             blankText="クエストがありません"
             listData={list}
             onClick={onClickListItem}
-            onClickPlus={onClickPlus}
+            onClickPlus={
+              userInfo.role === 'root' || userInfo.role === 'master'
+                ? onClickPlus
+                : undefined
+            }
           />
         )}
       </div>
