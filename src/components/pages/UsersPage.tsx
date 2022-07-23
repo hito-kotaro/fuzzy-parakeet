@@ -68,7 +68,11 @@ const UsersPage = () => {
             blankText="ユーザーがいません"
             listData={list}
             onClick={onClickListItem}
-            onClickPlus={createTemplateState.open}
+            onClickPlus={
+              userInfo.role === 'root' || userInfo.role === 'master'
+                ? createTemplateState.open
+                : undefined
+            }
           />
         )}
       </div>

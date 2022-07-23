@@ -12,6 +12,7 @@ import usePenaltyList from '../../hooks/usePenaltyList';
 import useTeamApi from '../../hooks/useTeamApi';
 import Loading from '../atoms/Loading';
 import useLoading from '../../hooks/useLoading';
+import useUserInfo from '../../hooks/useUserInfo';
 
 const PenaltyPage = () => {
   const {
@@ -27,6 +28,7 @@ const PenaltyPage = () => {
     onClickPlus,
     collectTeam,
   } = usePenaltyPage();
+  const { userInfo } = useUserInfo();
   const { fetchPenaltyList } = usePenaltyApi();
   const { isLoading } = useLoading();
   const { fetchAllTeam } = useTeamApi();
@@ -46,15 +48,6 @@ const PenaltyPage = () => {
     filterList();
   }, [penaltyList]);
 
-  const masterMenu: dropDownItem[] = [
-    {
-      icon: <IconCheckCircle stroke="red" />,
-      onClick: applyTemplateState.open,
-      text: 'ペナルティ適用',
-      divider: false,
-    },
-  ];
-
   return (
     <>
       <div
@@ -71,7 +64,11 @@ const PenaltyPage = () => {
             blankText="ペナルティーがありません"
             listData={list}
             onClick={onClickListItem}
-            onClickPlus={onClickPlus}
+            onClickPlus={
+              userInfo.role === 'root' || userInfo.role === 'master'
+                ? onClickPlus
+                : undefined
+            }
           />
         )}
       </div>
@@ -82,7 +79,7 @@ const PenaltyPage = () => {
         <PenaltyDetailTemplate
           data={penalty}
           close={detailTemplateState.close}
-          dropDownMenu={masterMenu}
+          applyTemplateState={applyTemplateState}
         />
       </div>
 

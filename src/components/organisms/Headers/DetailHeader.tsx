@@ -16,8 +16,7 @@ type Props = {
 };
 
 const DetailHeader: VFC<Props> = (props) => {
-  const { name, date, title, closeDetail, dropDownItems, isDropdown, iconSize, isTeam } =
-    props;
+  const { name, date, title, closeDetail, dropDownItems, iconSize, isTeam } = props;
   return (
     <div className="sticky top-0 z-50 bg-base drop-shadow-md p-2 w-full">
       <div className="flex ">
