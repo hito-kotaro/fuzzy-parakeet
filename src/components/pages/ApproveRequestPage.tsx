@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IconCheckCircle } from '@supabase/ui';
 import ListTemplate from '../templates/ListTemplate';
 import { dropDownItem } from '../../types/dropdownType';
@@ -116,11 +116,7 @@ const ApproveRequestPage = () => {
       <div
         className={`${className} z-40 ${detailTemplateState.isOpen ? display : hidden}`}
       >
-        <ApproveDetailTemplate
-          data={approveRequest}
-          close={detailTemplateState.close}
-          dropDownMenu={readerMenu}
-        />
+        <ApproveDetailTemplate data={approveRequest} close={detailTemplateState.close} />
       </div>
     </>
   );

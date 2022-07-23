@@ -22,7 +22,7 @@ const DetailHeader: VFC<Props> = (props) => {
     <div className="sticky top-0 z-50 bg-base drop-shadow-md p-2 w-full">
       <div className="flex ">
         <BackButton onClick={closeDetail} />
-        {isDropdown ? (
+        {dropDownItems.length > 0 ? (
           <div className="ml-auto">
             <DropdownButton itemList={dropDownItems} />
           </div>

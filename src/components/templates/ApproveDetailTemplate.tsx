@@ -1,4 +1,6 @@
-import React, { VFC } from 'react';
+import { IconCheckCircle } from '@supabase/ui';
+import React, { useEffect, useState, VFC } from 'react';
+import useUserInfo from '../../hooks/useUserInfo';
 import { approveRequestType } from '../../types/approveRequestType';
 import { dropDownItem } from '../../types/dropdownType';
 import DetailCard from '../organisms/Cards/DetailCard/DetailCard';
@@ -7,11 +9,59 @@ import DetailHeader from '../organisms/Headers/DetailHeader';
 type Props = {
   data: approveRequestType;
   close: () => void;
-  dropDownMenu: dropDownItem[];
 };
 
 const ApproveDetailTemplate: VFC<Props> = (props) => {
-  const { data, close, dropDownMenu } = props;
+  const { data, close } = props;
+  const { userInfo } = useUserInfo();
+  const [menu, setMenu] = useState<dropDownItem[]>([]);
+
+  const dummy = () => {
+    console.log('test');
+  };
+
+  const makeMenu = () => {
+    const newMenu: dropDownItem[] = [];
+
+    const approveMenu: dropDownItem = {
+      icon: <IconCheckCircle />,
+      onClick: dummy,
+      text: '承認',
+      divider: false,
+    };
+    const rejectMenu: dropDownItem = {
+      icon: <IconCheckCircle />,
+      onClick: dummy,
+      text: '却下',
+      divider: false,
+    };
+
+    const cancelMenu: dropDownItem = {
+      icon: <IconCheckCircle />,
+      onClick: dummy,
+      text: '取り下げ',
+      divider: false,
+    };
+
+    if (
+      userInfo.role === 'root' ||
+      userInfo.role === 'master' ||
+      userInfo.role === 'reader'
+    ) {
+      newMenu.push(approveMenu);
+      newMenu.push(rejectMenu);
+    }
+
+    if (userInfo.id === data.applicant_id) {
+      newMenu.push(cancelMenu);
+    }
+
+    setMenu(newMenu);
+  };
+
+  useEffect(() => {
+    makeMenu();
+  }, []);
 
   const checkStatus = (status: string) => {
     switch (status) {
@@ -57,7 +107,7 @@ const ApproveDetailTemplate: VFC<Props> = (props) => {
       <DetailHeader
         closeDetail={close}
         // ロールによって表示するメニューを変える。
-        dropDownItems={dropDownMenu}
+        dropDownItems={menu}
         name={data.applicant}
         title={data.title}
         date={data.created_at}
