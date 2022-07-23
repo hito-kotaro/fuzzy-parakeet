@@ -8,9 +8,11 @@ import ListTemplate from '../templates/ListTemplate';
 import TeamDetailTemplate from '../templates/TeamDetailTemplate';
 import Loading from '../atoms/Loading';
 import useLoading from '../../hooks/useLoading';
+import useUserInfo from '../../hooks/useUserInfo';
 
 const TeamsPage = () => {
   // const [list, setList] = useState<primaryListItem[]>([]);
+  const { userInfo } = useUserInfo();
   const {
     list,
     filterList,
@@ -56,7 +58,11 @@ const TeamsPage = () => {
             blankText="チームがありません"
             listData={list}
             onClick={onClickListItem}
-            onClickPlus={onClickPlus}
+            onClickPlus={
+              userInfo.role === 'root' || userInfo.role === 'master'
+                ? onClickPlus
+                : undefined
+            }
           />
         )}
       </div>
