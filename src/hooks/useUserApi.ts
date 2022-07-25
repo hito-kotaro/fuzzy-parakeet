@@ -54,6 +54,7 @@ const useUserApi = () => {
   const updateUserPassword = (newPassword: string) => {
     console.log(newPassword);
   };
+
   return { fetchUserInfo, fetchUserAll, createUser, updateUserPassword };
 };
 

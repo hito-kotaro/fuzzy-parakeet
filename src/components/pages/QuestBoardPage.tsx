@@ -71,7 +71,6 @@ const QuestBoardPage = () => {
       text: 'クエスト更新',
       divider: false,
     };
-    console.log(userInfo.role);
     if (userInfo.role === 'reader' || userInfo.role === 'member') {
       newMenu.push(createReport);
     } else {

@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
-import { IconCheckCircle } from '@supabase/ui';
 import usePenaltyPage from '../../hooks/usePenaltyPage';
 import ListTemplate from '../templates/ListTemplate';
 import PenaltyDetailTemplate from '../templates/PenaltyDetailTemplate';
 import CreatePenaltyTemplate from '../templates/CreatePenaltyTemplate';
-import { dropDownItem } from '../../types/dropdownType';
 import ApplyPenaltyTemplate from '../templates/ApplyPenaltyTemplate';
 import useUserAgent from '../../hooks/useUserAgent';
 import usePenaltyApi from '../../hooks/usePenaltyApi';
