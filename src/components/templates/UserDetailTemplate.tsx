@@ -30,7 +30,7 @@ const UserDetailTemplate: VFC<Props> = (props) => {
     toggleModal,
   } = props;
   const { fetchApproveRequest } = useApproveRequestApi();
-
+  console.log(list);
   const dummy = () => {};
   // ログイン中のユーザーと開いた詳細のユーザーによって表示するメニューを作成する。
   const makeMenu = () => {
