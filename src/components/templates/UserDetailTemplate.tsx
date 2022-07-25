@@ -8,6 +8,12 @@ import DetailHeader from '../organisms/Headers/DetailHeader';
 import useApproveRequestApi from '../../hooks/useApproveRequestApi';
 import useUserInfo from '../../hooks/useUserInfo';
 import { templateType } from '../../types/templateType';
+import useApproveRequestList from '../../hooks/useApproveRequestList';
+import { approveRequestType } from '../../types/approveRequestType';
+import ApproveDetailTemplate from './ApproveDetailTemplate';
+import useTemplate from '../../hooks/useTemplate';
+import useUserAgent from '../../hooks/useUserAgent';
+import { defaultAR } from '../../lib/defaultData';
 
 type Props = {
   data: userType;
@@ -18,8 +24,10 @@ type Props = {
 };
 
 const UserDetailTemplate: VFC<Props> = (props) => {
+  const detailTemplateState = useTemplate(false);
   const [menu, setMenu] = useState<dropDownItem[]>([]);
-  const [isDropdown, setIsDropdown] = useState<boolean>(false);
+  const [approveRequest, setApproveRequest] = useState<approveRequestType>(defaultAR);
+  const { ARList } = useApproveRequestList();
   const { userInfo } = useUserInfo();
   const { list, filterByUserId } = usePrimaryList();
   const {
@@ -30,7 +38,21 @@ const UserDetailTemplate: VFC<Props> = (props) => {
     toggleModal,
   } = props;
   const { fetchApproveRequest } = useApproveRequestApi();
-  const dummy = () => {};
+  const display = 'translate-x-0 opacity-100';
+  const hidden = '-translate-x-full opacity-0';
+  const { isSafari } = useUserAgent();
+  const className = isSafari ? 'switch-components-safari' : 'switch-components';
+  const dummy = (id: number) => {
+    const ar = ARList.filter((a: approveRequestType) => {
+      return a.id === id;
+    });
+    setApproveRequest(ar[0]);
+    detailTemplateState.open();
+  };
+
+  useEffect(() => {
+    console.log(approveRequest);
+  }, [approveRequest]);
   // ログイン中のユーザーと開いた詳細のユーザーによって表示するメニューを作成する。
   const makeMenu = () => {
     const newMenu: dropDownItem[] = [];
@@ -68,13 +90,6 @@ const UserDetailTemplate: VFC<Props> = (props) => {
     setMenu(newMenu);
   };
 
-  const checkMenuDisplay = () => {
-    if (menu.length > 0) {
-      setIsDropdown(true);
-    } else {
-      setIsDropdown(false);
-    }
-  };
   // UserIDでアクティビティをフィルター
   useEffect(() => {
     fetchApproveRequest();
@@ -82,12 +97,14 @@ const UserDetailTemplate: VFC<Props> = (props) => {
     makeMenu();
   }, [data]);
 
-  // Dropdownを表示するかどうかの判定
-  useEffect(() => {
-    checkMenuDisplay();
-  }, [menu]);
   return (
     <div className="bg-base h-full">
+      <div
+        className={`${className} z-40 ${detailTemplateState.isOpen ? display : hidden}`}
+      >
+        <ApproveDetailTemplate data={approveRequest} close={detailTemplateState.close} />
+      </div>
+
       <DetailHeader
         name={data.name}
         date={data.created_at}
@@ -95,7 +112,6 @@ const UserDetailTemplate: VFC<Props> = (props) => {
         closeDetail={close}
         iconSize="large"
         dropDownItems={menu}
-        isDropdown={isDropdown}
       />
       <div className="">
         <PrimaryList list={list} onClick={dummy} />

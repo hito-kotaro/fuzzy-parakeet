@@ -12,6 +12,9 @@ import UserInfoUpdateTemplate from '../templates/UserInfoUpdateTemplate';
 import Loading from '../atoms/Loading';
 import useUserList from '../../hooks/useUserList';
 import useUserInfo from '../../hooks/useUserInfo';
+import useApproveRequestApi from '../../hooks/useApproveRequestApi';
+import useApproveRequestList from '../../hooks/useApproveRequestList';
+import ApproveDetailTemplate from '../templates/ApproveDetailTemplate';
 
 const UsersPage = () => {
   const { isLoading } = useLoading();
@@ -31,7 +34,9 @@ const UsersPage = () => {
   } = useUsersPage();
   const { userList } = useUserList();
   const { fetchUserAll } = useUserApi();
+  const { fetchApproveRequest } = useApproveRequestApi();
   const { isSafari } = useUserAgent();
+  const { ARList } = useApproveRequestList();
   const className = isSafari ? 'switch-components-safari' : 'switch-components';
   const display = 'translate-x-0 opacity-100';
   const hidden = '-translate-x-full opacity-0';
@@ -39,6 +44,7 @@ const UsersPage = () => {
   // レンダリング時にバックエンドからユーザー一覧を取得
   useEffect(() => {
     fetchUserAll();
+    fetchApproveRequest();
   }, []);
 
   useEffect(() => {
@@ -47,6 +53,12 @@ const UsersPage = () => {
 
   return (
     <>
+      {/* <div
+        className={`${className} z-40 ${detailTemplateState.isOpen ? display : hidden}`}
+      >
+        <ApproveDetailTemplate data={approveRequest} close={detailTemplateState.close} />
+      </div> */}
+
       <PrimaryModal
         onCancel={modal.toggle}
         onConfirm={deleteExec}

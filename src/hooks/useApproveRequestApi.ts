@@ -17,7 +17,6 @@ const useApproveRequestApi = () => {
     try {
       setIsLoading(true);
       const result: AxiosResponse = await authInstance.get('/approve');
-
       setARList(result.data.approve_requests);
       setIsLoading(false);
     } catch {
