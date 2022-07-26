@@ -70,7 +70,7 @@ const LoginForm: VFC<Props> = (props) => {
           {isLoading ? <Loading size={32} /> : 'Login'}
         </PrimaryButton>
         <div className="h-5" />
-        <LinkButton onClick={toggleForm}>新規登録</LinkButton>
+        {/* <LinkButton onClick={toggleForm}>新規登録</LinkButton> */}
       </div>
     </>
   );
