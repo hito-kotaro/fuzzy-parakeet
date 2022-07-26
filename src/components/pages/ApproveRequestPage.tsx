@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import ListTemplate from '../templates/ListTemplate';
 import ApproveDetailTemplate from '../templates/ApproveDetailTemplate';
 import useApproveRequestPage from '../../hooks/useApproveRequestPage';
