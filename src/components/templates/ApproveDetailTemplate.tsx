@@ -1,5 +1,6 @@
-import { IconCheckCircle } from '@supabase/ui';
 import React, { useEffect, useState, VFC } from 'react';
+import { IconCheckCircle } from '@supabase/ui';
+import toast from 'react-hot-toast';
 import useUserInfo from '../../hooks/useUserInfo';
 import { approveRequestType } from '../../types/approveRequestType';
 import { dropDownItem } from '../../types/dropdownType';
@@ -18,9 +19,12 @@ const ApproveDetailTemplate: VFC<Props> = (props) => {
   const { userInfo } = useUserInfo();
   const [menu, setMenu] = useState<dropDownItem[]>([]);
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+  const approve = () => {
+    updateApproveStatus({ ar_id: data.id, new_status: 'approved' });
+    toast.success('承認しました');
+    close();
+  };
+
   const dummy = () => {
     console.log(data);
   };
@@ -30,7 +34,7 @@ const ApproveDetailTemplate: VFC<Props> = (props) => {
 
     const approveMenu: dropDownItem = {
       icon: <IconCheckCircle />,
-      onClick: () => updateApproveStatus({ ar_id: data.id, new_status: 'approved' }),
+      onClick: approve,
       text: '承認',
       divider: false,
     };
