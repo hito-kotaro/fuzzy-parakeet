@@ -5,6 +5,7 @@ import { approveRequestType } from '../../types/approveRequestType';
 import { dropDownItem } from '../../types/dropdownType';
 import DetailCard from '../organisms/Cards/DetailCard/DetailCard';
 import DetailHeader from '../organisms/Headers/DetailHeader';
+import useApproveRequestApi from '../../hooks/useApproveRequestApi';
 
 type Props = {
   data: approveRequestType;
@@ -13,11 +14,12 @@ type Props = {
 
 const ApproveDetailTemplate: VFC<Props> = (props) => {
   const { data, close } = props;
+  const { updateApproveStatus } = useApproveRequestApi();
   const { userInfo } = useUserInfo();
   const [menu, setMenu] = useState<dropDownItem[]>([]);
 
   const dummy = () => {
-    console.log('test');
+    console.log(data.id);
   };
 
   const makeMenu = () => {
@@ -25,7 +27,7 @@ const ApproveDetailTemplate: VFC<Props> = (props) => {
 
     const approveMenu: dropDownItem = {
       icon: <IconCheckCircle />,
-      onClick: dummy,
+      onClick: () => updateApproveStatus({ ar_id: data.id, new_status: 'approved' }),
       text: '承認',
       divider: false,
     };
