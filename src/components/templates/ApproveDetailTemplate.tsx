@@ -19,7 +19,7 @@ const ApproveDetailTemplate: VFC<Props> = (props) => {
   const [menu, setMenu] = useState<dropDownItem[]>([]);
 
   const dummy = () => {
-    console.log(data.id);
+    console.log(data);
   };
 
   const makeMenu = () => {
