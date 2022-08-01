@@ -25,6 +25,18 @@ const ApproveDetailTemplate: VFC<Props> = (props) => {
     close();
   };
 
+  const reject = () => {
+    updateApproveStatus({ ar_id: data.id, new_status: 'rejected' });
+    toast.success('却下しました');
+    close();
+  };
+
+  const cancel = () => {
+    updateApproveStatus({ ar_id: data.id, new_status: 'canceled' });
+    toast.success('取り下げました');
+    close();
+  };
+
   const dummy = () => {
     console.log(data);
   };
@@ -40,14 +52,14 @@ const ApproveDetailTemplate: VFC<Props> = (props) => {
     };
     const rejectMenu: dropDownItem = {
       icon: <IconCheckCircle />,
-      onClick: dummy,
+      onClick: reject,
       text: '却下',
       divider: false,
     };
 
     const cancelMenu: dropDownItem = {
       icon: <IconCheckCircle />,
-      onClick: dummy,
+      onClick: cancel,
       text: '取り下げ',
       divider: false,
     };
@@ -116,7 +128,7 @@ const ApproveDetailTemplate: VFC<Props> = (props) => {
       <DetailHeader
         closeDetail={close}
         // ロールによって表示するメニューを変える。
-        dropDownItems={menu}
+        dropDownItems={data.status === 'open' ? menu : []}
         name={data.applicant}
         title={data.title}
         date={data.created_at}
