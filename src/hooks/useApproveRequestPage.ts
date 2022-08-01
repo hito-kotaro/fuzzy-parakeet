@@ -25,6 +25,8 @@ const useApproveRequestPage = () => {
 
   // 詳細画面に渡す情報をステートにセット
   const onClickListItem = (id: number) => {
+    console.log(id);
+    console.log(ARList);
     const data = ARList.filter((a: approveRequestType) => {
       return a.id === id;
     });
