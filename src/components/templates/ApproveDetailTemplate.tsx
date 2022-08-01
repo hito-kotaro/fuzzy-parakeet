@@ -37,10 +37,6 @@ const ApproveDetailTemplate: VFC<Props> = (props) => {
     close();
   };
 
-  const dummy = () => {
-    console.log(data);
-  };
-
   const makeMenu = () => {
     const newMenu: dropDownItem[] = [];
 
