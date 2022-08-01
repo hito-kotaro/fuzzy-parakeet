@@ -1,10 +1,12 @@
-import { IconCheckCircle } from '@supabase/ui';
 import React, { useEffect, useState, VFC } from 'react';
+import { IconCheckCircle } from '@supabase/ui';
+import toast from 'react-hot-toast';
 import useUserInfo from '../../hooks/useUserInfo';
 import { approveRequestType } from '../../types/approveRequestType';
 import { dropDownItem } from '../../types/dropdownType';
 import DetailCard from '../organisms/Cards/DetailCard/DetailCard';
 import DetailHeader from '../organisms/Headers/DetailHeader';
+import useApproveRequestApi from '../../hooks/useApproveRequestApi';
 
 type Props = {
   data: approveRequestType;
@@ -13,11 +15,26 @@ type Props = {
 
 const ApproveDetailTemplate: VFC<Props> = (props) => {
   const { data, close } = props;
+  const { updateApproveStatus } = useApproveRequestApi();
   const { userInfo } = useUserInfo();
   const [menu, setMenu] = useState<dropDownItem[]>([]);
 
-  const dummy = () => {
-    console.log('test');
+  const approve = () => {
+    updateApproveStatus({ ar_id: data.id, new_status: 'approved' });
+    toast.success('承認しました');
+    close();
+  };
+
+  const reject = () => {
+    updateApproveStatus({ ar_id: data.id, new_status: 'rejected' });
+    toast.success('却下しました');
+    close();
+  };
+
+  const cancel = () => {
+    updateApproveStatus({ ar_id: data.id, new_status: 'canceled' });
+    toast.success('取り下げました');
+    close();
   };
 
   const makeMenu = () => {
@@ -25,20 +42,20 @@ const ApproveDetailTemplate: VFC<Props> = (props) => {
 
     const approveMenu: dropDownItem = {
       icon: <IconCheckCircle />,
-      onClick: dummy,
+      onClick: approve,
       text: '承認',
       divider: false,
     };
     const rejectMenu: dropDownItem = {
       icon: <IconCheckCircle />,
-      onClick: dummy,
+      onClick: reject,
       text: '却下',
       divider: false,
     };
 
     const cancelMenu: dropDownItem = {
       icon: <IconCheckCircle />,
-      onClick: dummy,
+      onClick: cancel,
       text: '取り下げ',
       divider: false,
     };
@@ -61,7 +78,7 @@ const ApproveDetailTemplate: VFC<Props> = (props) => {
 
   useEffect(() => {
     makeMenu();
-  }, []);
+  }, [data]);
 
   const checkStatus = (status: string) => {
     switch (status) {
@@ -107,7 +124,7 @@ const ApproveDetailTemplate: VFC<Props> = (props) => {
       <DetailHeader
         closeDetail={close}
         // ロールによって表示するメニューを変える。
-        dropDownItems={menu}
+        dropDownItems={data.status === 'open' ? menu : []}
         name={data.applicant}
         title={data.title}
         date={data.created_at}
