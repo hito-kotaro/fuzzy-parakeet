@@ -32,6 +32,10 @@ const ApproveRequestPage = () => {
     fetchApproveRequest();
   }, []);
 
+  useEffect(() => {
+    console.log(approveRequest);
+  }, [approveRequest]);
+
   // フィルターが変わるたびにリストを更新
   useEffect(() => {
     filterByApproveStatus(statusSelectHandler.value);

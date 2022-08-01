@@ -18,6 +18,9 @@ const ApproveDetailTemplate: VFC<Props> = (props) => {
   const { userInfo } = useUserInfo();
   const [menu, setMenu] = useState<dropDownItem[]>([]);
 
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
   const dummy = () => {
     console.log(data);
   };
@@ -63,7 +66,7 @@ const ApproveDetailTemplate: VFC<Props> = (props) => {
 
   useEffect(() => {
     makeMenu();
-  }, []);
+  }, [data]);
 
   const checkStatus = (status: string) => {
     switch (status) {
